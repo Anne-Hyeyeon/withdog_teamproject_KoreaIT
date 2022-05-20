@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { authService } from "../fbase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login=() => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
+
 
   const onChange = (event)=>{
     const {target:{name, value}} = event
@@ -20,12 +23,14 @@ const Login=() => {
     event.preventDefault()
     if (email !== "" && password !== "") {
       try {
-        await authService.signInWithEmailAndPassword(email,password);
+        await authService.signInWithEmailAndPassword(email,password)
+        navigate('/')
       } catch (error) {
         console.log(error);
       }
     }
   }
+
 
   return (
     <div className="sign-container">

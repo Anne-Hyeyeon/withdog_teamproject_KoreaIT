@@ -1,24 +1,57 @@
 import * as React from 'react';
-import AppAppBar from './modules/views/AppAppBar';
 import withRoot from './modules/withRoot';
-import AppFooter from './modules/views/AppFooter'
-import { Routes, Route, Router } from 'react-router-dom';
-import Main from './modules/views/Main';
-import Test from './modules/views/hw/Test'
-import Info from './modules/views/sh/Info'
-import Blog from './modules/views/hy/Blog'
-import LogIn from './pages/LogIn';
-import SignUp from './pages/SignUp';
 import MainRouter from './modules/components/MainRouter';
+import {useEffect, useState} from 'react'
+import { authService } from './fbase';
+import AppAppbar from '../src/modules/views/AppAppBar'
+import AppFooter from '../src/modules/views/AppFooter'
+import AppAppBarLoggedIn from '../src/modules/views/AppAppBarLoggedIn'
 
 function App() {
+  const [init, setInit] = useState(false)
+  console.log(init)
+  const [isLoggedIn,setIsLoggedIn]=useState(false)
+  const [userObj, setUserObj] =useState(null)
+  useEffect(()=>{
+    authService.onAuthStateChanged((user)=> {
+      if(user){
+        setIsLoggedIn(true)
+        setUserObj({
+          displayName:user.displayName,
+          uid:user.uid,
+          updateProfile:(args)=> user.updateProfile(args)
+        })
+      } else{
+        setIsLoggedIn(false)
+      }
+      setInit(true)
+    })
+  }, [])
+  const refreshUser=()=>{
+    const user=authService.currentUser
+    setUserObj({ // user에서 값을 세분화 시켜서 분리해서 사용
+      displayName:user.displayName,
+      uid:user.uid,
+      updateProfile:(args)=> user.updateProfile(args)
+    })
+    console.log(authService.currentUser)
+  }
   return (
-    <React.Fragment>
-      <AppAppBar />
-        <MainRouter />
+    <>
+      {isLoggedIn ?
+      <>
+      <AppAppBarLoggedIn />
+      <MainRouter refreshUser={refreshUser} isLoggedIn={isLoggedIn} userObj={userObj}/>
       <AppFooter />
-    </React.Fragment>
+      </> : 
+      <>
+      <AppAppbar />
+      <MainRouter />
+      <AppFooter />
+      </>}
+    </>
   );
 }
+
 
 export default withRoot(App);
