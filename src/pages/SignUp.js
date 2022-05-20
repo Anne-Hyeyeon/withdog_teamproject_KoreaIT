@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { authService } from "../fbase";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [region, setRegion] = useState("");
+
+  const navigate = useNavigate()
 
   const onChange = (event) => {
     const { target: { name, value } } = event
@@ -30,6 +33,7 @@ const SignUp = () => {
       try {
         let data = await authService.createUserWithEmailAndPassword(email, password);
         console.log(data)
+        navigate('/')
       } catch (error) {
         console.log(error);
       }
