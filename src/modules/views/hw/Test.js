@@ -1,18 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import TestHome from "./TestHome";
-import TestQuestion from "./TestQuestion";
-import TestResult from "./TestResult";
+import TestQuestion from "./pages/TestQuestion";
+import TestResult from "./pages/TestResult";
+import TestHome from "./pages/TestHome"
 
 
-function Test(props) {
+function Test() {
     return (
-        <div className="Test">
+        <>
             <Routes>
                 <Route path='/' element={<TestHome />} />
-                <Route path='/questions' element={<TestQuestion />} />
-                <Route path='/result' element={<TestResult />} />
+                <Route path='/testquestion' element={<TestQuestion />} />
+                <Route path='/testresult' element={<TestResult />} />
             </Routes>
-        </div>
+        </>
     );
 }
 

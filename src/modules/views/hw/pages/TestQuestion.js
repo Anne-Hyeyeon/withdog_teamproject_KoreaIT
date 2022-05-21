@@ -1,6 +1,8 @@
 import React from 'react';
 
-function Question() {
+const Question = () => {
+
+
   return (
     <div>
       Questions
