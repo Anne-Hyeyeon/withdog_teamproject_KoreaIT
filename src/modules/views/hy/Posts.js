@@ -7,7 +7,7 @@ function Posts(props) {
     const [posts, setPosts] = useState([])
     useEffect(()=>{
         //collection, query 함수 가능 공부하기
-        const postRef = collection(dbService, "Blogboard")
+        const postRef = collection(dbService, "Posts")
         const postQuery = query(postRef, orderBy("createdAt", "desc"))
         
         // onSnapshop 공부하기
@@ -21,7 +21,6 @@ function Posts(props) {
 
             //빈 배열이었던 post 안에 데이터를 집어넣음
             setPosts(posts);
-            console.log(posts);
         })
     })
     return (
