@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/system';
 import { dbService } from '../../../fbase';
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
+import DeletePost from './DeletePost';
 
 function Posts(props) {
     const [posts, setPosts] = useState([])
@@ -44,6 +45,7 @@ function Posts(props) {
                                <h2>{title}</h2>
                                <p>{createdAt.toDate().toDateString()}</p>
                                <h4>{desc}</h4>
+                               <DeletePost id={id} imageUrl={imageUrl} />
                            </Box>
                        </Box>
                     </Box>)
