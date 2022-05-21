@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { authService } from "../fbase";
 import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -31,8 +33,9 @@ const SignUp = () => {
     event.preventDefault();
     if (email !== "" && password !== "") {
       try {
-        let data = await authService.createUserWithEmailAndPassword(email, password);
-        console.log(data)
+        await authService.createUserWithEmailAndPassword(email, password);
+        await updateProfile(authService.currentUser,{displayName:userName,
+        photoURL:region})
         navigate('/mainloggedin')
       } catch (error) {
         console.log(error);
@@ -41,6 +44,7 @@ const SignUp = () => {
   };
 
   return (
+    <>
     <div className="sign-container">
       <div className="sign-up-wrap">
         <h1 className="title">회원가입</h1>
@@ -91,6 +95,7 @@ const SignUp = () => {
         </p>
       </div>
     </div>
+    </>
   );
 }
 
