@@ -24,7 +24,7 @@ const Login=() => {
     if (email !== "" && password !== "") {
       try {
         await authService.signInWithEmailAndPassword(email,password)
-        navigate('/')
+        navigate('/mainloggedin')
       } catch (error) {
         console.log(error);
       }
