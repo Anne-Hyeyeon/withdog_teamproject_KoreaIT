@@ -36,7 +36,6 @@ function App() {
     })
     console.log(authService.currentUser)
   }
-
   return (
     <>
       {isLoggedIn ?

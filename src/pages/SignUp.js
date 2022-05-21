@@ -33,7 +33,7 @@ const SignUp = () => {
       try {
         let data = await authService.createUserWithEmailAndPassword(email, password);
         console.log(data)
-        navigate('/mainloggedin')
+        navigate('/')
       } catch (error) {
         console.log(error);
       }
