@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { Box, Container } from '@mui/material';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { storageService, dbService } from '../../../fbase';
+import { storageService, dbService, authService } from '../../../fbase';
 import { toast } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 
 function AddPosts(props) {
+    const [user] = useAuthState(authService)
+
     const [formData, setFormData] = useState({
         title: "",
         desc: "",
@@ -61,6 +65,10 @@ function AddPosts(props) {
                     desc: formData.desc,
                     imageUrl: url,
                     createdAt: Timestamp.now().toDate(),
+                    createdBy: user.displayName,
+                    userId:user.uid,
+                    likes:[],
+                    comments:[]
                 })
                 .then(()=>{
                     toast("Article added successfully", {type: "success"})
@@ -73,7 +81,14 @@ function AddPosts(props) {
     }
 
     return (
-        <Container maxWidth='xl'>
+        <Container maxWidth='sm'>
+        {!user?
+        <>
+        <Box sx={{ border:1, p:3, mt:3 }}>
+            <h2><Link to ='/login'>Login To Create Article</Link></h2>
+            <h2>회원이 아니신가요? <Link to ='/signup'>회원가입</Link></h2>
+        </Box>
+        </> :
             <Box sx={{ border:1, p:3, mt:3 }}>
                 <h2>Create Post</h2>
                 {/* title */}
@@ -115,7 +130,7 @@ function AddPosts(props) {
                 <button 
                 className="form-control"
                 onClick={handlePublish}>Publish</button>
-            </Box>
+            </Box>}
         </Container>
     );
 }

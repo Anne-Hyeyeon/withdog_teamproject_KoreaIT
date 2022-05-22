@@ -5,7 +5,7 @@ import AddPosts from './AddPosts';
 
 function Blog(props) {
     return (
-        <Container maxWidth='xl'>
+        <Container sx={{ display:'flex', justifyContent:'flex-end'}} maxWidth='xl'>
             <Box>
             <Posts />
             </Box>

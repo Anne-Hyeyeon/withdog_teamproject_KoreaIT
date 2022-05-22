@@ -37,6 +37,8 @@ function App() {
     console.log(authService.currentUser)
   }
 
+  isLoggedIn ? console.log('로그인된상태') : console.log('로그인안된상태')
+
   return (
     <>
       {isLoggedIn ?

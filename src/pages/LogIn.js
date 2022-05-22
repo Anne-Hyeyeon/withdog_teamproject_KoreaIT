@@ -8,7 +8,6 @@ const Login=() => {
 
   const navigate = useNavigate()
 
-
   const onChange = (event)=>{
     const {target:{name, value}} = event
     if(name==='email'){
