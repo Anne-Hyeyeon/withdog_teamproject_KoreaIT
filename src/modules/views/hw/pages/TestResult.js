@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Button, Container, Stack } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ResultData } from '../asset/data/resultData'
+import ShareButton from '../components/ShareButton'
+
 
 
 function Result() {
@@ -27,9 +29,7 @@ function Result() {
         <Box> {resultData.desc} </Box>
         <Stack direction="row" spacing={2} justifyContent="center">
           <Button variant="contained" onClick={() => navigate('/testhome')} >테스트 다시하기</Button>
-          <Button>
-
-          </Button>
+          <ShareButton />
         </Stack>
       </Box>
     </Container>
