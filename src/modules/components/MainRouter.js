@@ -26,8 +26,7 @@ const MainRouter=({refreshUser,isLoggedIn,userObj})=>{
             <Route path="/login" element={<LogIn />} /> 
             <Route path="/signup" element={<SignUp />} />  
           </>
-        ) : (
-          <>
+        ) : (          <>
             <Route path="/" element={<Main />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/test" element={<Test />} />
