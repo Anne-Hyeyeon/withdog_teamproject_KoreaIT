@@ -21,7 +21,7 @@ const commonLink = {
   ml: 6,
 };
 
-function AppAppBarLoggedIn(isloggedin) {
+function AppAppBarLoggedIn(isLoggedIn) {
   const navigate = useNavigate()
   const onLogOutClick = () => {
     authService.signOut()
@@ -32,7 +32,7 @@ function AppAppBarLoggedIn(isloggedin) {
           <AppBar position="fixed">
             <Toolbar sx={{ justifyContent: 'space-between' }}>
             {/* 아이콘, 홈 버튼 */}
-            {isloggedin &&  
+            {isLoggedIn &&  
             <>
             <PetsIcon 
                 fontSize= 'large' 
@@ -82,19 +82,19 @@ function AppAppBarLoggedIn(isloggedin) {
               </Box>
 
 
-            {/* 로그인 */}
+            {/* 로그아웃 */}
               <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-                <Link
-                  onClick={onLogOutClick}
-                  color="inherit"
-                  variant="h6"
-                  underline="none"
-                  href="/"
-                  sx={rightLink}
-                >
-                  {'Log Out'}
-                </Link>
-              </Box>
+              <Link
+                onClick={onLogOutClick}
+                color="inherit"
+                variant="h6"
+                underline="none"
+                href="/"
+                sx={rightLink}
+              >
+                {'Log Out'}
+              </Link>
+            </Box>
             </Toolbar>
           </AppBar>
           <Toolbar />
