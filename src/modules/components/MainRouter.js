@@ -28,7 +28,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/testhome" element={<TestHome />} />
             <Route path="/testquestion" element={<TestQuestion />} />
             <Route path="/testresult" element={<TestResult />} />
-            <Route path="/info" element={<Info />} />
+            <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
           </>
@@ -41,7 +41,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/testhome" element={<TestHome />} />
             <Route path="/testquestion" element={<TestQuestion />} />
             <Route path="/testresult" element={<TestResult />} />
-            <Route path="/info" element={<Info />} />
+            <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
           </>

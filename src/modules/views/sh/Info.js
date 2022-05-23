@@ -6,7 +6,7 @@ import KakaoMapScript from './KakaoMapScript';
 
 const { kakao } = window;
 
-const Info = ({refreshUser,userObj}) => {
+const Info = ({refreshUser, userObj}) => {
   /* 사용자 정보 가져오기 */
   const [user] = useAuthState(authService);
   const navigate = useNavigate();
