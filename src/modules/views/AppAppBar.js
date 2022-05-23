@@ -33,7 +33,7 @@ function AppAppBar(isLoggedIn) {
                 underline="none"
                 color="inherit"
                 sx={{ fontSize: 24 }}
-                href="/main"
+                href="/"
               >
                 {'WithDog' }
               </Link>
@@ -72,9 +72,7 @@ function AppAppBar(isLoggedIn) {
 
 
             {/* 로그인 */}
-              {isLoggedIn ? (
-                  null    
-              ) : (
+              {isLoggedIn &&
                 <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
                 <Link
                   color="inherit"
@@ -94,7 +92,7 @@ function AppAppBar(isLoggedIn) {
                   {'Sign Up'}
                 </Link>
               </Box>
-              )}
+              }
             </Toolbar>
           </AppBar>
           <Toolbar />

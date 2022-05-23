@@ -18,7 +18,7 @@ const MainRouter=({refreshUser,isLoggedIn,userObj})=>{
       <Routes>
         {isLoggedIn ? (
           <>
-            <Route path="/" element={<MainLoggedIn userObj={userObj}/>} />
+            <Route path="/" element={<MainLoggedIn />} />
             <Route path="/mainloggedin" element={<MainLoggedIn userObj={userObj}/>} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/test" element={<Test />} />
