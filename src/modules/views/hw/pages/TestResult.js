@@ -29,7 +29,7 @@ function Result() {
         <Box> {resultData.desc} </Box>
         <Stack direction="row" spacing={2} justifyContent="center">
           <Button variant="contained" onClick={() => navigate('/testhome')} >테스트 다시하기</Button>
-          <ShareButton />
+          <ShareButton data={resultData} />
         </Stack>
       </Box>
     </Container>
