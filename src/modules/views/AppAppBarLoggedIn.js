@@ -40,7 +40,7 @@ function AppAppBarLoggedIn() {
                 underline="none"
                 color="inherit"
                 sx={{ fontSize: 24 }}
-                href="/"
+                href="/mainloggedin"
               >
                 {'WithDog' }
               </Link>

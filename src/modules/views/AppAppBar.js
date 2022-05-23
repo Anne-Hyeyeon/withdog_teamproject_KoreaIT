@@ -19,7 +19,7 @@ const commonLink = {
   ml: 6,
 };
 
-function AppAppBar() {
+function AppAppBar(isLoggedIn) {
   return (
     <div>
           <AppBar position="fixed">
@@ -33,7 +33,7 @@ function AppAppBar() {
                 underline="none"
                 color="inherit"
                 sx={{ fontSize: 24 }}
-                href="/"
+                href="/main"
               >
                 {'WithDog' }
               </Link>
@@ -72,7 +72,10 @@ function AppAppBar() {
 
 
             {/* 로그인 */}
-              <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+              {isLoggedIn ? (
+                  null    
+              ) : (
+                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
                 <Link
                   color="inherit"
                   variant="h6"
@@ -91,6 +94,7 @@ function AppAppBar() {
                   {'Sign Up'}
                 </Link>
               </Box>
+              )}
             </Toolbar>
           </AppBar>
           <Toolbar />
