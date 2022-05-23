@@ -1,16 +1,53 @@
 import React from 'react';
 import { Box, Button, Container, LinearProgress, Stack } from '@mui/material';
 import { QuestionData } from '../asset/data/questionData';
+import { useNavigate } from 'react-router-dom';
 
 const Question = () => {
+  const [questionNo, setQuestionNo] = React.useState(0)
+  const [totalScore, setTotalScore] = React.useState([
+    { id: "EI", score: 0 },
+    { id: "SN", score: 0 },
+    { id: "TF", score: 0 },
+    { id: "JP", score: 0 }
+  ]) // 답변을 눌렀을때 점수가 올라가게
+
+  /* 테스트 로직 ( 3문제씩 총 12문제 )
+  E(외향형) 1점 / I(내향형) 0점
+  S(감각형) 1점 / N(직관형) 0점
+  T(소개형) 1점 / F(감정형) 0점
+  J(판단형) 1점 / P(인식형) 0점
+  "각 2점 이상일 격우 왼쪽 타입으로 지정"
+  */
+
+  const navigate = useNavigate()
+  console.log('totalScore', totalScore)
+  const handleClickButton = (no, type) => {
+    const newScore = totalScore.map((s) =>
+      s.id === type ? { id: s.id, score: s.score + no } : s
+    )
+    setTotalScore(newScore)
+    // 다음문제로 문제수 증가
+    if (QuestionData.length !== questionNo + 1) {
+      setQuestionNo(questionNo + 1)
+    } else {
+      // 결과 페이지로 이동
+      navigate('/testresult')
+    }
+  }
+
   return (
     <Container fixed>
       <Box style={{ textAlign: 'center' }}>
-        <LinearProgress color="success" style={{ marginTop: '20px' }} />
-        <Box sx={{ fontSize: '50px' }} >{QuestionData[0].title}</Box>
+        <Box>
+          <LinearProgress style={{ marginTop: '10px' }} value={(questionNo / QuestionData.length) * 100} />
+        </Box>
+        <Box>
+          <Box sx={{ fontSize: '50px' }} >{QuestionData[questionNo].title}</Box>
+        </Box>
         <Stack direction="row" spacing={2} justifyContent="center" >
-          <Button variant='contained' size='large'>{QuestionData[0].answera}</Button>
-          <Button variant='contained' size='large'>{QuestionData[0].answerb}</Button>
+          <Button variant='contained' size='large' onClick={() => handleClickButton(1, QuestionData[questionNo].type)}>{QuestionData[questionNo].answera}</Button> { /*변수를 넣을라면 화살표함수*/}
+          <Button variant='contained' size='large' onClick={() => handleClickButton(0, QuestionData[questionNo].type)}>{QuestionData[questionNo].answerb}</Button>
         </Stack>
       </Box>
     </Container>
