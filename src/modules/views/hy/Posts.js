@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/system';
-import { authService, dbService } from '../../../fbase';
+import { dbService } from '../../../fbase';
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 import DeletePost from './DeletePost';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { Container } from '@mui/material';
 
 function Posts(props) {
-    const [user] = useAuthState(authService) 
     const [posts, setPosts] = useState([])
     useEffect(()=>{
         //collection, query 함수 가능 공부하기
@@ -28,14 +25,14 @@ function Posts(props) {
         })
     })
     return (
-        <Container maxWidth='xl'>
+        <div>
            {
                posts.length === 0 ? (
                    <p>No Posts Found!</p>
                ) : (
-                   posts.map(({id,title,desc,imageUrl,createdAt,createdBy,userId,likes,comments})=>
+                   posts.map(({id,title,desc,imageUrl,createdAt})=>
                    <Box 
-                   sx={{ width:800, mt:3, border:1, p:3 }}
+                   sx={{ mt:3, border:1, p:3 }}
                    key={id}>
                        <Box className="row">
                            <Box className="col-3">
@@ -45,32 +42,16 @@ function Posts(props) {
                                style={{ height:180, width:180 }} />
                            </Box>
                            <Box className="col-9 ps-3">
-                               <div>
-                                   {
-                                    createdBy && (
-                                        <span>{createdBy}</span>
-                                    )
-                                   }
-                                   <div>
-                                       {
-                                        user && user.uid === userId && (
-                                            <DeletePost id={id} imageUrl={imageUrl} />
-                                        )
-                                       }
-                                   </div>
-                               </div>
-                               <h3>{title}</h3>
+                               <h2>{title}</h2>
                                <p>{createdAt.toDate().toDateString()}</p>
                                <h4>{desc}</h4>
-                               <div>
-                                   {/* {user && <LikePost id={id} likes={likes} />} */}
-                               </div>
+                               <DeletePost id={id} imageUrl={imageUrl} />
                            </Box>
                        </Box>
                     </Box>)
                )
            } 
-        </Container>
+        </div>
     );
 }
 
