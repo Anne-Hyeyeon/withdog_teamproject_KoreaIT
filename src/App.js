@@ -49,7 +49,7 @@ function App() {
       </> : 
       <>
       <AppAppbar />
-      <MainRouter />
+      <MainRouter refreshUser={refreshUser} isLoggedIn={isLoggedIn} userObj={userObj}/>
       <AppFooter />
       </>}
     </>
