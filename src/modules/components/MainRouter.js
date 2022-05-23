@@ -31,7 +31,7 @@ const MainRouter=({refreshUser,isLoggedIn,userObj})=>{
             <Route path="/" element={<Main />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/test" element={<Test />} />
-            <Route path="/info" element={<Info />} />
+            <Route path="/info" element={<LogIn />} />
             <Route path="/login" element={<LogIn />} /> 
             <Route path="/signup" element={<SignUp />} />  
           </>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { authService, dbService } from '../../../fbase';
-import { useNavigate, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuthState } from "react-firebase-hooks/auth";
 import KakaoMapScript from './KakaoMapScript';
 
@@ -10,6 +10,7 @@ const Info = ({refreshUser,userObj}) => {
   /* 사용자 정보 가져오기 */
   const [user] = useAuthState(authService);
   const navigate = useNavigate();
+  const [Place, setPlace] = useState("");
   const [newDisplayName, setNewDisplayName]=useState(userObj.displayName);
   const [newRegion, setNewRegion]=useState(userObj.photoURL);
   const onLogOutClick=()=>{
@@ -35,10 +36,13 @@ const Info = ({refreshUser,userObj}) => {
       })
       refreshUser()
     }
+    setPlace(user.photoURL);
   }
   useEffect(() => {
     KakaoMapScript();
   }, []);
+
+  console.log(user);
 
 
   return (
