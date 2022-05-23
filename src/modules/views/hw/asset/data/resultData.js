@@ -1,6 +1,6 @@
 import JindoDog from '../dog_img/JindoDog.jpg'
 import Pug from '../dog_img/Pug.jpg'
-import Chihwahwa from '../dog_img/Chihwahwa.jpg'
+import Chihuahua from '../dog_img/Chihuahua.jpg'
 import Pekingese from '../dog_img/Pekingese.jpg'
 import Poodle from '../dog_img/Poodle.jpg'
 import SapsalDog from '../dog_img/SapsalDog.jpg'
@@ -13,7 +13,7 @@ import GoldenRetriever from '../dog_img/GoldenRetriever.jpg'
 import ShihTzu from '../dog_img/ShihTzu.jpg'
 import Pomeranian from '../dog_img/Pomeranian.jpg'
 import ChowChow from '../dog_img/ChowChow.jpg'
-import Welschorgi from '../dog_img/Welschorgi.jpg'
+import Welschcorgi from '../dog_img/Welschcorgi.jpg'
 
 export const ResultData = [
   {
@@ -35,7 +35,7 @@ export const ResultData = [
     name: '치와와',
     best: 'ENTJ',
     desc: '작은 체구와 달리 매우 불같은 성격의 치와와는 고집이 무척세고 질투심이 강합니다. 자신보다 강한 상대에게도 굽히지 않으며, 호전적인 성격을 보입니다. 활동성이 높으며, 스스로 쟁취하기를 좋아하는 당신은 치와와와 비슷하네요',
-    image: `${Chihwahwa}`
+    image: `${Chihuahua}`
   },
   {
     id: 4,
@@ -126,7 +126,7 @@ export const ResultData = [
     name: '웰시코기',
     best: 'ENFJ',
     desc: '타인과도 매우 친근하게 지내며, 기본적으로 사람에 대한 신뢰가 높습니다. 자신감이 넘쳐 사람들에게 먼저 다가가며 즐거움을 선사합니다. 언제나 열정 가득한 그대는 인간 웰시코기네요',
-    image: `${Welschorgi}`
+    image: `${Welschcorgi}`
   },
 
 ]

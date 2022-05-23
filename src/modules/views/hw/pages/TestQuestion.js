@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Container, LinearProgress, Stack } from '@mui/material';
 import { QuestionData } from '../asset/data/questionData';
-import { useNavigate } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 
 const Question = () => {
   const [questionNo, setQuestionNo] = React.useState(0)
@@ -31,8 +31,20 @@ const Question = () => {
     if (QuestionData.length !== questionNo + 1) {
       setQuestionNo(questionNo + 1)
     } else {
+      // mbti 도출 (reduce, acc 공부)
+      // 총 점수가 2점이하면 id값 (예.E&I 중 첫번째 글자 가져오고 이상이면 두번째)
+      const mbti = newScore.reduce(
+        (acc, curr) =>
+          acc + (curr.score >= 2 ? curr.id.substring(0, 1) : curr.id.substring(1, 2)), ""
+      )
       // 결과 페이지로 이동
-      navigate('/testresult')
+      // createSearchParams 공부 (mbti값 결과 페이지로 보내기)
+      navigate({
+        pathname: '/testresult',
+        search: `?${createSearchParams({
+          mbti: mbti
+        })}`
+      })
     }
   }
 
@@ -45,7 +57,7 @@ const Question = () => {
         <Box>
           <Box sx={{ fontSize: '50px' }} >{QuestionData[questionNo].title}</Box>
         </Box>
-        <Stack direction="row" spacing={2} justifyContent="center" >
+        <Stack direction="row" spacing={2} justifyContent="center">
           <Button variant='contained' size='large' onClick={() => handleClickButton(1, QuestionData[questionNo].type)}>{QuestionData[questionNo].answera}</Button> { /*변수를 넣을라면 화살표함수*/}
           <Button variant='contained' size='large' onClick={() => handleClickButton(0, QuestionData[questionNo].type)}>{QuestionData[questionNo].answerb}</Button>
         </Stack>
