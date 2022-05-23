@@ -71,7 +71,8 @@ function AppAppBar(isLoggedIn) {
 
 
 
-            {/* 로그인 */}           
+            {/* 로그인 */}
+              {isLoggedIn &&
                 <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
                 <Link
                   color="inherit"
@@ -91,9 +92,7 @@ function AppAppBar(isLoggedIn) {
                   {'Sign Up'}
                 </Link>
               </Box>
-              
-
-              
+              }
             </Toolbar>
           </AppBar>
           <Toolbar />
