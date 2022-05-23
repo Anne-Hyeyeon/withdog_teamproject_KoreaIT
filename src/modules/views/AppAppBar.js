@@ -72,7 +72,7 @@ function AppAppBar(isLoggedIn) {
 
 
             {/* 로그인 */}
-              {isLoggedIn &&
+              {!isLoggedIn &&
                 <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
                 <Link
                   color="inherit"

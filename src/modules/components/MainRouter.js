@@ -22,6 +22,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
         {isLoggedIn ? (
           <>
             <Route path="/" element={<MainLoggedIn userObj={userObj} />} />
+            <Route path="/mainloggedin" element={<MainLoggedIn userObj={userObj} />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/test" element={<Test />} />
             <Route path="/testhome" element={<TestHome />} />
@@ -34,6 +35,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
         ) : (
           <>
             <Route path="/" element={<Main />} />
+            <Route path="/main" element={<Main />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/test" element={<Test />} />
             <Route path="/testhome" element={<TestHome />} />
