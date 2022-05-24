@@ -3,14 +3,14 @@ import { Container, Box } from '@mui/system';
 import Posts from './Posts'
 import AddPosts from './AddPosts';
 
-function Blog(props) {
+function Blog({ userObj }) {
     return (
-        <Container maxWidth='xl'>
+        <Container sx={{ display:'flex', justifyContent:'flex-end'}} maxWidth='xl'>
             <Box>
-            <Posts />
+            <Posts userObj={userObj} />
             </Box>
             <Box>
-            <AddPosts />
+            <AddPosts userObj={userObj} />
             </Box>
         </Container>
     );
