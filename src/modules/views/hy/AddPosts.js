@@ -3,7 +3,6 @@ import { Box, Container } from '@mui/material';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { storageService, dbService} from '../../../fbase';
-import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
 const AddPosts = ({ userObj }) => {
@@ -70,10 +69,10 @@ const AddPosts = ({ userObj }) => {
                     comments:[]
                 })
                 .then(()=>{
-                    toast("Article added successfully", {type: "success"})
+                    alert('추가되었습니다.')
                 })
                 .catch(err=>{
-                    toast("Error adding article", {type: "error"})
+                    alert('실패했습니다')
                 })
             })
         })
