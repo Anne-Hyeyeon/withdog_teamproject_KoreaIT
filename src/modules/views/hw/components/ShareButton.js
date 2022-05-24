@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from '@mui/material';
-const { Kakao } = window
+const { Kakao } = window;
 
 const ShareButton = ({ data }) => {
   const url = "https://catmbtitest.netlify.app" // 배포 후 url 변경
@@ -9,6 +9,7 @@ const ShareButton = ({ data }) => {
   React.useEffect(() => {
     Kakao.cleanup()
     Kakao.init("84922e7c7e6d966ca8696e2187ce004f")
+    console.log(Kakao.Auth.getAppKey());
   }, [])
 
   const shareKakao = () => {

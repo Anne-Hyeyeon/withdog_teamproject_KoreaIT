@@ -14,7 +14,7 @@ import Info from "../views/sh/Info";
 
 
 const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
-  console.log(isLoggedIn)
+
   return (
     <>
       {isLoggedIn && <Home userObj={userObj} />}
@@ -22,24 +22,26 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
         {isLoggedIn ? (
           <>
             <Route path="/" element={<MainLoggedIn userObj={userObj} />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/mainloggedin" element={<MainLoggedIn userObj={userObj} />} />
+            <Route path="/blog" element={<Blog userObj={userObj} />} />
             <Route path="/test" element={<Test />} />
             <Route path="/testhome" element={<TestHome />} />
             <Route path="/testquestion" element={<TestQuestion />} />
             <Route path="/testresult" element={<TestResult />} />
-            <Route path="/info" element={<Info />} />
+            <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
           </>
         ) : (
           <>
             <Route path="/" element={<Main />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/main" element={<Main />} />
+            <Route path="/blog" element={<Blog userObj={userObj} />} />
             <Route path="/test" element={<Test />} />
             <Route path="/testhome" element={<TestHome />} />
             <Route path="/testquestion" element={<TestQuestion />} />
             <Route path="/testresult" element={<TestResult />} />
-            <Route path="/info" element={<Info />} />
+            <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
           </>
