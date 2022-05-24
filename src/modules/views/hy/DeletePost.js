@@ -12,7 +12,6 @@ function DeletePost({id, imageUrl}) {
             await deleteObject(storageRef)
 
         } catch (error) {
-            alert('삭제 실패')
             console.log(error)
         }
 
