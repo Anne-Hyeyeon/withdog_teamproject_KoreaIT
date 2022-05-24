@@ -8,7 +8,6 @@ const Login=() => {
 
   const navigate = useNavigate()
 
-
   const onChange = (event)=>{
     const {target:{name, value}} = event
     if(name==='email'){
@@ -24,7 +23,7 @@ const Login=() => {
     if (email !== "" && password !== "") {
       try {
         await authService.signInWithEmailAndPassword(email,password)
-        navigate('/')
+        navigate('/mainloggedin')
       } catch (error) {
         console.log(error);
       }
