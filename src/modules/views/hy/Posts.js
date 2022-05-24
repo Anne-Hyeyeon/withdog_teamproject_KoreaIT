@@ -5,7 +5,7 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 import DeletePost from './DeletePost';
 import { Container } from '@mui/material';
 
-function Posts( userObj ) {
+function Posts({ userObj }) {
     const [posts, setPosts] = useState([])
     useEffect(()=>{
         //collection, query 함수 가능 공부하기
