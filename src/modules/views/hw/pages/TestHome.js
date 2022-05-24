@@ -10,17 +10,17 @@ const Test = () => {
     navigate('/testquestion')
   }
   return (
-    <Container fixed>
-      <header>강아지MBTI</header>
+    <Container maxWidth="md">
       <Box>
-        <Box>나는 어떤 강아지?</Box>
+        <Box component="h1" sx={{}}>강아지MBTI</Box>
+        <Box >나는 어떤 강아지?</Box>
         <Box>
           <img src={DogImage} width={340} height={450} alt="메인 사진" />
         </Box>
         <Box> MBTI를 기반으로 하는 "내가 개였다면!"</Box>
         <Button variant="contained" onClick={handleClickButton}>테스트 시작하기</Button>
       </Box>
-    </Container>
+    </Container >
   );
 }
 
