@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { Box, Container } from '@mui/material';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { storageService, dbService, authService } from '../../../fbase';
+import { storageService, dbService} from '../../../fbase';
 import { toast } from 'react-toastify';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 
-function AddPosts(props) {
-    const [user] = useAuthState(authService)
+const AddPosts = ({ userObj }) => {
 
     const [formData, setFormData] = useState({
         title: "",
@@ -33,6 +31,7 @@ function AddPosts(props) {
     }
 
     const handlePublish = () =>{
+        console.log(userObj)
         if(!formData.title || !formData.desc || !formData.image){
             alert('Please fill all the fields')
             return;
@@ -65,8 +64,8 @@ function AddPosts(props) {
                     desc: formData.desc,
                     imageUrl: url,
                     createdAt: Timestamp.now().toDate(),
-                    createdBy: user.displayName,
-                    userId:user.uid,
+                    createdBy: userObj.displayName,
+                    userId: userObj.uid,
                     likes:[],
                     comments:[]
                 })
@@ -82,7 +81,7 @@ function AddPosts(props) {
 
     return (
         <Container maxWidth='sm'>
-        {!user?
+        {!userObj ?
         <>
         <Box sx={{ border:1, p:3, mt:3 }}>
             <h2><Link to ='/login'>Login To Create Article</Link></h2>

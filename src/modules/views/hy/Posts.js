@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/system';
-import { authService, dbService } from '../../../fbase';
+import { dbService } from '../../../fbase';
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 import DeletePost from './DeletePost';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { Container } from '@mui/material';
 
-function Posts(props) {
-    const [user] = useAuthState(authService) 
+function Posts( userObj ) {
     const [posts, setPosts] = useState([])
     useEffect(()=>{
         //collection, query 함수 가능 공부하기
@@ -53,7 +51,7 @@ function Posts(props) {
                                    }
                                    <div>
                                        {
-                                        user && user.uid === userId && (
+                                        userObj && userObj.uid === userId && (
                                             <DeletePost id={id} imageUrl={imageUrl} />
                                         )
                                        }
@@ -63,7 +61,7 @@ function Posts(props) {
                                <p>{createdAt.toDate().toDateString()}</p>
                                <h4>{desc}</h4>
                                <div>
-                                   {/* {user && <LikePost id={id} likes={likes} />} */}
+                                   {/* {userObj && <LikePost id={id} likes={likes} />} */}
                                </div>
                            </Box>
                        </Box>

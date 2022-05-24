@@ -16,7 +16,7 @@ const ShareButton = ({ data }) => {
       objectType: 'feed',
       content: {
         title: '내가 강아지였다면? 결과 보기',
-        description: '당신은 개로 태어나면 ${data.name} 입니다. ${data.decs}',  // 데이터 가져와서 바꿔주기
+        description: `당신은 개로 태어나면 ${data.name} 입니다. ${data.decs}`,  // 데이터 가져와서 바꿔주기
         imageUrl:
           url + data.image,
         link: {

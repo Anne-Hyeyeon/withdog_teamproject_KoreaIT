@@ -1,13 +1,11 @@
 import React from 'react';
 import { Favorite } from '@mui/icons-material';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { authService } from '../../../fbase';
 
-function LikePost(id,likes) {
-    const [user] =  useAuthState(authService)
+function LikePost(userObj, id,likes) {
     return (
         <div>
-            <Favorite className={`${!likes?.includes(user.uid)? "-d":""}`} sx={{ cursor:'pointer' }} />
+            <Favorite className={`${!likes?.includes(userObj.uid)? "-d":""}`} sx={{ cursor:'pointer' }} />
         </div>
     );
 }
