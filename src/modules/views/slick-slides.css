@@ -17,6 +17,15 @@
     }
 }
 
+@media (min-width: 1000px) {
+  .slick-slide {
+      width: auto;
+      height: 800px;
+  }
+}
+
+
+
 .slides {
   position: relative;
 }
