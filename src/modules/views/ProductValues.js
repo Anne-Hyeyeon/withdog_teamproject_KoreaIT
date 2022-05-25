@@ -35,7 +35,7 @@ function ProductValues() {
           <Grid item xs={12} md={4}>
             <Box sx={item}>
               <Box>
-              <IconButton>
+              <IconButton href='/blog'>
                 <PeopleOutlineIcon sx={{ fontSize:'50px' }} />
                 </IconButton>
               </Box>
@@ -55,7 +55,7 @@ function ProductValues() {
           <Grid item xs={12} md={4}>
           <Box sx={item}>
               <Box>
-              <IconButton>
+              <IconButton href='test'>
                 <EmojiEmotionsOutlinedIcon sx={{ fontSize:'50px' }} />
                 </IconButton>
               </Box>
@@ -75,7 +75,7 @@ function ProductValues() {
           <Grid item xs={12} md={4}>
           <Box sx={item}>
               <Box>
-              <IconButton>
+              <IconButton href='info'>
                 <InfoOutlinedIcon sx={{ fontSize:'50px' }} />
                 </IconButton>
               </Box>

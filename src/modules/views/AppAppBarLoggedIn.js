@@ -8,7 +8,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PetsIcon from '@mui/icons-material/Pets';
@@ -44,11 +43,6 @@ const AppAppBar = ({ userObj }) => {
     navigate('/')
   }
 
-  // 아바타 이름
-  const avatarName = () => {
-    const userName = String(userObj.displayName)
-    return userName.substring(1,2)
-  }
 
   return (
     <AppBar position="fixed">
@@ -109,7 +103,7 @@ const AppAppBar = ({ userObj }) => {
               <MenuItem>
               <Link
                   color="inherit"
-                  variant="h6"
+                  variant="subtitle1"
                   underline="none"
                   href="/blog"
                 >
@@ -118,7 +112,7 @@ const AppAppBar = ({ userObj }) => {
               </MenuItem>
               <MenuItem>
               <Link
-                  variant="h6"
+                  variant="subtitle1"
                   underline="none"
                   href="/test"
                 >
@@ -127,7 +121,7 @@ const AppAppBar = ({ userObj }) => {
               </MenuItem>
               <MenuItem>
               <Link
-                  variant="h6"
+                  variant="subtitle1"
                   underline="none"
                   href="/info"                
                 >
