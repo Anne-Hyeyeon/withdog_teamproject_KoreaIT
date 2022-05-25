@@ -6,7 +6,7 @@ import ProductHowItWorks from './ProductHowItWorks';
 import ProductCTA from './ProductCTA';
 import ProductSmokingHero from './ProductSmokingHero';
 
-function Main(props) {
+function Main( ) {
     return (
         <React.Fragment>
             <ProductHero />

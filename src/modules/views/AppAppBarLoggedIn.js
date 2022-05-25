@@ -53,8 +53,8 @@ const AppAppBar = ({ userObj }) => {
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
-        {/* 모바일 영역 */}
-        <Toolbar disableGutters>
+        <Toolbar>
+          {/* 모바일 영역 로고 */}  
           <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontWeight:30 }} />
           <Typography
             variant="h6"
@@ -137,7 +137,7 @@ const AppAppBar = ({ userObj }) => {
             </Menu>
           </Box>
 
-          {/* PC 영역 */}
+          {/* PC 영역 로고 */}
           <PetsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"

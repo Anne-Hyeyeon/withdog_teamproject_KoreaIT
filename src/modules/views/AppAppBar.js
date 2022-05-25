@@ -15,10 +15,6 @@ import PetsIcon from '@mui/icons-material/Pets';
 import { Link } from '@mui/material';
 
 
-
-const pages = ['Doggitter', 'Dog MBTI', 'Info'];
-const settings = ['Settings', 'Logout'];
-
 const AppAppBar = ({ userObj }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -43,8 +39,8 @@ const AppAppBar = ({ userObj }) => {
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
-        {/* 모바일 영역 */}
-        <Toolbar disableGutters>
+        <Toolbar>
+        {/* 모바일 영역 로고 */}
           <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontWeight:30 }} />
           <Typography
             variant="h6"
