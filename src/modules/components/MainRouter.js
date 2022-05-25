@@ -17,7 +17,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
 
   return (
     <>
-      {isLoggedIn && <Home userObj={userObj} />}
+      {/* {isLoggedIn && <Home userObj={userObj} />} */}
       <Routes>
         {isLoggedIn ? (
           <>

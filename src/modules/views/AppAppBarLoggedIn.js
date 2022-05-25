@@ -1,106 +1,243 @@
 import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import AppBar from '../components/AppBar';
-import Toolbar from '../components/Toolbar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
 import PetsIcon from '@mui/icons-material/Pets';
+import { Link } from '@mui/material';
 import { authService } from '../../fbase';
 import { useNavigate } from 'react-router-dom';
 
 
-const rightLink = {
-  fontStyle: 'Italic',
-  fontSize: 16,
-  color: 'common.white',
-  ml: 3,
-};
 
-const commonLink = {
-  fontSize: 14,
-  color: 'common.white',
-  ml: 6,
-};
+const AppAppBar = ({ userObj }) => {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-function AppAppBarLoggedIn(isloggedin) {
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  // 로그아웃
   const navigate = useNavigate()
   const onLogOutClick = () => {
     authService.signOut()
     navigate('/')
   }
+
+  // 아바타 이름
+  const avatarName = () => {
+    const userName = String(userObj.displayName)
+    return userName.substring(1,2)
+  }
+
   return (
-    <div>
-          <AppBar position="fixed">
-            <Toolbar sx={{ justifyContent: 'space-between' }}>
-            {/* 아이콘, 홈 버튼 */}
-            {isloggedin &&  
-            <>
-            <PetsIcon 
-                fontSize= 'large' 
-                sx={{ mr : 1 }}/>
+    <AppBar position="fixed">
+      <Container maxWidth="xl">
+        {/* 모바일 영역 */}
+        <Toolbar disableGutters>
+          <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontWeight:30 }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            WithDog
+          </Typography>
+
+          {/* 모바일 영역 */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+
+            {/* 모바일 메뉴 */}
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              <MenuItem>
               <Link
-                variant="h6"
-                underline="none"
-                color="inherit"
-                sx={{ fontSize: 24 }}
-                href="/mainloggedin"
-              >
-                {'WithDog' }
-              </Link> 
-              </>
-              }
-             
-
-
-
-            {/* 메인 메뉴 */}
-              <Box sx={{ display: 'flex', flex: 1, alignItems: 'center' }}>
-                <Link
                   color="inherit"
                   variant="h6"
                   underline="none"
                   href="/blog"
-                  sx={commonLink}
                 >
                   {'Doggitter'}
                 </Link>
-                <Link
+              </MenuItem>
+              <MenuItem>
+              <Link
                   variant="h6"
                   underline="none"
                   href="/test"
-                  sx={commonLink}
                 >
+                  {'DOG MBTI'}
+                </Link>
+              </MenuItem>
+              <MenuItem>
+              <Link
+                  variant="h6"
+                  underline="none"
+                  href="/info"                
+                >
+                  {'INFO'}
+                </Link>
+              </MenuItem>
+            </Menu>
+          </Box>
+
+          {/* PC 영역 */}
+          <PetsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            WithDog
+          </Typography>
+
+          {/* PC 메뉴 */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Link
+                  color="inherit"
+                  variant="h6"
+                  underline="none"
+                  href="/blog"
+                  sx={{ mr:3, my: 3, color: 'white', display: 'block', fontSize:15 }}                
+                  >
+                  {'Doggitter'}
+              </Link>
+              <Link
+                  variant="h6"
+                  underline="none"
+                  href="/test"
+                  sx={{ mr:3, my: 3, color: 'white', display: 'block', fontSize:15 }}                      
+                  >
                   {'DOG MBTI'}
                 </Link>
                 <Link
                   variant="h6"
                   underline="none"
                   href="/info"
-                  sx={commonLink}
-                >
+                  sx={{ mr:3, my: 3, color: 'white', display: 'block', fontSize:15 }}                    
+                  >
                   {'INFO'}
                 </Link>
-              </Box>
+          </Box>
 
-
-            {/* 로그인 */}
-              <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-                <Link
-                  onClick={onLogOutClick}
-                  color="inherit"
-                  variant="h6"
-                  underline="none"
-                  href="/"
-                  sx={rightLink}
-                >
-                  {'Log Out'}
-                </Link>
-              </Box>
-            </Toolbar>
-          </AppBar>
-          <Toolbar />
-    </div>
+          {/* 세팅 영역 */}
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                {/* 아바타 */}
+                <Avatar sx={{ bgcolor: '#ba000d', fontSize:15 }}>
+                  {userObj.displayName}
+                </Avatar>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              <MenuItem>
+              <Link
+                variant="h7"
+                underline="none"
+                color="inherit"
+                href="#"
+              >
+                {'Profile' }
+              </Link>
+              </MenuItem>
+              <MenuItem>
+              <Link
+                variant="h7"
+                underline="none"
+                color="inherit"
+                onClick={onLogOutClick}
+              >
+                {'로그아웃' }
+              </Link>
+              </MenuItem>
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
-}
-
-
-export default AppAppBarLoggedIn;
+};
+export default AppAppBar;
