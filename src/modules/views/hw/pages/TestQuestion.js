@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Container, LinearProgress, Stack } from '@mui/material';
+import { Button, Container, Grid, LinearProgress, Typography } from '@mui/material';
 import { QuestionData } from '../asset/data/questionData';
 import { createSearchParams, useNavigate } from 'react-router-dom';
 
@@ -22,6 +22,7 @@ const Question = () => {
 
   const navigate = useNavigate()
   console.log('totalScore', totalScore)
+
   const handleClickButton = (no, type) => {
     const newScore = totalScore.map((s) =>
       s.id === type ? { id: s.id, score: s.score + no } : s
@@ -49,20 +50,33 @@ const Question = () => {
   }
 
   return (
-    <Container fixed>
-      <Box style={{ textAlign: 'center' }}>
-        <Box>
+    <Container maxWidth="lg" component="main" >
+
+      <Grid container>
+
+
+        <Grid item direction="column" justifyContent="flex-start" alignItems="flex-start">
+          <Typography gutterBottom component="span" sx={{ fontSize: '50px' }}>
+            {QuestionData[questionNo].id + ". "}
+          </Typography>
+          <Typography gutterBottom component="span" sx={{ fontSize: '20px' }}>
+            {QuestionData[questionNo].title}
+          </Typography>
+        </Grid>
+
+        <Grid container direction="column" alignItems="flex-end" sx={{ margin: '50px' }}>
+          <Button variant='text' size='large' onClick={() => handleClickButton(1, QuestionData[questionNo].type)}>{QuestionData[questionNo].answera}</Button> { /*변수를 넣을라면 화살표함수*/}
+          <Button variant='text' size='large' onClick={() => handleClickButton(0, QuestionData[questionNo].type)}>{QuestionData[questionNo].answerb}</Button>
+        </Grid>
+
+        <Grid container direction="column" sx={{ margin: '50px' }}>
           <LinearProgress style={{ marginTop: '10px' }} value={(questionNo / QuestionData.length) * 100} />
-        </Box>
-        <Box>
-          <Box sx={{ fontSize: '50px' }} >{QuestionData[questionNo].title}</Box>
-        </Box>
-        <Stack direction="row" spacing={2} justifyContent="center">
-          <Button variant='contained' size='large' onClick={() => handleClickButton(1, QuestionData[questionNo].type)}>{QuestionData[questionNo].answera}</Button> { /*변수를 넣을라면 화살표함수*/}
-          <Button variant='contained' size='large' onClick={() => handleClickButton(0, QuestionData[questionNo].type)}>{QuestionData[questionNo].answerb}</Button>
-        </Stack>
-      </Box>
-    </Container>
+        </Grid>
+
+
+      </Grid>
+
+    </Container >
   );
 }
 

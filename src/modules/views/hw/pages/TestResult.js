@@ -19,7 +19,7 @@ function Result() {
   }, [mbti])
 
   return (
-    <Container fixed >
+    <Container maxWidth="md" component="main" >
       <header>강아지MBTI</header>
       <Box>
         <Box>{mbti} = {resultData.name}</Box>
