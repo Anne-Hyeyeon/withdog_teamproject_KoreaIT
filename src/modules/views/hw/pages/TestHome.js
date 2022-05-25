@@ -10,7 +10,7 @@ const Test = () => {
   //   navigate('/testquestion')
   // }
   return (
-    <Container maxWidth='md'>
+    <Container maxWidth='lg'>
       <Box component="div"
         sx={{
           backgroundImage: `url(${background})`,

@@ -70,7 +70,8 @@ const Question = () => {
         </Grid>
 
         <Grid container direction="column" sx={{ margin: '50px' }}>
-          <LinearProgress style={{ marginTop: '10px' }} value={(questionNo / QuestionData.length) * 100} />
+          <LinearProgress variant="determinate" value={10 + (questionNo / QuestionData.length) * 100} style={{ mt: 10 }} />
+          <Typography align="center">{questionNo + 1}/12</Typography>
         </Grid>
 
 
