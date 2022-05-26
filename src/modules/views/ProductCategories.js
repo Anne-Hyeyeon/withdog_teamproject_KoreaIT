@@ -109,7 +109,7 @@ export default function ProductCategories() {
         반려견 관련 정보/칼럼
       </Typography>
       <CardNews />
-      <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
+      {/* <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
         {images.map((image) => (
           <ImageIconButton
             key={image.title}
@@ -155,7 +155,7 @@ export default function ProductCategories() {
             </Box>
           </ImageIconButton>
         ))}
-      </Box>
+      </Box> */}
     </Container>
   );
 }

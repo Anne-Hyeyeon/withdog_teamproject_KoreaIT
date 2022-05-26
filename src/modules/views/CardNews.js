@@ -9,7 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 function ProductCategories(props) {
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{ mb:20 }}>
            <Grid item xs={12} md={6} xl={6}>
           <CardActionArea component="a" href="https://n.news.naver.com/mnews/article/082/0001103270?sid=103" target='_blank'>
             <Card sx={{ display: 'flex' }}>

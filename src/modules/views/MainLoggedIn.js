@@ -12,7 +12,7 @@ function Main(props) {
             <Banner />
             <ProductValues />
             <ProductCategories />
-            <ProductHowItWorks />
+            {/* <ProductHowItWorks /> */}
             <ProductCTA />
             <ProductSmokingHero />
         </React.Fragment>

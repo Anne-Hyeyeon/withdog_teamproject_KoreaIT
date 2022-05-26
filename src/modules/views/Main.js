@@ -12,7 +12,7 @@ function Main({ userObj } ) {
             <ProductHero />
             <ProductValues />
             <ProductCategories />
-            <ProductHowItWorks />
+            {/* <ProductHowItWorks /> */}
             <ProductCTA />
             <ProductSmokingHero />
         </React.Fragment>
