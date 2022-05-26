@@ -58,7 +58,7 @@ const AppAppBar = ({ userObj }) => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: 'HallymMjo',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -142,7 +142,7 @@ const AppAppBar = ({ userObj }) => {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'HallymMjo',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
