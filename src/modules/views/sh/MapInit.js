@@ -5,7 +5,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
 const { kakao } = window
 
-const MapContainer = ({ searchPlace }) => {
+const MapInit = ({ searchPlace }) => {
   // 검색결과 배열에 담아줌
   const [Places, setPlaces] = useState([])
   useEffect(() => {
@@ -110,4 +110,4 @@ const MapContainer = ({ searchPlace }) => {
   )
 }
 
-export default MapContainer;
+export default MapInit
