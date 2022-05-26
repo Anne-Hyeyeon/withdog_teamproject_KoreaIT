@@ -1,0 +1,66 @@
+.Info {
+  height: 100vh;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info_container {
+  font-family: "BMDOHYEON";
+}
+.info_up_wrap {
+  display: flex;
+}
+.profile_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.profile_list {
+  font-size: 18px;
+}
+.address_list {
+  overflow-y: auto;
+  border: 3px solid grey;
+  border-radius: 8px;
+  width: 40vh;
+  height: 600px;
+}
+.address_list::-webkit-scrollbar {
+  display: none;
+}
+.address_list_ind {
+  display: flex;
+  margin: 18px 0;
+  border-bottom: 1px solid grey;
+}
+.address_list_add1 {
+  display: flex;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.address_list_add2 {
+  color: grey;
+  display: flex;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.address_list_phone {
+  color: green;
+  display: flex;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 16px;
+}
+li {
+  list-style: none;
+  margin-right: 10px;
+}
+@font-face {
+  font-family: "BMDOHYEON";
+  src: url(/src/modules/views/sh/font/BMDOHYEON.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
