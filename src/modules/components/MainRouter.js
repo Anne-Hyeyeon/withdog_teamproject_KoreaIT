@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom'
-import Home from "../../pages/Home"
 import SignUp from "../../pages/SignUp"
 import LogIn from "../../pages/LogIn";
 import Blog from "../views/hy/Blog";
@@ -11,6 +10,7 @@ import TestHome from "../views/hw/pages/TestHome"
 import Main from "../views/Main";
 import MainLoggedIn from "../views/MainLoggedIn"
 import Info from "../views/sh/Info";
+import AddPosts from "../views/hy/AddPosts";
 
 
 const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
@@ -31,6 +31,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
           </>
         ) : (
           <>
@@ -44,6 +45,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
           </>
         )}
         {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
