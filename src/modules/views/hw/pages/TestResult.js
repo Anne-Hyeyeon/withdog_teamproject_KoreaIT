@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Container, Stack } from '@mui/material';
+import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ResultData } from '../asset/data/resultData'
 import ShareButton from '../components/ShareButton'
@@ -19,19 +19,26 @@ function Result() {
   }, [mbti])
 
   return (
-    <Container fixed >
-      <header>강아지MBTI</header>
-      <Box>
-        <Box>{mbti} = {resultData.name}</Box>
-        <Box>
-          <img src={resultData.image} width={550} height={400} alt="메인 사진" />
-        </Box>
-        <Box> {resultData.desc} </Box>
-        <Stack direction="row" spacing={2} justifyContent="center">
-          <Button variant="contained" onClick={() => navigate('/testhome')} >테스트 다시하기</Button>
-          <ShareButton data={resultData} />
-        </Stack>
+    <Container maxWidth="md" >
+
+      <Typography align="center" variant="h2" pt={2} mb={4}>
+        강아지 MBTI 결과
+      </Typography>
+      <Typography align="center" variant="h4">
+        {mbti} = {resultData.name}
+      </Typography>
+      <Box component="div" sx={{ textAlign: 'center', mb: 2 }}>
+        <img src={resultData.image} width={550} height={400} alt="결과 사진" />
       </Box>
+      <Typography align="center" variant="h5" padding={2}>
+        {resultData.desc}
+      </Typography>
+
+      <Stack direction="row" spacing={2} justifyContent="center" mb={2}>
+        <Button variant="contained" onClick={() => navigate('/testhome')} >테스트 다시하기</Button>
+        <ShareButton data={resultData} />
+      </Stack>
+
     </Container>
   );
 }
