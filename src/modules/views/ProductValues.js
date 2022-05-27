@@ -24,7 +24,7 @@ function ProductValues() {
       sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
     >
 
-      <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
+      <Container sx={{ mt: 15, mb: 20, display: 'flex', position: 'relative' }}>
       <Box
           component="img"
           src='https://github.com/mui/material-ui/blob/master/docs/public/static/themes/onepirate/productCurvyLines.png?raw=true'
