@@ -5,6 +5,8 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import dogbanner1 from '../views/hy/assets/dogbanner1.png'
+import dogbanner2 from '../views/hy/assets/dogbanner2.png'
 
 function ProductCategories(props) {
 
@@ -90,6 +92,25 @@ function ProductCategories(props) {
             </Card>
           </CardActionArea>
         </Grid>
+        <Grid item xs={12} md={12} xl={12} sx={{ mt:2 }}>
+          <CardActionArea component="a" href="https://search.shopping.naver.com/search/all?query=%EA%B0%95%EC%95%84%EC%A7%80+%EC%9A%A9%ED%92%88&bt=-1&frm=NVSCPRO" target='_blank'>
+            <CardMedia
+            component="img"
+            image={dogbanner1}
+            alt='article'
+            />
+          </CardActionArea>
+        </Grid>
+        <Grid item xs={12} md={12} xl={12}>
+          <CardActionArea component="a" href="https://search.shopping.naver.com/search/all?query=%EA%B0%95%EC%95%84%EC%A7%80%20%ED%94%84%EB%A1%9C%ED%95%84&cat_id=&frm=NVSHATC" target='_blank'>
+            <CardMedia
+            component="img"
+            image={dogbanner2}
+            alt='article'
+            />
+          </CardActionArea>
+        </Grid>
+        
     </Grid>
   );
 }
