@@ -20,7 +20,15 @@ function ProductCTA() {
   };
 
   return (
-    <Container component="section" sx={{ mt: 10, display: 'flex' }}>
+    <Box
+    component="section"
+    sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
+  >
+          {/* <Typography variant="h4" marked="center" align="center" component="h2" sx={{mb:10}}>
+        반려견 관련 정보/칼럼
+      </Typography> */}
+<Container sx={{ mt: 10, mb: 20, display: 'flex', position: 'relative' }}>
+  
       <Grid container>
         <Grid item xs={12} md={6} sx={{ zIndex: 1 }}>
           <Box
@@ -94,7 +102,9 @@ function ProductCTA() {
         closeFunc={handleClose}
         message="We will send you our best offers, once a week."
       />
+
     </Container>
+    </Box>
   );
 }
 
