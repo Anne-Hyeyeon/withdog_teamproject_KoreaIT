@@ -10,7 +10,6 @@ import TestHome from "../views/hw/pages/TestHome"
 import Main from "../views/Main";
 import MainLoggedIn from "../views/MainLoggedIn"
 import Info from "../views/sh/Info";
-import Mypage from "../views/sh/Mypage";
 import AddPosts from "../views/hy/AddPosts";
 
 
@@ -29,8 +28,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/testhome" element={<TestHome />} />
             <Route path="/testquestion" element={<TestQuestion />} />
             <Route path="/testresult" element={<TestResult />} />
-            <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser}/>} />
-            <Route path="/mypage" element={<Mypage userObj={userObj} refreshUser={refreshUser}/>} />
+            <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
@@ -44,8 +42,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/testhome" element={<TestHome />} />
             <Route path="/testquestion" element={<TestQuestion />} />
             <Route path="/testresult" element={<TestResult />} />
-            <Route path="/info" element={<LogIn />} />
-            <Route path="/mypage" element={<LogIn />} />
+            <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
