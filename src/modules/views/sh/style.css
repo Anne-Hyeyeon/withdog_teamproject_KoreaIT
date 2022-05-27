@@ -10,18 +10,20 @@
   }
 }
 .info_container {
-  font-family: "BMDOHYEON";
   margin-bottom: 300px;
 }
 .info_up_wrap {
   display: flex;
 }
-.profile_form {
+.map_form {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
   font-size: 20px;
+}
+.map_title {
+  font-weight: bold;
 }
 .profile_list {
   font-size: 18px;
@@ -39,6 +41,9 @@
   display: flex;
   margin: 18px 0;
   border-bottom: 1px solid grey;
+}
+.address_list_title {
+  font-weight: bold;
 }
 .address_list_add1 {
   display: flex;
@@ -61,10 +66,4 @@
 li {
   list-style: none;
   margin-right: 10px;
-}
-@font-face {
-  font-family: "BMDOHYEON";
-  src: url(/src/modules/views/sh/font/BMDOHYEON.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
 }

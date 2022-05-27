@@ -28,8 +28,8 @@ const Info = ({userObj}) => {
           &gt;&gt;&gt;
         </Link>
       </p>
-      <Stack className="profile_form">
-        <p>현재 위치 : {userObj.photoURL}</p>
+      <Stack className="map_form">
+        <p className="map_title">현재 위치 : {userObj.photoURL}</p>
         <Box>
           <TextField 
             id="standard-basic"
