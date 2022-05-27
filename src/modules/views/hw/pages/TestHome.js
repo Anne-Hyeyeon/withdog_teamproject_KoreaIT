@@ -10,7 +10,7 @@ const Test = () => {
   //   navigate('/testquestion')
   // }
   return (
-    <Container maxWidth='lg'>
+    <Container component="main" maxWidth='lg'>
       <Box component="div"
         sx={{
           backgroundImage: `url(${background})`,
@@ -37,9 +37,11 @@ const Test = () => {
           MBTI를 기반으로 하는 "내가 강아지라면?!"
         </Typography>
 
-        <Button align="center" variant="outlined" size="large" href="/testquestion" >
-          테스트 시작하기
-        </Button>
+        <Typography align="center">
+          <Button variant="outlined" size="large" href="/testquestion">
+            테스트 시작하기
+          </Button>
+        </Typography>
 
       </Box >
 
