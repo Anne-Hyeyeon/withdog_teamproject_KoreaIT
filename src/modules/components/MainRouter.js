@@ -44,8 +44,8 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/testhome" element={<TestHome />} />
             <Route path="/testquestion" element={<TestQuestion />} />
             <Route path="/testresult" element={<TestResult />} />
-            <Route path="/login" element={<Info />} />
-            <Route path="/login" element={<Mypage/>}/>
+            <Route path="/info" element={<LogIn />} />
+            <Route path="/mypage" element={<LogIn/>}/>
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
