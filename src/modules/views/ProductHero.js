@@ -22,7 +22,7 @@ export default function ProductHero() {
       <Typography
         color="inherit"
         align="center"
-        variant="h5"
+        variant="h6"
         sx={{ mb: 4, mt: { sx: 4, sm: 10 }, fontFamily:'HallymMjo', fontWeight:300 }}
       >
         견주들의 놀이터, 윗독(WithDog)의 회원이 되어주세요!
