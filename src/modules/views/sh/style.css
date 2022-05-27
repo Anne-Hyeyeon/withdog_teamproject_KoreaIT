@@ -1,12 +1,17 @@
 .Info {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 .info_container {
   font-family: "BMDOHYEON";
+  margin-bottom: 300px;
 }
 .info_up_wrap {
   display: flex;
@@ -25,7 +30,6 @@
   overflow-y: auto;
   border: 3px solid grey;
   border-radius: 8px;
-  width: 40vh;
   height: 600px;
 }
 .address_list::-webkit-scrollbar {
