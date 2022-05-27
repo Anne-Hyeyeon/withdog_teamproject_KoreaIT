@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { authService } from '../../../fbase';
 import { Link, useNavigate } from 'react-router-dom';
-import Posts from '../hy/Posts';
+import UserPosts from './UserPosts';
 
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import { TextField, Box, Button, Container, IconButton, Grid} from '@mui/material';
@@ -72,9 +72,14 @@ const Info = ({refreshUser, userObj}) => {
           </Grid>
         </Grid>
       </form>
-      <Posts/>
-      <h1>{userObj.displayName}</h1>
-      <h1>{userObj.photoURL}</h1>
+      <UserPosts/>
+      {/* <Box>
+        {
+        userObj && userObj.uid === userId && (
+          <UserPosts/>
+        )
+        }
+      </Box> */}
       <Button variant="outlined" onClick={onLogOutClick}>Log out</Button>
     </Container>
   );
