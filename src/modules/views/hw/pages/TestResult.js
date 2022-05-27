@@ -24,8 +24,9 @@ function Result() {
       <Typography align="center" variant="h2" pt={2} mb={4}>
         강아지 MBTI 결과
       </Typography>
-      <Typography align="center" variant="h4">
-        {mbti} = {resultData.name}
+      <Typography align="center" variant="h4" mb={2}>
+        나의 MBTI는 {mbti}! <br />
+        내가 강아지였다면 나는 {resultData.name}!
       </Typography>
       <Box component="div" sx={{ textAlign: 'center', mb: 2 }}>
         <img src={resultData.image} width={550} height={400} alt="결과 사진" />

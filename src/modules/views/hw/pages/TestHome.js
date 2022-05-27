@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
+
 //import { useNavigate } from 'react-router-dom'
 
 const background = "https://cdn.pixabay.com/photo/2017/12/27/14/02/friends-3042751_960_720.jpg";
@@ -10,7 +11,7 @@ const Test = () => {
   //   navigate('/testquestion')
   // }
   return (
-    <Container component="main" maxWidth='lg'>
+    <Container component="main" maxWidth='md'>
       <Box component="div"
         sx={{
           backgroundImage: `url(${background})`,
@@ -20,7 +21,7 @@ const Test = () => {
           //position: 'relative',
           //display: 'flex',
           //justifyContent: 'center',
-          //alignItems: 'center',
+          alignItems: 'center',
           //color: '#fff',
           height: '80vh',
           width: '100%',
