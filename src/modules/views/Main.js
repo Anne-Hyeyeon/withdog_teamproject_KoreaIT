@@ -6,13 +6,13 @@ import ProductHowItWorks from './ProductHowItWorks';
 import ProductCTA from './ProductCTA';
 import ProductSmokingHero from './ProductSmokingHero';
 
-function Main(props) {
+function Main({ userObj } ) {
     return (
         <React.Fragment>
             <ProductHero />
             <ProductValues />
             <ProductCategories />
-            <ProductHowItWorks />
+            {/* <ProductHowItWorks /> */}
             <ProductCTA />
             <ProductSmokingHero />
         </React.Fragment>

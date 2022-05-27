@@ -4,9 +4,11 @@ import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { storageService, dbService} from '../../../fbase';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const AddPosts = ({ userObj }) => {
 
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: "",
         desc: "",
@@ -53,7 +55,7 @@ const AddPosts = ({ userObj }) => {
             setFormData({
                 title: "",
                 desc: "",
-                image: ""
+                image: "",
             })
             getDownloadURL(uploadImage.snapshot.ref)
             .then(url=>{
@@ -70,6 +72,7 @@ const AddPosts = ({ userObj }) => {
                 })
                 .then(()=>{
                     alert('추가되었습니다.')
+                    navigate('/blog')
                 })
                 .catch(err=>{
                     alert('실패했습니다')
@@ -79,7 +82,7 @@ const AddPosts = ({ userObj }) => {
     }
 
     return (
-        <Container maxWidth='sm'>
+        <Container maxWidth='sm' sx={{ mt:15, mb:10 }}>
         {!userObj ?
         <>
         <Box sx={{ border:1, p:3, mt:3 }}>

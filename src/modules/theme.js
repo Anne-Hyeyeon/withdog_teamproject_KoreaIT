@@ -9,9 +9,9 @@ const rawTheme = createTheme({
       dark: '#1e1e1f',
     },
     secondary: {
-      light: '#fff5f8',
-      main: '#ff3366',
-      dark: '#e62958',
+      light: '#FFFDF6',
+      main: '#FFA733',
+      dark: '#E68829',
     },
     warning: {
       main: '#ffc071',
@@ -29,7 +29,7 @@ const rawTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Work Sans', sans-serif",
+    fontFamily: "HallymMjo",
     fontSize: 14,
     fontWeightLight: 300, // Work Sans
     fontWeightRegular: 400, // Work Sans
@@ -40,7 +40,7 @@ const rawTheme = createTheme({
 const fontHeader = {
   color: rawTheme.palette.text.primary,
   fontWeight: rawTheme.typography.fontWeightMedium,
-  fontFamily: "'Roboto Condensed', sans-serif",
+  fontFamily: "HallymMjo",
   textTransform: 'uppercase',
 };
 

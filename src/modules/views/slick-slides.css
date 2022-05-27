@@ -1,0 +1,46 @@
+
+.slick-slider{
+    width: 100%;
+}
+
+
+.slick-slide {
+    object-fit: cover;
+    width: auto;
+    height: 600px;
+}
+
+@media (max-width: 780px) {
+    .slick-slide {
+        width: auto;
+        height: 300px;
+    }
+}
+
+@media (min-width: 1000px) {
+  .slick-slide {
+      width: auto;
+      height: 800px;
+  }
+}
+
+
+
+.slides {
+  position: relative;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.slides .slick-prev {
+  left: 5%;
+}
+
+.slides .slick-next {
+  right: 5%;
+}

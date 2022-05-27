@@ -3,7 +3,7 @@ import withRoot from './modules/withRoot';
 import MainRouter from './modules/components/MainRouter';
 import {useEffect, useState} from 'react'
 import { authService } from './fbase';
-import AppAppbar from '../src/modules/views/AppAppBar'
+import AppAppBar from './modules/views/AppAppBar';
 import AppFooter from '../src/modules/views/AppFooter'
 import AppAppBarLoggedIn from '../src/modules/views/AppAppBarLoggedIn'
 
@@ -43,12 +43,12 @@ function App() {
     <>
       {isLoggedIn ?
       <>
-      <AppAppBarLoggedIn />
+      <AppAppBarLoggedIn userObj={userObj} />
       <MainRouter refreshUser={refreshUser} isLoggedIn={isLoggedIn} userObj={userObj}/>
       <AppFooter />
       </> : 
       <>
-      <AppAppbar />
+      <AppAppBar userObj={userObj} />
       <MainRouter refreshUser={refreshUser} isLoggedIn={isLoggedIn} userObj={userObj}/>
       <AppFooter />
       </>}
