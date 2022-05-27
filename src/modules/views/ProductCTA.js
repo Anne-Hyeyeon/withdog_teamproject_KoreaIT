@@ -7,6 +7,7 @@ import TextField from '../components/TextField';
 import Snackbar from '../components/Snackbar';
 import Button from '../components/Button';
 
+
 function ProductCTA() {
   const [open, setOpen] = React.useState(false);
 
@@ -19,16 +20,15 @@ function ProductCTA() {
     setOpen(false);
   };
 
+  const now = new Date()
+  const month = now.getMonth() + 1 
+
   return (
-    <Box
-    component="section"
-    sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
-  >
-          {/* <Typography variant="h4" marked="center" align="center" component="h2" sx={{mb:10}}>
-        반려견 관련 정보/칼럼
-      </Typography> */}
-<Container sx={{ mt: 10, mb: 20, display: 'flex', position: 'relative' }}>
-  
+    <Box component="section" sx={{bgcolor:'secondary.light', p:10}}>
+    <Typography variant="h4" marked="center" align="center" component="h2" sx={{display:'block', mb:10}}>
+    {month}월의 Best 애견 핫플레이스
+  </Typography>
+<Container sx={{ display: 'flex', position: 'relative' }}>
       <Grid container>
         <Grid item xs={12} md={6} sx={{ zIndex: 1 }}>
           <Box
@@ -105,6 +105,7 @@ function ProductCTA() {
 
     </Container>
     </Box>
+
   );
 }
 
