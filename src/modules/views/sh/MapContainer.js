@@ -75,38 +75,35 @@ const MapContainer = ({ searchPlace }) => {
   }, [searchPlace])
 
   return (
-    <Box sx={{width: '100%'}}>
-      <Grid container rowSpacing={0.5}>
-        <Grid item xs={7}>
-          <Box className="map"
-            id="myMap"
-            style={{
-              border: '3px solid gray',
-              borderRadius: '8px',
-              width: '70vh',
-              height: '600px',
-            }}
-          ></Box>
-        </Grid>
-        <Grid item xs={5}>
-          <Box className="address_list">
-            {Places.map((item, i) => (
-              <Stack className="address_list_ind" key={i} style={{ marginTop: '5px' }}>
-                <span className="address_list_title">{i + 1}. {item.place_name}</span>
-                <span className="address_list_add1"><PlaceIcon color="primary"/> {item.address_name}</span>
-                {item.road_address_name ? (
-                  <span className="address_list_add2"><PlaceIcon color="primary"/> {item.road_address_name}</span>
-                ) : (<span></span>)}
-                {item.phone ? (
-                  <span className="address_list_phone"><PhoneIcon color="primary"/> {item.phone}</span>
-                ) : (<span></span>)}
-                <br></br>
-              </Stack>
-            ))}
-          </Box>
-        </Grid>
+    <Grid container spacing={1}>
+      <Grid item xs={12} sm={8}>
+        <Box className="map" p={2}
+          id="myMap"
+          style={{
+            border: '3px solid gray',
+            borderRadius: '8px',
+            height: '600px',
+          }}
+        ></Box>
       </Grid>
-    </Box>
+      <Grid item xs={12} sm={4}>
+        <Box className="address_list" p={2}>
+          {Places.map((item, i) => (
+            <Stack className="address_list_ind" key={i} style={{ marginTop: '5px' }}>
+              <span className="address_list_title">{i + 1}. {item.place_name}</span>
+              <span className="address_list_add1"><PlaceIcon color="primary"/> {item.address_name}</span>
+              {item.road_address_name ? (
+                <span className="address_list_add2"><PlaceIcon color="primary"/> {item.road_address_name}</span>
+              ) : (<span></span>)}
+              {item.phone ? (
+                <span className="address_list_phone"><PhoneIcon color="primary"/> {item.phone}</span>
+              ) : (<span></span>)}
+              <br></br>
+            </Stack>
+          ))}
+        </Box>
+      </Grid>
+    </Grid>
   )
 }
 
