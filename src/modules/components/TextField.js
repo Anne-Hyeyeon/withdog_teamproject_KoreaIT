@@ -82,7 +82,6 @@ function TextField(props) {
     noBorder,
     size = 'medium',
     SelectProps,
-    variant='filled',
     ...other
   } = props;
 
