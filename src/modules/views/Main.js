@@ -14,7 +14,7 @@ function Main({ userObj } ) {
             <ProductCategories />
             {/* <ProductHowItWorks /> */}
             <ProductCTA />
-            <ProductSmokingHero />
+            {/* <ProductSmokingHero /> */}
         </React.Fragment>
     );
 }

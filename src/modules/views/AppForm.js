@@ -15,11 +15,11 @@ function AppForm(props) {
     >
       <Container maxWidth="sm" sx={{ mt:10}}>
         <Box sx={{ mt: 7, mb: 12 }}>
-          <Paper
+          <Box
             sx={{ py: { xs: 4, md: 8 }, px: { xs: 3, md: 6 } }}
           >
             {children}
-          </Paper>
+          </Box>
         </Box>
       </Container>
     </Box>
