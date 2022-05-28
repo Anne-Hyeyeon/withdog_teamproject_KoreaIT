@@ -14,7 +14,7 @@ function Main(props) {
             <ProductCategories />
             {/* <ProductHowItWorks /> */}
             <ProductCTA />
-            <ProductSmokingHero />
+            {/* <ProductSmokingHero /> */}
         </React.Fragment>
     );
 }

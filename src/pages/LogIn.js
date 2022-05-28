@@ -1,6 +1,20 @@
 import React, { useState } from "react";
 import { authService } from "../fbase";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import SignIn from "../modules/views/temp/SignIn";
+import AppForm from "../modules/views/AppForm";
+import Typography from "../modules/components/Typography";
+import { Link } from "@mui/material";
+import { Form } from "react-final-form";
+import { Box } from "@mui/material";
+import { Field } from "react-final-form";
+import FormButton from "../modules/form/FormButton";
+import TextField from "../modules/components/TextField";
+import { FormControlLabel } from "@mui/material";
+import { Checkbox } from "@mui/material";
+import Button from "../modules/components/Button";
+import { Grid } from "@mui/material";
+import { Container } from "@mui/system";
 
 const Login=() => {
   const [email, setEmail] = useState("");
@@ -32,38 +46,66 @@ const Login=() => {
 
 
   return (
-    <div className="sign-container">
-      <div className="sign-wrap">
-        <h1 className="title">로그인</h1>
-        <form className="sign-form" onSubmit={onSubmit}>
-          <div>
-            <input
-              type="email"
-              placeholder="이메일을 입력하세요."
+    <>
+    <Container maxWidth='xl'>
+        <AppForm>
+        <Typography variant="h3" gutterBottom marked="center" align="center">
+            Sign In
+          </Typography>
+            <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
               name="email"
+              autoComplete="email"
+              autoFocus
               value={email}
               onChange={onChange}
             />
-          </div>
-          <div>
-            <input
-              type="password"
-              placeholder="비밀번호를 입력하세요."
+            <TextField
+              margin="normal"
+              required
+              fullWidth
               name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
               value={password}
               onChange={onChange}
             />
-          </div>
-          <div>
-            <button type="submit">로그인</button>
-          </div>
-        </form>
-        <hr></hr>
-        <p>
-          회원이 아니시라면... <Link to="/signup">회원가입</Link>
-        </p>
-      </div>
-    </div>
+              <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              color='secondary'
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                {/* <Link href="#" variant="body2">
+                  Forgot password?
+                </Link> */}
+              </Grid>
+              <Grid item>
+                <Link href="/signup" variant="body2">
+                  {"아직 계정이 없다면? 회원가입!"}
+                </Link>
+              </Grid>
+            </Grid>
+        </Box>
+        </AppForm>
+    </Container>
+    </>
   );
 }
 
