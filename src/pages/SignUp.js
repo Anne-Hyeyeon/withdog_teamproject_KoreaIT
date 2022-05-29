@@ -57,7 +57,7 @@ const SignUp = () => {
     <Container maxWidth='xl'>
       <AppForm>
       <Typography variant="h3" gutterBottom marked="center" align="center">
-            Sign In
+            Sign Up
           </Typography>
           <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
           <Grid container spacing={2}>
