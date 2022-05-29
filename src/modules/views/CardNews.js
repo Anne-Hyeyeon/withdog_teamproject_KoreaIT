@@ -5,8 +5,6 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import dogbanner1 from '../views/hy/assets/dogbanner1.png'
-import dogbanner2 from '../views/hy/assets/dogbanner2.png'
 
 function ProductCategories(props) {
 
@@ -92,25 +90,47 @@ function ProductCategories(props) {
             </Card>
           </CardActionArea>
         </Grid>
-        <Grid item xs={12} md={12} xl={12} sx={{ mt:2 }}>
-          <CardActionArea component="a" href="https://search.shopping.naver.com/search/all?query=%EA%B0%95%EC%95%84%EC%A7%80+%EC%9A%A9%ED%92%88&bt=-1&frm=NVSCPRO" target='_blank'>
-            <CardMedia
-            component="img"
-            image={dogbanner1}
-            alt='article'
-            />
+        <Grid item xs={12} md={6} xl={6}>
+          <CardActionArea component="a" href="https://www.insight.co.kr/news/396801" target='_blank'>
+            <Card sx={{ display: 'flex' }}>
+            <CardContent sx={{ height:'200px', width:'100%' }}>                
+            <Typography component="h2" variant="h5" sx={{ mt:5 }}>
+                강아지 건강관리를 위해 보호자가 꼭 알아야 할 4가지
+                </Typography>
+                <Typography variant="subtitle1" color="text.secondary">
+                데일리팝
+                </Typography>
+              </CardContent>
+              <CardMedia
+                component="img"
+                sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+                image='https://cdn.pixabay.com/photo/2016/11/26/23/45/dog-1861839_1280.jpg'
+                alt='article'
+              />
+            </Card>
           </CardActionArea>
         </Grid>
-        <Grid item xs={12} md={12} xl={12}>
-          <CardActionArea component="a" href="https://search.shopping.naver.com/search/all?query=%EA%B0%95%EC%95%84%EC%A7%80%20%ED%94%84%EB%A1%9C%ED%95%84&cat_id=&frm=NVSHATC" target='_blank'>
-            <CardMedia
-            component="img"
-            image={dogbanner2}
-            alt='article'
-            />
+        <Grid item xs={12} md={6} xl={6}>
+          <CardActionArea component="a" href="https://www.insight.co.kr/news/396801" target='_blank'>
+            <Card sx={{ display: 'flex' }}>
+            <CardContent sx={{ height:'200px', width:'100%' }}>                
+            <Typography component="h2" variant="h5" sx={{ mt:5 }}>
+                유난히 작은 강아지, '간문맥전신단락' 의심하세요!
+                </Typography>
+                <Typography variant="subtitle1" color="text.secondary">
+                헬스경향
+                </Typography>
+              </CardContent>
+              <CardMedia
+                component="img"
+                sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+                image='https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_1280.jpg'
+                alt='article'
+              />
+            </Card>
           </CardActionArea>
         </Grid>
-        
+       
     </Grid>
   );
 }

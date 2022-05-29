@@ -1,10 +1,10 @@
 import React from 'react';
 import ProductValues from './ProductValues';
 import ProductCategories from './ProductCategories';
-import ProductHowItWorks from './ProductHowItWorks';
 import ProductCTA from './ProductCTA';
 import ProductSmokingHero from './ProductSmokingHero';
 import Banner from './Banner';
+import SponsoredBanner from './SponsoredBanner';
 
 function Main(props) {
     return (
@@ -12,9 +12,9 @@ function Main(props) {
             <Banner />
             <ProductValues />
             <ProductCategories />
-            {/* <ProductHowItWorks /> */}
             <ProductCTA />
             {/* <ProductSmokingHero /> */}
+            <SponsoredBanner />
         </React.Fragment>
     );
 }

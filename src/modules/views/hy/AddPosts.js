@@ -10,6 +10,7 @@ import Typography from '../../components/Typography';
 import { Grid } from '@mui/material';
 import { TextField } from '@mui/material';
 import Button from '../../components/Button';
+import BlogLogin from '../../../pages/BlogLogin';
 
 const AddPosts = ({ userObj }) => {
 
@@ -91,7 +92,7 @@ const AddPosts = ({ userObj }) => {
         {!userObj ?
         <>
         <Box sx={{mt:-15}}>
-        <Login />
+        <BlogLogin />
         </Box>
         </> :
             <Box sx={{p:3, mt:-20 }}>

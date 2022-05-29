@@ -59,7 +59,7 @@ function ProductCTA() {
           item
           xs={12}
           md={6}
-          sx={{ display: { md: 'block', xs: 'block' }, position: 'relative' }}
+          sx={{ display: { md: 'block', xs: 'none' }, position: 'relative' }}
         >
           <Box
             sx={{
