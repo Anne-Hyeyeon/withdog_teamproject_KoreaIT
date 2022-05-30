@@ -12,7 +12,7 @@ import Button from "../modules/components/Button";
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
 
-const Login=() => {
+const BlogLogin=() => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,7 +33,7 @@ const Login=() => {
     if (email !== "" && password !== "") {
       try {
         await authService.signInWithEmailAndPassword(email,password)
-        navigate('/mainloggedin')
+        navigate('/blog')
       } catch (error) {
         console.log(error);
       }
@@ -105,4 +105,4 @@ const Login=() => {
   );
 }
 
-export default Login;
+export default BlogLogin;

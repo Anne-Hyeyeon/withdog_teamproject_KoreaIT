@@ -3,8 +3,14 @@ import { Box, Container } from '@mui/material';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { storageService, dbService} from '../../../fbase';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Login from '../../../pages/LogIn';
+import AppForm from '../AppForm';
+import Typography from '../../components/Typography';
+import { Grid } from '@mui/material';
+import { TextField } from '@mui/material';
+import Button from '../../components/Button';
+import BlogLogin from '../../../pages/BlogLogin';
 
 const AddPosts = ({ userObj }) => {
 
@@ -34,7 +40,7 @@ const AddPosts = ({ userObj }) => {
     const handlePublish = () =>{
         console.log(userObj)
         if(!formData.title || !formData.desc || !formData.image){
-            alert('Please fill all the fields')
+            alert('모든 항목을 채워주세요!')
             return;
         }
         // ref 뭔지 확인!
@@ -82,56 +88,87 @@ const AddPosts = ({ userObj }) => {
     }
 
     return (
-        <Container maxWidth='sm' sx={{ mt:15, mb:10 }}>
+        <Container maxWidth='xl' sx={{ mt:15, mb:10 }}>
         {!userObj ?
         <>
-        <Box sx={{ border:1, p:3, mt:3 }}>
-            <h2><Link to ='/login'>Login To Create Article</Link></h2>
-            <h2>회원이 아니신가요? <Link to ='/signup'>회원가입</Link></h2>
+        <Box sx={{mt:-15}}>
+        <BlogLogin />
         </Box>
         </> :
-            <Box sx={{ border:1, p:3, mt:3 }}>
-                <h2>Create Post</h2>
-                {/* title */}
-                <label htmlFor="">Title</label>
-                <input 
-                    type="text" 
-                    name="title" 
-                    className="form-control" 
-                    value={formData.title}
-                    onChange={(e)=>handleChange(e)} 
-                    />
+            <Box sx={{p:3, mt:-20 }}>
+                       <AppForm>
+                       <Typography variant="h3" gutterBottom marked="center" align="center">
+                       게시글 작성하기
+                    </Typography>
+                <Box component="form" onSubmit={handlePublish} noValidate sx={{ mt: 1 }}>
+                <Grid container spacing={2}>
+                <Grid item xs={12} sm={12}>
+                <TextField
+                  label="제목"
+                  autoComplete="title"
+                  name="title"
+                  className="form-control"
+                  required
+                  fullWidth
+                  id="title"
+                  placeholder="제목을 입력하세요"
+                  type="text"
+                  autoFocus
+                  value={formData.title}
+                  onChange={(e)=>handleChange(e)}
+                />
+              </Grid>
 
                 {/* description */}
-                <label htmlFor="">Description</label>
-                <textarea 
-                    name="desc" 
-                    className="form-control" 
-                    value={formData.desc}
-                    onChange={(e)=>handleChange(e)}
-                    />
-
+                <Grid item xs={12} sm={12}>
+                <TextField
+                name="desc"
+                id="contents"
+                label="내용"
+                multiline
+                fullWidth
+                rows={10}
+                value={formData.desc}
+                onChange={(e)=>handleChange(e)}
+                className="form-control"
+                required
+                placeholder="오늘 무슨 일이 있었나요?"
+                />
+                </Grid>
                 {/* image */}
-                <label htmlFor="">Image</label>
-                <input 
-                    type="file" 
-                    name="image" 
-                    accept="image/*"
-                    className="form-control" 
-                    onChange={(e)=>handleImageChange(e)}
-                    />
-
+                <Grid item xs={12} sm={12}>
+                <TextField
+                autoFocus
+                type="file"
+                name="image" 
+                accept="image/*"
+                className="form-control" 
+                onChange={(e)=>handleImageChange(e)}
+                fullWidth
+                />
+                </Grid>
                 {/* progressbar */}
+                <Grid item xs={12} sm={12}>
                 {progress === 0 ? null : (
                     <div className="progress">
-                    <span className="sr-only" style={{ width:`${progress}%` }}>{`uploading image ${progress}`}</span>
+                    <span className="sr-only" style={{ width:`${progress}%` }}>{`업로드 중입니다 ${progress}`}</span>
                     </div>
                 )}
-
-                <button 
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                <Button 
+                color='secondary'
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
                 className="form-control"
-                onClick={handlePublish}>Publish</button>
+                onClick={handlePublish}>업로드</Button>
+                </Grid>
+                </Grid>
+                </Box>
+            </AppForm>
             </Box>}
+
         </Container>
     );
 }

@@ -128,7 +128,7 @@ const AppAppBar = ({ userObj }) => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href='/main'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },

@@ -8,7 +8,6 @@ function FormButton(props) {
   const { disabled, mounted, ...others } = props;
   return (
     <Button
-      disabled={!mounted || !!disabled}
       type="submit"
       variant="contained"
       {...others}

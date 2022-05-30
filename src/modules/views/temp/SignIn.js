@@ -2,15 +2,14 @@ import * as React from 'react';
 import { Field, Form, FormSpy } from 'react-final-form';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
-import Typography from '../components/Typography';
-import AppFooter from '../views/AppFooter';
-import AppAppBar from '../views/AppAppBar';
-import AppForm from '../views/AppForm';
-import { email, required } from '../form/validation';
-import RFTextField from '../form/RFTextField';
-import FormButton from '../form/FormButton';
-import FormFeedback from '../form/FormFeedback';
-import withRoot from '../withRoot';
+import Typography from '../../components/Typography';
+import AppForm from '../AppForm'
+import { email, required } from '../../form/validation'
+import RFTextField from '../../form/RFTextField'
+import FormButton from '../../form/FormButton'
+import FormFeedback from '../../form/FormFeedback';
+import withRoot from '../../withRoot'
+
 
 function SignIn() {
   const [sent, setSent] = React.useState(false);
@@ -34,7 +33,6 @@ function SignIn() {
 
   return (
     <React.Fragment>
-      <AppAppBar />
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
@@ -109,7 +107,6 @@ function SignIn() {
           </Link>
         </Typography>
       </AppForm>
-      <AppFooter />
     </React.Fragment>
   );
 }

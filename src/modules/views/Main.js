@@ -2,9 +2,9 @@ import React from 'react';
 import ProductHero from './ProductHero';
 import ProductValues from './ProductValues';
 import ProductCategories from './ProductCategories';
-import ProductHowItWorks from './ProductHowItWorks';
 import ProductCTA from './ProductCTA';
 import ProductSmokingHero from './ProductSmokingHero';
+import SponsoredBanner from './SponsoredBanner';
 
 function Main({ userObj } ) {
     return (
@@ -12,9 +12,9 @@ function Main({ userObj } ) {
             <ProductHero />
             <ProductValues />
             <ProductCategories />
-            {/* <ProductHowItWorks /> */}
             <ProductCTA />
-            <ProductSmokingHero />
+            {/* <ProductSmokingHero /> */}
+            <SponsoredBanner />
         </React.Fragment>
     );
 }

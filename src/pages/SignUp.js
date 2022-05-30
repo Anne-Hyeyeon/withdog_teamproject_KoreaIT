@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@mui/material";
 import { authService } from "../fbase";
 import { useNavigate } from "react-router-dom";
 import { getAuth,updateProfile } from "firebase/auth";
+import { Container, Box } from "@mui/material";
+import AppForm from "../modules/views/AppForm";
+import { Grid } from "@mui/material";
+import { TextField } from "@mui/material";
+import Button from "../modules/components/Button";
+import Typography from "../modules/components/Typography";
 
 const SignUp = () => {
 
@@ -48,56 +54,87 @@ const SignUp = () => {
 
   return (
     <>
-    <div className="sign-container">
-      <div className="sign-up-wrap">
-        <h1 className="title">회원가입</h1>
-        <form className="sign-up-form" onSubmit={onSubmit}>
-          <div>
-            <input
-              type="email"
-              placeholder="Email을 입력하세요."
-              name="email"
-              value={email}
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              placeholder="비밀번호를 입력하세요."
-              name="password"
-              value={password}
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="이름을 입력하세요."
-              name="userName"
-              value={userName}
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="주소를 입력하세요."
-              name="region"
-              value={region}
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <button type="submit" >회원가입</button>
-          </div>
-        </form>
-        <hr></hr>
-        <p>
-          이미 회원이시라면... <Link to="/logIn">로그인</Link>
-        </p>
-      </div>
-    </div>
+    <Container maxWidth='xl'>
+      <AppForm>
+      <Typography variant="h3" gutterBottom marked="center" align="center">
+            Sign Up
+          </Typography>
+          <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
+          <Grid container spacing={2}>
+          <Grid item xs={12} sm={12}>
+                <TextField
+                  autoComplete="email"
+                  name="email"
+                  required
+                  fullWidth
+                  id="email"
+                  label="email"
+                  type="email"
+                  autoFocus
+                  value={email}
+                  onChange={onChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  value={password}
+                  onChange={onChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="name"
+                  name="userName"
+                  required
+                  fullWidth
+                  id="Name"
+                  label="Name"
+                  autoFocus
+                  value={userName}
+                  onChange={onChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="address"
+                  required
+                  fullWidth
+                  id="Address"
+                  label="Address"
+                  autoFocus
+                  name="region"
+                  value={region}
+                  onChange={onChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+              <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            </Grid>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href='/login' variant="body2">
+                  이미 계정이 있다면? 로그인
+                </Link>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
+        </AppForm>
+      </Container>
     </>
   );
 }

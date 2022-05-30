@@ -74,7 +74,10 @@ const styles = ({ theme }) => ({
 
 function TextField(props) {
   const {
-    InputProps = {},
+    InputProps={
+      disableUnderline: 'true',
+      disableunderline: 'true'
+    },
     InputLabelProps,
     noBorder,
     size = 'medium',
@@ -102,7 +105,7 @@ function TextField(props) {
           ),
           ...InputPropsClassesOther,
         },
-        disableUnderline: true,
+        disableunderline: true,
         ...InputPropsOther,
       }}
       InputLabelProps={{
