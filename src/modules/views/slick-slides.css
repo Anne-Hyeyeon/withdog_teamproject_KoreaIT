@@ -7,21 +7,33 @@
 .slick-slide {
     object-fit: cover;
     width: auto;
-    height: 600px;
+    margin-top: 70px;
 }
 
-@media (max-width: 780px) {
-    .slick-slide {
-        width: auto;
-        height: 196px;
-    }
-}
 
-@media (min-width: 1000px) {
+/* PC (해상도 1024px)*/ 
+@media all and (min-width:1024px) {
   .slick-slide {
-      width: auto;
-      height: 800px;
+    width: auto;
+    height: 590px;
   }
+} 
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) {
+  .slick-slide {
+    width: auto;
+    height: 380px;
+}
+} 
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+@media all and (max-width:767px) {
+  .slick-slide {
+    margin-top: 55px;
+    width: auto;
+    height: 196px;
+}
 }
 
 

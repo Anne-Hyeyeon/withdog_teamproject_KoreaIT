@@ -92,7 +92,7 @@ const AddPosts = ({ userObj }) => {
         {!userObj ?
         <>
         <Box sx={{mt:-15}}>
-        <BlogLogin />
+        <Login />
         </Box>
         </> :
             <Box sx={{p:3, mt:-20 }}>
