@@ -50,7 +50,7 @@ const Question = () => {
   }
 
   return (
-    <Container maxWidth="lg" component="main" >
+    <Container Container maxWidth='md' sx={{ mt: 15 }}>
 
       <Grid container>
 

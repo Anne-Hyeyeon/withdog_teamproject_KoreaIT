@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Button, Container, Stack, Typography } from '@mui/material';
+import { Box, Button, Container, Stack } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ResultData } from '../asset/data/resultData'
 import ShareButton from '../components/ShareButton'
+import Typography from '../../../components/Typography';
 
 
 
@@ -19,15 +20,20 @@ function Result() {
   }, [mbti])
 
   return (
-    <Container maxWidth="md" >
+    <Container maxWidth='md' sx={{ mt: 15 }}>
 
-      <Typography align="center" variant="h2" pt={2} mb={4}>
+      <Typography variant="h4" marked="center" align="center" component="h2" >
         강아지 MBTI 결과
       </Typography>
-      <Typography align="center" variant="h4" mb={2}>
-        나의 MBTI는 {mbti}! <br />
+      <Typography align="center" sx={{ mt: 3 }}>
+        나의 MBTI는 {mbti}!
+      </Typography>
+      <Typography align="center" sx={{ mt: 1 }}>
         내가 강아지였다면 나는 {resultData.name}!
       </Typography>
+
+
+
       <Box component="div" sx={{ textAlign: 'center', mb: 2 }}>
         <img src={resultData.image} width={550} height={400} alt="결과 사진" />
       </Box>

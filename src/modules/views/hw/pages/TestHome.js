@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@mui/system';
-import { Button, Card, CardActions, CardMedia, Grid } from '@mui/material';
+import { Box, Button, Card, CardMedia, Grid } from '@mui/material';
 import Typography from '../../../components/Typography';
 
 const background = "https://cdn.pixabay.com/photo/2017/12/27/14/02/friends-3042751_960_720.jpg";
@@ -23,20 +23,16 @@ const Test = () => {
         <Grid item maxWidth='sm'  >
           <Card variant="outlined" sx={{ maxWidth: '100%', maxHeight: '100%', borderRadius: 3, my: 4 }}>
 
-            <CardMedia
-              component="img"
-              width='100%'
-              height="100%"
-              image={background}
-              alt="photo"
-              sx={{ my: 4 }}
-            />
+            <CardMedia component="img" width='100%' height="100%" image={background} alt="photo">
 
-            <CardActions >
-              <Button variant="outlined" size="large" href="/testquestion">
+            </CardMedia>
+
+            <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
+              <Button variant="outlined" size="large" href="/testquestion" sx={{}}>
                 테스트 시작하기
               </Button>
-            </CardActions>
+            </Box>
+
           </Card>
         </Grid>
       </Grid>
