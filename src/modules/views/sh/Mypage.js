@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { authService } from '../../../fbase';
 import { Link, useNavigate } from 'react-router-dom';
-import UserPosts from './UserPosts';
+import UserPostsMenu from './UserPostsMenu';
 
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import { TextField, Box, Button, Container, IconButton, Grid} from '@mui/material';
@@ -11,7 +11,6 @@ const Info = ({refreshUser, userObj}) => {
   const navigate = useNavigate();
   const [newDisplayName, setNewDisplayName]=useState(userObj.displayName);
   const [newRegion, setNewRegion]=useState(userObj.photoURL);
-  const [newPassword, setNewPassword]=useState(userObj.password);
   const onLogOutClick=()=>{
     authService.signOut();
     navigate('/');
@@ -72,15 +71,11 @@ const Info = ({refreshUser, userObj}) => {
           </Grid>
         </Grid>
       </form>
-      <UserPosts/>
-      {/* <Box>
-        {
-        userObj && userObj.uid === userId && (
-          <UserPosts/>
-        )
-        }
-      </Box> */}
-      <Button variant="outlined" onClick={onLogOutClick}>Log out</Button>
+      <Grid >
+        <UserPostsMenu userObj={userObj}>
+        </UserPostsMenu>
+      </Grid>
+      <Button className="btn_logout" variant="outlined" onClick={onLogOutClick}>Log out</Button>
     </Container>
   );
 }
