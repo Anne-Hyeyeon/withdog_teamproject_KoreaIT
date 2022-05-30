@@ -41,7 +41,7 @@ const Info = ({refreshUser, userObj}) => {
     <Container className="info_container">
       <h1>{userObj.displayName}</h1>
       <form className="profile_form" onSubmit={onSubmit}>
-        <Grid container spacing={1}>
+        <Grid container spacing={1} >
           <Grid item xs={12}> 
             <li>이름 </li>
             : <TextField p={2}
@@ -64,7 +64,9 @@ const Info = ({refreshUser, userObj}) => {
           </Grid>
           <Grid>
             <Button 
+              className="btn_edit"
               type="submit" 
+              size="large"
               startIcon={<DriveFileRenameOutlineIcon style={{ fontSize: '40px' }} />}>
               수정하기
             </Button>

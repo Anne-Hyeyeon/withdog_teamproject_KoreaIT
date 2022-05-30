@@ -68,5 +68,9 @@ li {
   margin-right: 10px;
 }
 .btn_logout {
+  float: right;
+}
+.accordion {
   margin-top: 30px;
+  margin-bottom: 50px;
 }
