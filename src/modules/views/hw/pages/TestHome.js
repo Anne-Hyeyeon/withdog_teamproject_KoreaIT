@@ -8,7 +8,7 @@ const background = "https://cdn.pixabay.com/photo/2017/12/27/14/02/friends-30427
 const Test = () => {
 
   return (
-    <Container maxWidth='xl' sx={{ mt: 15 }}>
+    <Container maxWidth='md' sx={{ mt: 15 }}>
       <Typography variant="h4" marked="center" align="center" component="h2" >
         Dog MBTI
       </Typography>

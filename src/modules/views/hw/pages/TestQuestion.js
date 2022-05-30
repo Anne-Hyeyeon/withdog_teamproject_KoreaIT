@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Container, Grid, LinearProgress, Typography } from '@mui/material';
+import { Button, Container, Grid, LinearProgress } from '@mui/material';
 import { QuestionData } from '../asset/data/questionData';
 import { createSearchParams, useNavigate } from 'react-router-dom';
+import Typography from '../../../components/Typography';
 
 const Question = () => {
   const [questionNo, setQuestionNo] = React.useState(0)
@@ -52,10 +53,14 @@ const Question = () => {
   return (
     <Container Container maxWidth='md' sx={{ mt: 15 }}>
 
+      <Typography variant="h4" marked="center" align="center" component="h2" sx={{ mb: 5 }}>
+        MBTI TEST
+      </Typography>
+
       <Grid container>
 
 
-        <Grid item direction="column" justifyContent="flex-start" alignItems="flex-start">
+        <Grid item direction="column" justifyContent="flex-start" alignItems="flex-start" sx={{ mb: 8 }}>
           <Typography gutterBottom component="span" sx={{ fontSize: '50px' }}>
             {QuestionData[questionNo].id + ". "}
           </Typography>

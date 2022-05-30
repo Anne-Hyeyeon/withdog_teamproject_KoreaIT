@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Container, Stack } from '@mui/material';
+import { Button, Card, CardMedia, Container, Grid, Stack } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ResultData } from '../asset/data/resultData'
 import ShareButton from '../components/ShareButton'
@@ -23,7 +23,7 @@ function Result() {
     <Container maxWidth='md' sx={{ mt: 15 }}>
 
       <Typography variant="h4" marked="center" align="center" component="h2" >
-        강아지 MBTI 결과
+        TEST RESULT
       </Typography>
       <Typography align="center" sx={{ mt: 3 }}>
         나의 MBTI는 {mbti}!
@@ -32,19 +32,26 @@ function Result() {
         내가 강아지였다면 나는 {resultData.name}!
       </Typography>
 
+      <Grid container justifyContent="center">
+        <Grid item maxWidth='sm'  >
+          <Card variant="outlined" sx={{ maxWidth: '100%', maxHeight: '100%', borderRadius: 3, my: 4 }}>
 
+            <CardMedia component="img" width='100%' height="100%" image={resultData.image} alt="photo">
+            </CardMedia>
 
-      <Box component="div" sx={{ textAlign: 'center', mb: 2 }}>
-        <img src={resultData.image} width={550} height={400} alt="결과 사진" />
-      </Box>
-      <Typography align="center" variant="h5" padding={2}>
-        {resultData.desc}
-      </Typography>
+            <Typography align="center" variant="h5" padding={2}>
+              {resultData.desc}
+            </Typography>
 
-      <Stack direction="row" spacing={2} justifyContent="center" mb={2}>
-        <Button variant="contained" onClick={() => navigate('/testhome')} >테스트 다시하기</Button>
-        <ShareButton data={resultData} />
-      </Stack>
+            <Stack direction="row" spacing={2} justifyContent="center" mb={2}>
+              <Button variant="contained" onClick={() => navigate('/testhome')} >테스트 다시하기</Button>
+              <ShareButton data={resultData} />
+            </Stack>
+
+          </Card>
+        </Grid>
+      </Grid>
+
 
     </Container>
   );
