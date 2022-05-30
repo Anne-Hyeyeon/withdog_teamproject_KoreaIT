@@ -28,7 +28,7 @@ const Test = () => {
             </CardMedia>
 
             <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
-              <Button variant="outlined" size="large" href="/testquestion" sx={{}}>
+              <Button variant="contained" size="large" href="/testquestion">
                 테스트 시작하기
               </Button>
             </Box>

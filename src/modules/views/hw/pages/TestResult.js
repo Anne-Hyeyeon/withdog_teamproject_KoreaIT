@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, CardMedia, Container, Grid, Stack } from '@mui/material';
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import { ResultData } from '../asset/data/resultData'
 import ShareButton from '../components/ShareButton'
 import Typography from '../../../components/Typography';
@@ -8,7 +8,7 @@ import Typography from '../../../components/Typography';
 
 
 function Result() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()  // MUI Button에서 href 기능 대신 사용
   const [searchParams] = useSearchParams()
   const mbti = searchParams.get('mbti')
   const [resultData, setResultData] = React.useState({}) // 다른 resultdata(객체 형태로 초기화)
@@ -44,7 +44,7 @@ function Result() {
             </Typography>
 
             <Stack direction="row" spacing={2} justifyContent="center" mb={2}>
-              <Button variant="contained" onClick={() => navigate('/testhome')} >테스트 다시하기</Button>
+              <Button variant="outlined" href="/testhome">테스트 다시하기</Button>
               <ShareButton data={resultData} />
             </Stack>
 
