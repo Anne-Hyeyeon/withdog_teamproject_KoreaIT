@@ -210,7 +210,7 @@ const AppAppBar = ({ userObj }) => {
                 variant="h7"
                 underline="none"
                 color="inherit"
-                href="#"
+                href="/mypage"
               >
                 {'Profile' }
               </Link>
