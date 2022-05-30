@@ -5,7 +5,6 @@ import MapContainer from './MapContainer';
 import SearchIcon from '@mui/icons-material/Search';
 import { TextField, Box, Button, Container, Typography, Stack} from '@mui/material';
 import './style.css';
-import AppFooter from '../AppFooter';
 
 const Info = ({userObj}) => {
   const [newRegion, setNewRegion]=useState(userObj.photoURL);
