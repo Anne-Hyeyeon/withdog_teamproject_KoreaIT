@@ -1,13 +1,34 @@
-import React from 'react';
-import { deleteDoc, doc } from 'firebase/firestore';
+import React, { useState } from 'react';
+import { deleteDoc,updateDoc, getDoc, doc } from 'firebase/firestore';
 import { deleteObject, ref } from 'firebase/storage';
 import { dbService, storageService } from '../../../fbase';
 import { MoreVert } from '@mui/icons-material';
 import { Menu, MenuItem, IconButton } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 function SettingPost({id, imageUrl}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const [editing, setEditing] = useState(false)
+    const [editedPost, setEditedPost] = useState("")
+
+
+    /*Dialog*/
+    const [openEditDialog, setOpenEditDialog] = React.useState(false);
+    const handleClickOpenEditDialog = () => {
+        setOpenEditDialog(true);
+      };
+      const handleCloseEditDialog = () => {
+        setOpenEditDialog(false);
+      };
+
+
+
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
@@ -26,8 +47,22 @@ function SettingPost({id, imageUrl}) {
         } catch (error) {
             console.log(error)
         }
+    }
 
-    }    
+    const handleEdit = async (e) => {
+        e.preventDefault()
+        try{
+            await updateDoc(doc(dbService, 'Posts', id), {
+                title: '이것으로',
+                desc: '이것으로'
+            })
+            handleClose()
+        } catch (error) {
+            alert(error)
+        }
+
+    }   
+
     return (
         <div>
              <IconButton 
@@ -51,7 +86,14 @@ function SettingPost({id, imageUrl}) {
                 <MenuItem onClick={handleDelete}>
                 Delete
                 </MenuItem>
-                <MenuItem onClick={handleClose}>Edit(개발중)</MenuItem>
+                <MenuItem onClick={handleClickOpenEditDialog}>Edit</MenuItem>
+                <Dialog open={openEditDialog} onClose={handleCloseEditDialog}>
+                    <DialogTitle>게시글 수정하기</DialogTitle>
+                    <DialogContent>
+                            제목 : <TextField placeholder='랄라' />
+                            내용 : <TextField placeholder='랄라' />
+                    </DialogContent>
+                </Dialog>
             </Menu>
         </div>
     );

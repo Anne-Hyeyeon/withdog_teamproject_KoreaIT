@@ -10,7 +10,6 @@ import Typography from '../../components/Typography';
 import { Grid } from '@mui/material';
 import { TextField } from '@mui/material';
 import Button from '../../components/Button';
-import BlogLogin from '../../../pages/BlogLogin';
 
 const AddPosts = ({ userObj }) => {
 
@@ -38,7 +37,6 @@ const AddPosts = ({ userObj }) => {
     }
 
     const handlePublish = () =>{
-        console.log(userObj)
         if(!formData.title || !formData.desc || !formData.image){
             alert('모든 항목을 채워주세요!')
             return;
