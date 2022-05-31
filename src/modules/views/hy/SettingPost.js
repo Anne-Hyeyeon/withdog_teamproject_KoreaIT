@@ -55,11 +55,14 @@ function SettingPost({id, imageUrl, userObj, desc, title}) {
     /* delete 기능 */
     const handleDelete = async() =>{
         try {
-            await deleteDoc(userRef)
-            alert('게시글이 삭제되었습니다.')
-            const storageRef  = ref(storageService, imageUrl)
-            await deleteObject(storageRef)
-
+            if (window.confirm('정말로 삭제하시겠습니까?')) {
+                await deleteDoc(userRef)
+                alert('게시글이 삭제되었습니다.')
+                const storageRef  = ref(storageService, imageUrl)
+                await deleteObject(storageRef)
+              } else {
+                handleCloseEditDialog()
+              }
         } catch (error) {
             console.log(error)
         }
@@ -110,14 +113,13 @@ function SettingPost({id, imageUrl, userObj, desc, title}) {
                 onClose={handleCloseSettingMenu}
                 elevation={1}
                 >
+                <MenuItem onClick={handleClickOpenEditDialog}>Edit</MenuItem>
                 <MenuItem onClick={handleDelete}>
                 Delete
                 </MenuItem>
-                <MenuItem onClick={handleClickOpenEditDialog}>Edit</MenuItem>
-                <Dialog open={openEditDialog} onClose={handleCloseEditDialog} onKeyDown={stopPropagationForTab}
->
-                    <DialogTitle sx={{ p: 4, textAlign:'center'}}>
-
+                <Dialog open={openEditDialog} onClose={handleCloseEditDialog} onKeyDown={stopPropagationForTab}>
+                    
+                    <DialogTitle sx={{p: 4, textAlign:'center'}}>
                     <FontAwesomeIcon icon={faDog} /> 게시글 수정하기</DialogTitle>
                     <DialogContent>
                     <Typography>제목</Typography>
