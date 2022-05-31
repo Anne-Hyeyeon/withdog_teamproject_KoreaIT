@@ -4,6 +4,7 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 import SettingPost from './SettingPost';
 import { Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, Typography, CardActions } from '@mui/material';
 import { Comment, Favorite } from '@mui/icons-material';
+import { Avatar } from '@mui/material';
 
 function Posts({ userObj }) {
     const [posts, setPosts] = useState([])
@@ -26,6 +27,8 @@ function Posts({ userObj }) {
         })
     })
 
+
+
     return (
         <Container maxWidth='sm' sx={{ py: 6 }}>
             {
@@ -37,6 +40,11 @@ function Posts({ userObj }) {
                             <Grid item key={id} xs={12} sm={12} md={12}>
                                 <Card key={id} variant="outlined" sx={{ maxWidth: '100%', maxHeight: '100%', borderRadius: 3, mb: 3 }}>
                                     <CardHeader
+                                        avatar={
+                                            <Avatar sx={{ bgcolor: 'secondary.dark', fontSize:15 }}>
+                                            {userObj.displayName}
+                                          </Avatar>
+                                        }
                                         action={
                                             <>
                                                 {
@@ -47,7 +55,7 @@ function Posts({ userObj }) {
                                             </>
                                         }
                                         title={createdBy}
-                                        subheader={createdAt.toDate().toDateString()}
+                                        subheader={createdAt.toDate().toDateString() + "\u00a0" + createdAt.toDate().toLocaleTimeString([], {timeStyle: 'short'})}
                                     />
                                     {/* <Box></Box> */}
                                     <CardMedia
