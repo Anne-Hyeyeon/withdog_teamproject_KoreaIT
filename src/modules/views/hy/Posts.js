@@ -41,7 +41,7 @@ function Posts({ userObj }) {
                                             <>
                                                 {
                                                     userObj && userObj.uid === userId && (
-                                                        <SettingPost userId={userId} userObj={userObj} id={id} imageUrl={imageUrl} />
+                                                        <SettingPost userId={userId} userObj={userObj} id={id} imageUrl={imageUrl} desc={desc} title={title}/>
                                                     )
                                                 }
                                             </>
