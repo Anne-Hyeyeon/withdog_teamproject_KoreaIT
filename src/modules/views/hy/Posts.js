@@ -67,7 +67,7 @@ function Posts({ userObj }) {
                                     />
                                     <CardContent>
                                         <Typography variant="h6">{title}</Typography>
-                                        <Typography variant="body1" color="text.secondary" sx={{ whiteSpace: 'pre-wrap' }}>
+                                        <Typography variant="body2" color="text.secondary" sx={{ whiteSpace: 'pre-wrap', mt:1 }}>
                                             {desc}
                                         </Typography>
                                     </CardContent>

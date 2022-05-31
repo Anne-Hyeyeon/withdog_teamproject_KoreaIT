@@ -60,7 +60,7 @@ function SettingPost({id, imageUrl, desc, title}) {
                 const storageRef  = ref(storageService, imageUrl)
                 await deleteObject(storageRef)
               } else {
-                handleCloseEditDialog()
+                handleCloseSettingMenu()
               }
         } catch (error) {
             console.log(error)
