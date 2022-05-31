@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { deleteDoc,updateDoc, getDoc, doc } from 'firebase/firestore';
+import { deleteDoc,updateDoc, doc } from 'firebase/firestore';
 import { deleteObject, ref } from 'firebase/storage';
 import { dbService, storageService } from '../../../fbase';
 import { MoreVert } from '@mui/icons-material';
@@ -8,13 +8,12 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Box } from '@mui/material';
 import { Button } from '@mui/material';
 import Typography from '../../components/Typography'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDog } from '@fortawesome/free-solid-svg-icons';
 
-function SettingPost({id, imageUrl, userObj, desc, title}) {
+function SettingPost({id, imageUrl, desc, title}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
