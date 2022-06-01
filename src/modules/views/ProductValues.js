@@ -21,7 +21,7 @@ function ProductValues() {
   return (
     <Box
       component="section"
-      sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
+      sx={{ mt:-1, display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
     >
 
       <Container sx={{ mt: 15, mb: 15, display: 'flex', position: 'relative' }}>
