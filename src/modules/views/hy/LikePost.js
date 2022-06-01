@@ -1,8 +1,8 @@
 import React from 'react';
-import { CookieSharp, Favorite } from '@mui/icons-material';
-import { authService, dbService } from '../../../fbase';
+import { Favorite } from '@mui/icons-material';
+import { dbService } from '../../../fbase';
 import { arrayRemove, arrayUnion, doc, updateDoc } from 'firebase/firestore';
-import { Box, IconButton, Typography } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
 
 
 function LikePost({ userObj, id,likes }) {

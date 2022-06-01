@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Box, Typography, TextField, Grid, Button } from '@mui/material';
+import {Box, Typography, TextField, Grid, Button, Container } from '@mui/material';
 import { arrayRemove, arrayUnion, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { dbService } from '../../../fbase';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -42,7 +42,7 @@ function CommentPost({ userObj,id }) {
                     user: userObj.uid,
                     userName : userObj.displayName,
                     comment : comment,
-                    createdAt: new Date,
+                    createdAt: new Date(),
                     commentId : uuid_v4()
                 })
             })
@@ -55,7 +55,7 @@ function CommentPost({ userObj,id }) {
                     user: userObj.uid,
                     userName : userObj.displayName,
                     comment : comment,
-                    createdAt: new Date,
+                    createdAt: new Date(),
                     commentId : uuid_v4()
                 })
             })
@@ -63,7 +63,7 @@ function CommentPost({ userObj,id }) {
     }
 
         return (
-              <Box sx={{ p:3 }}>
+              <Container>
                     <Box>
                         {comments.map(
                             ({ commentId, user, comment, userName, createdAt }) => 
@@ -95,7 +95,7 @@ function CommentPost({ userObj,id }) {
                           </Grid>
                           </Grid>
                     </Box>
-              </Box>
+              </Container>
             );
 }
 

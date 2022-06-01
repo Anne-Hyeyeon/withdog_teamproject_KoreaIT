@@ -3,27 +3,12 @@ import { dbService } from '../../../fbase';
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 import SettingPost from './SettingPost';
 import { Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, Typography, CardActions, CardActionArea, Link } from '@mui/material';
-import { Comment, CookieSharp, Favorite } from '@mui/icons-material';
+import { Comment } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
 import LikePost from './LikePost';
-import CommentPost from './CommentPost';
-import PostsOnClick from './PostsOnClick';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 
 function Posts({ userObj }) {
     const [posts, setPosts] = useState([])
-    const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
   
 
     useEffect(() => {
