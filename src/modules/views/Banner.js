@@ -7,6 +7,8 @@ import withdog1 from "../views/hy/assets/withdog1.png"
 import withdog3 from "../views/hy/assets/withdog3.png"
 import withdog4 from "../views/hy/assets/withdog4.png"
 import withdog5 from "../views/hy/assets/withdog5.png"
+import { Box } from "@mui/system";
+import Typography from "../components/Typography";
 
 
 
@@ -55,22 +57,64 @@ export default class Banner extends Component {
         ]
       };
     return (
-        <div className="container">
+        <Box className="container">
         <Slider {...settings}>
-          <div>
-            <img src={withdog3} alt="doggo1" style={{ width:'100%' }} />
-          </div>
-          <div>
+          <Box >
+          <img src={withdog3} alt="doggo1" style={{ width:'100%' }} />
+            <Box sx={{ display: { xs: 'none', sm:'inherit'}, position:'absolute', left:'3%', top:'68%'}}>
+            <Typography color="inherit" align="left" variant="h4" marked="center" sx={{ fontWeight:'bold' }}>
+        윗독에 돌아오신 걸 환영해요!
+      </Typography>
+      <Typography
+        color="inherit"
+        align="left"
+        variant="body1"
+        sx={{mt:1}}
+      >
+        에견인들을 위한 다양한 활동들이 기다리고 있어요!
+      </Typography>
+
+        </Box>
+          </Box>
+          <Box>
             <img src={withdog4}  alt="doggo2" style={{ width:'100%' }}/>
-          </div>
-          <div>
+            <Box sx={{ display: { xs: 'none', sm:'inherit'}, position:'absolute', left:'3%', top:'68%'}}>
+            <Typography color="inherit" align="left" variant="h4" marked="center" sx={{ fontWeight:'bold' }}>
+        윗독에 돌아오신 걸 환영해요!
+      </Typography>
+      <Typography
+        color="inherit"
+        align="left"
+        variant="body1"
+        sx={{mt:1}}
+      >
+        에견인들을 위한 다양한 활동들이 기다리고 있어요!
+      </Typography>
+
+        </Box>
+          </Box>
+          <Box>
             <img src={withdog5}  alt="doggo3" style={{ width:'100%' }} />
-          </div>
-          <div>
+            <Box sx={{ display: { xs: 'none', sm:'inherit'}, position:'absolute', left:'3%', top:'68%'}}>
+            <Typography color="inherit" align="left" variant="h4" marked="center" sx={{ fontWeight:'bold' }}>
+        윗독에 돌아오신 걸 환영해요!
+      </Typography>
+      <Typography
+        color="inherit"
+        align="left"
+        variant="body1"
+        sx={{mt:1}}
+      >
+        에견인들을 위한 다양한 활동들이 기다리고 있어요!
+      </Typography>
+
+        </Box>
+          </Box>
+          <Box>
             <img src={withdog1}  alt="doggo4" style={{ width:'100%' }}/>
-          </div>
+          </Box>
         </Slider>
-      </div>
+      </Box>
     );
   }
 }
