@@ -5,14 +5,16 @@ import ProductCTA from './ProductCTA';
 import Banner from './Banner';
 import SponsoredBanner from './SponsoredBanner';
 
+
+
 function Main(props) {
+
     return (
         <React.Fragment>
             <Banner />
             <ProductValues />
             <ProductCategories />
             <ProductCTA />
-            {/* <ProductSmokingHero /> */}
             <SponsoredBanner />
         </React.Fragment>
     );

@@ -18,7 +18,7 @@ function CommentPost({ userObj,id }) {
         onSnapshot(docRef, (snapshot)=>{
             setComments(snapshot.data().comments)
         })
-      }, [])
+      }, [id])
 
 
 
