@@ -53,7 +53,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
             <Route path="/dog" element={<DogIcons />} />
-            <Route path="/posts/:id" element={<PostsOnClick />} />
+            <Route path="/posts/:id" element={<PostsOnClick userObj={userObj} />} />
           </>
         )}
         {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
