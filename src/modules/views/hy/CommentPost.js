@@ -79,9 +79,11 @@ function CommentPost({ userObj,id,createdBy }) {
                                         </Box>
                                         </Grid>
                                         <Grid item xs={1} md={1} xl={1} textAlign='right' >
+                                            { userObj.uid === user && (
                                             <IconButton sx={{ ml:2 }} onClick={() => handleDeleteComment({ commentId, user, comment, userName, createdAt })}>
                                             <ClearIcon />
                                             </IconButton>
+                                            )}
                                         </Grid>
                                      </Grid>
                                 </Box>

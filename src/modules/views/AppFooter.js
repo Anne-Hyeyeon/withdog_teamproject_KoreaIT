@@ -25,7 +25,7 @@ export default function AppFooter() {
     >
       <Container sx={{ my: 8, display: 'flex' }}>
         <Grid container spacing={5}>
-          <Grid item xs={2} sm={2} md={2} sx={{ mb:7 }}>
+          <Grid item xs={3} sm={3} md={3} sx={{ mb:7 }}>
             <Typography variant="h6" marked="left" gutterBottom>
               Doggitter
             </Typography>
@@ -35,7 +35,7 @@ export default function AppFooter() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={2} sm={2} md={2}>
+          <Grid item xs={3} sm={3} md={3} >
             <Typography variant="h6" marked="left" gutterBottom>
               Dog MBTI
             </Typography>
@@ -45,7 +45,7 @@ export default function AppFooter() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={2} sm={2} md={2}>
+          <Grid item xs={3} sm={3} md={3} >
           <Typography variant="h6" marked="left" gutterBottom>
               Info
             </Typography>
@@ -55,7 +55,7 @@ export default function AppFooter() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={2} sm={2} md={2}>
+          <Grid item xs={3} sm={3} md={3} >
           <Typography variant="h6" marked="left" gutterBottom>
               MyPage
             </Typography>
