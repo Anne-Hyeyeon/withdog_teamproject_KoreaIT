@@ -4,6 +4,7 @@ import MapContainer from './MapContainer';
 import Typography from '../../components/Typography';
 import SearchIcon from '@mui/icons-material/Search';
 import { TextField, Box, Button, Container, Stack} from '@mui/material';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import './style.css';
 
 const Info = ({userObj}) => {
@@ -30,13 +31,15 @@ const Info = ({userObj}) => {
         내 위치에서 산책하기 좋은 공원은 어디일까?
       </Typography>
       <Typography align="right" sx={{ mt:3 }}>
-        기본 위치 변경을 원하신다면...
+        기본 위치 변경을 원하신다면 ?  &nbsp;&nbsp;&nbsp;
         <Link to="/mypage">
-          &gt;&gt;&gt;
+          <ArrowCircleRightIcon sx={{ color:"#f59b25" }} style={{ fontSize: '40px' }}/>
         </Link>
       </Typography>
       <Stack className="map_form">
-        <Typography className="map_title">현재 위치 : {userObj.photoURL}</Typography>
+        <Typography className="map_title" variant="h6" sx={{ mb:2 }}>
+          현재 위치 : {userObj.photoURL}
+        </Typography>
         <Box>
           <TextField 
             id="standard-basic"

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import UserPostsMenu from './UserPostsMenu';
 import Typography from '../../components/Typography';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import { TextField, Button, Container, Grid } from '@mui/material';
 import './style.css';
@@ -49,18 +50,6 @@ const Mypage = ({refreshUser, userObj}) => {
         님, 안녕하세요 
         <FontAwesomeIcon  fontSize='25'  icon={faPaw} />
       </Typography>
-      <Typography align="right" sx={{ mt:3 }}>
-        주소를 수정하셨다면...
-        <Link to="/info">
-          &gt;&gt;&gt;
-        </Link>
-      </Typography>
-      <Typography align="right" sx={{ mt:3 }}>
-        주소를 수정하셨다면...
-        <Link to="/blog">
-          &gt;&gt;&gt;
-        </Link>
-      </Typography>
       <form className="profile_form" onSubmit={onSubmit}>
         <Grid container spacing={1} >
           <Grid item xs={12}> 
@@ -94,6 +83,18 @@ const Mypage = ({refreshUser, userObj}) => {
           </Grid>
         </Grid>
       </form>
+      <Typography align="right" sx={{ mt:3 }}>
+        산책장소 추천이 궁금하다면 ? &nbsp;&nbsp;&nbsp;
+        <Link to="/info">
+          <ArrowCircleRightIcon sx={{ color:"#f59b25" }} style={{ fontSize: '40px' }}/>
+        </Link>
+      </Typography>
+      <Typography align="right" sx={{ mt:3 }}>
+        다른 강아지들의 일상이 궁금하다면 ? &nbsp;&nbsp;&nbsp;  
+        <Link to="/blog">
+          <ArrowCircleRightIcon sx={{ color:"#f59b25" }} style={{ fontSize: '40px' }}/>
+        </Link>
+      </Typography>
       <Grid >
         <UserPostsMenu userObj={userObj}>
         </UserPostsMenu>
