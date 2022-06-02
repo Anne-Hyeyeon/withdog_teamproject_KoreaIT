@@ -32,9 +32,6 @@
   margin: 18px 0;
   border-bottom: 1px solid grey;
 }
-.address_list_title {
-  font-weight: bold;
-}
 .address_list_add1 {
   display: flex;
   margin-top: 10px;

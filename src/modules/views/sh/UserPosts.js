@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
-import { Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, CardActions } from '@mui/material';
-import { Comment, Favorite } from '@mui/icons-material';
+import { Container, Grid, Card, CardHeader, CardMedia, CardContent } from '@mui/material';
 import Typography from '../../components/Typography';
 import { dbService } from '../../../fbase';
 import SettingPost from '../hy/SettingPost';
@@ -47,14 +46,6 @@ function Posts({ userObj }) {
                   {desc}
                   </Typography>
                 </CardContent>
-                <CardActions disableSpacing>
-                  <IconButton aria-label="add to favorites" sx={{ "&:hover" : { color : 'red'}}} onClick={()=>{alert("좋아요 기능 개발중입니다♥︎")}}>
-                  <Favorite /> 
-                  </IconButton>
-                  <IconButton aria-label="add to favorites" sx={{ "&:hover" : { color : 'black'}}} onClick={()=>{alert("코멘트 기능 개발중입니다♥︎")}}>
-                  <Comment /> 
-                  </IconButton>
-                </CardActions>
               </Card>
             ) : (
               null
