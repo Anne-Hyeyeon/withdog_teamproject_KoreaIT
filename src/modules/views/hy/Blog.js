@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '@mui/system';
 import Posts from './Posts'
-import { Fab } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { Add } from '@mui/icons-material';
 import Typography from '../../components/Typography';
 
@@ -26,9 +26,9 @@ function Blog({ userObj }) {
             다른 강아지들의 일상은 어떨까? 내 강아지 사진도 자랑하기!
             </Typography>
             <Posts userObj={userObj} />
-            <Fab style={fabBtnStyle} color="primary" aria-label="add" href='/addposts'>
+            <Link style={fabBtnStyle} color="primary" aria-label="add" to='/addposts'>
             <Add /> 
-         </Fab>
+            </Link>
         </Container>
     );
 }

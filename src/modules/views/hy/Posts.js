@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { dbService } from '../../../fbase';
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 import SettingPost from './SettingPost';
-import { Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, Typography, CardActions, CardActionArea, Link } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, Typography, CardActions, CardActionArea } from '@mui/material';
 import { Comment } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
 import LikePost from './LikePost';
@@ -60,15 +61,17 @@ function Posts({ userObj }) {
                                         title={createdBy}
                                         subheader={createdAt.toDate().toDateString() + "\u00a0" + createdAt.toDate().toLocaleTimeString([], {timeStyle: 'short'})}
                                     />
-                                    <CardActionArea href={`/posts/${id}`}>
-                                    <CardMedia
-                                        component="img"
-                                        width='100%'
-                                        height="100%"
-                                        image={imageUrl}
-                                        alt="photo"
-                                        
-                                    />
+                                    <CardActionArea to={`/posts/${id}`}>
+                                        <Link to={`/posts/${id}`}>
+                                            <CardMedia
+                                                component="img"
+                                                width='100%'
+                                                height="100%"
+                                                image={imageUrl}
+                                                alt="photo"
+                                                
+                                            />
+                                        </Link>
                                     </CardActionArea>
                                     <CardContent>
                                         <Typography variant="h6">{title}</Typography>
@@ -84,7 +87,7 @@ function Posts({ userObj }) {
                                      <Comment />
                                     </IconButton>
                                     <Typography variant='body2'>
-                                    <Link sx={{ textDecoration:'none'}} href={`/posts/${id}`}> 댓글 {comments.length}개 모두 보기</Link>
+                                    <Link sx={{ textDecoration:'none'}} to={`/posts/${id}`}> 댓글 {comments.length}개 모두 보기</Link>
                                     </Typography>
                                     </CardActions>
                                 </Card>

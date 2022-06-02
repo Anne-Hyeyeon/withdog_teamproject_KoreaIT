@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { authService } from '../../../fbase';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UserPostsMenu from './UserPostsMenu';
 import Typography from '../../components/Typography';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
@@ -47,6 +48,18 @@ const Mypage = ({refreshUser, userObj}) => {
         <mark>{userObj.displayName}</mark>
         님, 안녕하세요 
         <FontAwesomeIcon  fontSize='25'  icon={faPaw} />
+      </Typography>
+      <Typography align="right" sx={{ mt:3 }}>
+        주소를 수정하셨다면...
+        <Link to="/info">
+          &gt;&gt;&gt;
+        </Link>
+      </Typography>
+      <Typography align="right" sx={{ mt:3 }}>
+        주소를 수정하셨다면...
+        <Link to="/blog">
+          &gt;&gt;&gt;
+        </Link>
       </Typography>
       <form className="profile_form" onSubmit={onSubmit}>
         <Grid container spacing={1} >
