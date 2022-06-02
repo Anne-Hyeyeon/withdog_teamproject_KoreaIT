@@ -184,7 +184,7 @@ const AppAppBar = ({ userObj }) => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {/* 아바타 */}
-                <Avatar sx={{ bgcolor: '#ba000d', fontSize:15 }}>
+                <Avatar sx={{ bgcolor: 'secondary.dark', fontSize:15 }}>
                   {userObj.displayName}
                 </Avatar>
               </IconButton>
