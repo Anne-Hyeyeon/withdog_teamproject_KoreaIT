@@ -4,6 +4,7 @@ import Posts from './Posts'
 import { Link } from 'react-router-dom';
 import { Add } from '@mui/icons-material';
 import Typography from '../../components/Typography';
+import { Fab } from '@mui/material';
 
 function Blog({ userObj }) {
     const fabBtnStyle = {
@@ -26,8 +27,10 @@ function Blog({ userObj }) {
             다른 강아지들의 일상은 어떨까? 내 강아지 사진도 자랑하기!
             </Typography>
             <Posts userObj={userObj} />
-            <Link style={fabBtnStyle} color="primary" aria-label="add" to='/addposts'>
+            <Link style={fabBtnStyle}aria-label="add" to='/addposts'>
+            <Fab color='primary'>
             <Add /> 
+            </Fab>
             </Link>
         </Container>
     );
