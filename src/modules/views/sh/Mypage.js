@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { authService } from '../../../fbase';
 import { useNavigate } from 'react-router-dom';
 import UserPostsMenu from './UserPostsMenu';
-
+import Typography from '../../components/Typography';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import { TextField, Button, Container, Grid} from '@mui/material';
+import { TextField, Button, Container, Grid } from '@mui/material';
 import './style.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
-const Info = ({refreshUser, userObj}) => {
+const Mypage = ({refreshUser, userObj}) => {
   const navigate = useNavigate();
   const [newDisplayName, setNewDisplayName]=useState(userObj.displayName);
   const [newRegion, setNewRegion]=useState(userObj.photoURL);
@@ -35,11 +37,17 @@ const Info = ({refreshUser, userObj}) => {
       refreshUser()
     }
   }
-  // console.log(user);
 
   return (
     <Container className="info_container">
-      <h1>{userObj.displayName}</h1>
+      <Typography variant="h4" marked="center" align="center" component="h2">
+        Mypage
+      </Typography>
+      <Typography variant="h5" component="div" sx={{ mt:3, mb:4 }}>
+        <mark>{userObj.displayName}</mark>
+        님, 안녕하세요 
+        <FontAwesomeIcon  fontSize='25'  icon={faPaw} />
+      </Typography>
       <form className="profile_form" onSubmit={onSubmit}>
         <Grid container spacing={1} >
           <Grid item xs={12}> 
@@ -81,5 +89,5 @@ const Info = ({refreshUser, userObj}) => {
     </Container>
   );
 }
-export default Info;
+export default Mypage;
 
