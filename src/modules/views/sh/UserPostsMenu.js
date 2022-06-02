@@ -1,23 +1,10 @@
 import * as React from 'react';
 import UserPosts from './UserPosts';
 
-import {Box, Switch, Paper, Collapse, FormControlLabel, AccordionSummary, Typography, Accordion, AccordionDetails } from '@mui/material';
+import {Box, AccordionSummary, Typography, Accordion, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const icon = (
-  <Paper sx={{ m: 1 }} elevation={4}>
-    <Box >
-      <Box/>
-    </Box>
-  </Paper>
-);
-
 export default function UserPostsMenu({ userObj }) {
-  const [checked, setChecked] = React.useState(false);
-
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
 
   return (
     <Box>

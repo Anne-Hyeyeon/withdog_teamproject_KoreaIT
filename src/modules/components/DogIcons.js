@@ -13,10 +13,14 @@ function DogIcons(props) {
     }
     return (
         <div style={{ marginTop:100 }}>
-            <FontAwesomeIcon style={style} fontSize='50' icon={faDog} /> //귀여운 강아지
-            <FontAwesomeIcon style={style}fontSize='50'  icon={faShieldDog} /> //방패 속 강아지
-            <FontAwesomeIcon style={style} fontSize='50'  icon={faBone} /> //뼈다구
-            <FontAwesomeIcon style={style} fontSize='50'  icon={faPaw} /> //개발바닥
+            {/* 귀여운 강아지 */}
+            <FontAwesomeIcon style={style} fontSize='50' icon={faDog} />
+            {/* 방패 속 강아지 */}
+            <FontAwesomeIcon style={style}fontSize='50'  icon={faShieldDog} /> 
+            {/* 뼈다구 */}
+            <FontAwesomeIcon style={style} fontSize='50'  icon={faBone} /> 
+            {/* 개발바닥 */}
+            <FontAwesomeIcon style={style} fontSize='50'  icon={faPaw} /> 
         </div>
     );
 }
