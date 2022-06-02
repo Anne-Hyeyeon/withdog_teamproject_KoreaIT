@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { authService } from '../../../fbase';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import MapContainer from './MapContainer';
+import Typography from '../../components/Typography';
 import SearchIcon from '@mui/icons-material/Search';
-import { TextField, Box, Button, Container, Typography, Stack} from '@mui/material';
+import { TextField, Box, Button, Container, Stack} from '@mui/material';
 import './style.css';
 
 const Info = ({userObj}) => {
@@ -17,18 +17,26 @@ const Info = ({userObj}) => {
   const onSubmit= (event)=>{
     event.preventDefault();
   }
-
+  
   return (
     <Container className="info_container">
-      <h1>주변 산책하기 좋은 곳</h1>
-      <p className="info_up_wrap">
-        프로필 변경을 원하신다면...
+      <Typography variant="h4" marked="center" align="center" component="h2">
+        Info
+      </Typography>
+      <Typography align="center" sx={{ mt:3 }}>
+        댕댕이를 위한 장소 찾기!!
+      </Typography>
+      <Typography align="center" sx={{ mt:1 }}>
+        내 위치에서 산책하기 좋은 공원은 어디일까?
+      </Typography>
+      <Typography align="right" sx={{ mt:3 }}>
+        기본 위치 변경을 원하신다면...
         <Link to="/mypage">
           &gt;&gt;&gt;
         </Link>
-      </p>
+      </Typography>
       <Stack className="map_form">
-        <p className="map_title">현재 위치 : {userObj.photoURL}</p>
+        <Typography className="map_title">현재 위치 : {userObj.photoURL}</Typography>
         <Box>
           <TextField 
             id="standard-basic"

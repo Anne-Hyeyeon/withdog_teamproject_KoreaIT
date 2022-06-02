@@ -3,11 +3,7 @@ import { authService } from "../fbase";
 import { useNavigate } from "react-router-dom";
 import AppForm from "../modules/views/AppForm";
 import Typography from "../modules/components/Typography";
-import { Link } from "@mui/material";
-import { Box } from "@mui/material";
-import { TextField } from "@mui/material";
-import { FormControlLabel } from "@mui/material";
-import { Checkbox } from "@mui/material";
+import { Link, Box, TextField, FormControlLabel, Checkbox } from "@mui/material";
 import Button from "../modules/components/Button";
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
@@ -16,7 +12,7 @@ const Login=() => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onChange = (event)=>{
     const {target:{name, value}} = event
@@ -32,7 +28,7 @@ const Login=() => {
     event.preventDefault()
     if (email !== "" && password !== "") {
       try {
-        await authService.signInWithEmailAndPassword(email,password)
+        await authService.signInWithEmailAndPassword(email,password);
         navigate('/mainloggedin')
       } catch (error) {
         console.log(error);

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { authService } from '../../../fbase';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import UserPostsMenu from './UserPostsMenu';
 
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import { TextField, Box, Button, Container, IconButton, Grid} from '@mui/material';
+import { TextField, Button, Container, Grid} from '@mui/material';
 import './style.css';
 
 const Info = ({refreshUser, userObj}) => {

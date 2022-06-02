@@ -1,6 +1,5 @@
-import { Container } from '@mui/system'
 import React, { useEffect, useState } from 'react'
-import { Stack, Box, Paper, Grid } from '@mui/material';
+import { Stack, Box, Grid } from '@mui/material';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
 const { kakao } = window
@@ -10,7 +9,6 @@ const MapContainer = ({ searchPlace }) => {
   const [Places, setPlaces] = useState([])
   useEffect(() => {
     var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 })
-    var markers = []
     const container = document.getElementById('myMap')
     const options = {
       center: new kakao.maps.LatLng(33.450701, 126.570667),
@@ -38,8 +36,8 @@ const MapContainer = ({ searchPlace }) => {
 
     // 검색결과 목록 하단에 페이지 번호 표시
     function displayPagination(pagination) {
-      var paginationEl = document.getElementById('pagination'),
-        fragment = document.createDocumentFragment(),
+      //var paginationEl = document.getElementById('pagination'),
+      var fragment = document.createDocumentFragment(),
         i
 
       for (i = 1; i <= pagination.last; i++) {
