@@ -173,6 +173,7 @@ const AppAppBar = ({ userObj }) => {
           </Box>
 
           {/* 세팅 영역 */}
+          {}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

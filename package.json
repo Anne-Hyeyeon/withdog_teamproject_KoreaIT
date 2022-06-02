@@ -1,9 +1,8 @@
 {
-  "name": "withdogdemover",
+  "name": "withdog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -26,14 +25,10 @@
     "react-final-form": "^6.5.9",
     "react-firebase-hooks": "^5.0.3",
     "react-helmet": "^6.1.0",
-    "react-material-ui-carousel": "^3.3.3",
-    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
-    "react-toastify": "^9.0.1",
     "slick-carousel": "^1.8.1",
-    "uuid": "^8.3.2",
     "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
   },
