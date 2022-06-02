@@ -69,7 +69,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 =======
-# withdog_teamproject
-코리아아카데미 신촌 프론트엔드 B팀 프로젝트
-강아지 MBTI TEST를 맡게된 서형원 입니다.
->>>>>>> 32281dec6b25ab3643e951a8eca314a5dd916f9c
+
