@@ -64,7 +64,6 @@ const AppAppBar = ({ userObj }) => {
           <Typography
             variant="h6"
             noWrap
-            component="a"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -143,7 +142,6 @@ const AppAppBar = ({ userObj }) => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -163,7 +161,6 @@ const AppAppBar = ({ userObj }) => {
                   color="white"
                   variant="h6"
                   underline="none"
-                  href="/blog"
                   sx={{ mr:3, my: 3, color: 'white', display: 'block', fontSize:15 }}                
                   >
                   <Link style={pcLinkStyle} to='/blog'>Doggitter</Link>
@@ -259,7 +256,6 @@ const AppAppBar = ({ userObj }) => {
                 variant="subtitle1"
                 underline="none"
                 color="inherit"
-                href="/login"
               >
                 <Link to='/login' style={mobileLinkStyle}>로그인</Link>
               </Typography>

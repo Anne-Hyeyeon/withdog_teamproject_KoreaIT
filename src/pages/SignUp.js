@@ -45,7 +45,8 @@ const SignUp = () => {
         await authService.createUserWithEmailAndPassword(email, password);
         await updateProfile(auth.currentUser,{displayName:userName,
         photoURL:region})
-        navigate('/mainloggedin')
+        navigate('/login')
+        alert('회원가입이 완료되었습니다. 로그인 해주세요!')
       } catch (error) {
         const errorCode = [
           'auth/invalid-email',

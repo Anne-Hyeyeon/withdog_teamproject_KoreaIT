@@ -8,14 +8,13 @@ import TestQuestion from "../views/hw/pages/TestQuestion";
 import TestResult from "../views/hw/pages/TestResult";
 import TestHome from "../views/hw/pages/TestHome"
 import Main from "../views/Main";
-import MainLoggedIn from "../views/MainLoggedIn"
 import Info from "../views/sh/Info";
 import Mypage from "../views/sh/Mypage";
 import AddPosts from "../views/hy/AddPosts";
 import DogIcons from "./DogIcons";
 import PostsOnClick from "../views/hy/PostsOnClick";
 
-const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
+const MainRouter = ({ refreshUser, userObj }) => {
 
   return (
       <Routes>
