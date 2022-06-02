@@ -13,7 +13,7 @@ import Info from "../views/sh/Info";
 import Mypage from "../views/sh/Mypage";
 import AddPosts from "../views/hy/AddPosts";
 import DogIcons from "./DogIcons";
-
+import PostsOnClick from "../views/hy/PostsOnClick";
 
 const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
 
@@ -36,6 +36,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
             <Route path="/dog" element={<DogIcons />} />
+            <Route path="/posts/:id" element={<PostsOnClick userObj={userObj} />} />
           </>
         ) : (
           <>
@@ -52,6 +53,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
             <Route path="/dog" element={<DogIcons />} />
+            <Route path="/posts/:id" element={<PostsOnClick />} />
           </>
         )}
         {/* <Route path="*" element={<Navigate replace to="/" />} /> */}

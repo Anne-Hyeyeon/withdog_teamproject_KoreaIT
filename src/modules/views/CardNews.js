@@ -51,7 +51,7 @@ function ProductCategories(props) {
           </CardActionArea>
         </Grid>
         <Grid item xs={12} md={6} xl={6}>
-          <CardActionArea component="a" href="https://www.insight.co.kr/news/396801" target='_blank'>
+          <CardActionArea component="a" href="https://newsis.com/view/?id=NISX20220523_0001881724" target='_blank'>
             <Card sx={{ display: 'flex' }}>
             <CardContent sx={{ height:'200px', width:'100%' }}>                
             <Typography component="h2" variant="h5" sx={{ mt:5 }}>
@@ -91,7 +91,7 @@ function ProductCategories(props) {
           </CardActionArea>
         </Grid>
         <Grid item xs={12} md={6} xl={6}>
-          <CardActionArea component="a" href="https://www.insight.co.kr/news/396801" target='_blank'>
+          <CardActionArea component="a" href="https://www.dailypop.kr/news/articleView.html?idxno=52292" target='_blank'>
             <Card sx={{ display: 'flex' }}>
             <CardContent sx={{ height:'200px', width:'100%' }}>                
             <Typography component="h2" variant="h5" sx={{ mt:5 }}>
@@ -111,7 +111,7 @@ function ProductCategories(props) {
           </CardActionArea>
         </Grid>
         <Grid item xs={12} md={6} xl={6}>
-          <CardActionArea component="a" href="https://www.insight.co.kr/news/396801" target='_blank'>
+          <CardActionArea component="a" href="https://www.k-health.com/news/articleView.html?idxno=59514" target='_blank'>
             <Card sx={{ display: 'flex' }}>
             <CardContent sx={{ height:'200px', width:'100%' }}>                
             <Typography component="h2" variant="h5" sx={{ mt:5 }}>
