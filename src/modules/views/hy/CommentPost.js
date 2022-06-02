@@ -8,7 +8,7 @@ import { v4 as uuid_v4 } from "uuid";
 import { Avatar } from '@mui/material';
 
 
-function CommentPost({ userObj,id,createdBy }) {
+function CommentPost({ userObj,id }) {
     const [comment, setComment] = useState([])
     const [comments, setComments] = useState([])
     const commentRef = doc(dbService, "Posts", id)
