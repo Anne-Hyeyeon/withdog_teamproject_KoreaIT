@@ -24,14 +24,30 @@ const Login=() => {
     }
   }
 
-  const onSubmit= async (event)=>{
-    event.preventDefault()
-    if (email !== "" && password !== "") {
-      try {
-        await authService.signInWithEmailAndPassword(email,password);
-        navigate('/')
-      } catch (error) {
-        console.log(error);
+      const onSubmit= async (event)=>{
+        event.preventDefault()
+        if (email !== "" && password !== "") {
+          try {
+            await authService.signInWithEmailAndPassword(email,password);
+            navigate('/')
+          } catch (error) {
+            console.log(error);
+            const errorCode = [
+              'auth/user-disabled',
+              'auth/user-not-found',
+              'auth/wrong-password',
+            ]
+            const errorAlertMsg = [
+              '등록되어 있지 않은 사용자입니다.',
+              '등록되어 있지 않은 사용자입니다.',
+              '패스워드가 틀립니다.',
+            ]
+            console.log(error.code)
+            for (const i in errorCode) {
+              if (error.code === errorCode[i]) {
+                alert(errorAlertMsg[i])
+          }
+        }
       }
     }
   }
