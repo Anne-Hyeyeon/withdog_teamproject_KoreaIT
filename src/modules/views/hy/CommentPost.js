@@ -8,7 +8,7 @@ import { v4 as uuid_v4 } from "uuid";
 import { Avatar } from '@mui/material';
 
 
-function CommentPost({ userObj,id }) {
+function CommentPost({ userObj,id,createdBy }) {
     const [comment, setComment] = useState([])
     const [comments, setComments] = useState([])
     const commentRef = doc(dbService, "Posts", id)
@@ -71,7 +71,7 @@ function CommentPost({ userObj,id }) {
                                     <Grid container>
                                         <Grid item xs={11} md={11} xl={11}>
                                         <Box sx={{ display:'flex' , alignItems:'center', mb:1}}>
-                                            <Avatar sx={{ mr:1, width:35, height:35, bgcolor: 'secondary.main', fontSize:15 }}>
+                                            <Avatar sx={{ textAlign:'center', mr:1, width:35, height:35, bgcolor: 'secondary.main', fontSize:13 }}>
                                             {userObj.displayName}
                                             </Avatar> 
                                             <Typography variant='body1' sx={{ fontWeight:'bold', mr:1 }}> {userName} </Typography> 

@@ -3,11 +3,14 @@ import { Favorite } from '@mui/icons-material';
 import { dbService } from '../../../fbase';
 import { arrayRemove, arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { IconButton, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 function LikePost({ userObj, id,likes }) {
     
     const likesRef = doc(dbService, "Posts", id)
+    const navigate = useNavigate()
+
 
     const handleLike = () => {
         if(likes?.includes(userObj.uid)){
@@ -29,16 +32,36 @@ function LikePost({ userObj, id,likes }) {
         }
     }
 
+    const userObjFalse = () => {
+        alert('로그인 후 좋아요 가능합니다!')
+        navigate('/login')
+    }
+
+
 
     return (
         <>
-            <IconButton onClick={handleLike}>
-            <Favorite className={`${!likes?.includes(userObj.uid)? "-o":""}`} sx={{ cursor:'pointer', color:likes?.includes(userObj.uid) ? "red" : null 
-            }} />
-            </IconButton>
-            <Typography variant='body1'>
-                {likes.length} likes
-            </Typography>
+        {userObj ? 
+            <>
+                <IconButton onClick={handleLike}>
+                <Favorite className={`${!likes?.includes(userObj.uid)? "-o":""}`} sx={{ cursor:'pointer', color:likes?.includes(userObj.uid) ? "red" : null 
+                }} />
+                </IconButton>
+                <Typography variant='body1'>
+                    {likes.length} likes
+                </Typography>
+            </>
+            :
+            <>
+                <IconButton onClick={userObjFalse}>
+                <Favorite className={`${!likes?.includes(userObj.uid)? "-o":""}`} sx={{ cursor:'pointer', color:likes?.includes(userObj.uid) ? "red" : null 
+                }} />
+                </IconButton>
+                <Typography variant='body1'>
+                    {likes.length} likes
+                </Typography>
+            </>
+        }
         </>
     );
 }
