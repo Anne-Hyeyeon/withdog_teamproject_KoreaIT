@@ -43,8 +43,8 @@ function Posts({ userObj }) {
                                 <Card key={id} variant="outlined" sx={{ maxWidth: '100%', maxHeight: '100%', borderRadius: 3, mb: 3, pb:2 }}>
                                     <CardHeader
                                         avatar={
-                                            <Avatar sx={{ bgcolor: 'secondary.dark', fontSize:15 }}>
-                                            {userObj.displayName}
+                                            <Avatar sx={{ bgcolor: 'secondary.dark', fontSize:15, textAlign:'center' }}>
+                                            {createdBy}
                                           </Avatar>
                                         }
                                         action={
