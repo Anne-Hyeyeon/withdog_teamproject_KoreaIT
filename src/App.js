@@ -9,7 +9,6 @@ import AppAppBarLoggedIn from '../src/modules/views/AppAppBarLoggedIn'
 
 function App() {
   const [init, setInit] = useState(false)
-  console.log(init)
   const [isLoggedIn,setIsLoggedIn]=useState(false)
   const [userObj, setUserObj] =useState("")
   useEffect(()=>{
@@ -38,6 +37,7 @@ function App() {
     });
     console.log(authService.currentUser)
   }
+  console.log(init)
 
   return (
     <>

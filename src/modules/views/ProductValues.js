@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -8,6 +7,7 @@ import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import { IconButton } from '@mui/material';
 import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import productCurvyLines from '../views/hy/assets/productCurvyLines.png'
 
 
 const item = {
@@ -27,7 +27,7 @@ function ProductValues() {
       <Container sx={{ mt: 15, mb: 15, display: 'flex', position: 'relative' }}>
       <Box
           component="img"
-          src='https://github.com/mui/material-ui/blob/master/docs/public/static/themes/onepirate/productCurvyLines.png?raw=true'
+          src={productCurvyLines}
           alt="curvy lines"
           sx={{ pointerEvents: 'none', position: 'absolute', top: -180 }}
         />

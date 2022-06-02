@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { dbService } from '../../../fbase';
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 import SettingPost from './SettingPost';
-import { Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, Typography, CardActions } from '@mui/material';
-import { Comment, Favorite } from '@mui/icons-material';
+import { Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, Typography, CardActions, CardActionArea, Link } from '@mui/material';
+import { Comment } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
+import LikePost from './LikePost';
 
 function Posts({ userObj }) {
     const [posts, setPosts] = useState([])
+  
+
     useEffect(() => {
         //collection, query 함수 가능 공부하기
         const postRef = collection(dbService, "Posts")
@@ -27,9 +30,8 @@ function Posts({ userObj }) {
         })
     })
 
-
-
     return (
+        
         <Container maxWidth='sm' sx={{ py: 6 }}>
             {
                 posts.length === 0 ? (
@@ -38,7 +40,7 @@ function Posts({ userObj }) {
                     <Grid container>
                         {posts.map(({ id, title, desc, imageUrl, createdAt, createdBy, userId, likes, comments }) =>
                             <Grid item key={id} xs={12} sm={12} md={12}>
-                                <Card key={id} variant="outlined" sx={{ maxWidth: '100%', maxHeight: '100%', borderRadius: 3, mb: 3 }}>
+                                <Card key={id} variant="outlined" sx={{ maxWidth: '100%', maxHeight: '100%', borderRadius: 3, mb: 3, pb:2 }}>
                                     <CardHeader
                                         avatar={
                                             <Avatar sx={{ bgcolor: 'secondary.dark', fontSize:15 }}>
@@ -49,7 +51,8 @@ function Posts({ userObj }) {
                                             <>
                                                 {
                                                     userObj && userObj.uid === userId && (
-                                                        <SettingPost userId={userId} userObj={userObj} id={id} imageUrl={imageUrl} desc={desc} title={title}/>
+                                                        <SettingPost userId={userId} 
+                                                        id={id} imageUrl={imageUrl} desc={desc} title={title}/>
                                                     )
                                                 }
                                             </>
@@ -57,27 +60,32 @@ function Posts({ userObj }) {
                                         title={createdBy}
                                         subheader={createdAt.toDate().toDateString() + "\u00a0" + createdAt.toDate().toLocaleTimeString([], {timeStyle: 'short'})}
                                     />
-                                    {/* <Box></Box> */}
+                                    <CardActionArea href={`/posts/${id}`}>
                                     <CardMedia
                                         component="img"
                                         width='100%'
                                         height="100%"
                                         image={imageUrl}
                                         alt="photo"
+                                        
                                     />
+                                    </CardActionArea>
                                     <CardContent>
                                         <Typography variant="h6">{title}</Typography>
                                         <Typography variant="body2" color="text.secondary" sx={{ whiteSpace: 'pre-wrap', mt:1 }}>
                                             {desc}
                                         </Typography>
                                     </CardContent>
-                                    <CardActions disableSpacing>
-                                        <IconButton aria-label="add to favorites" sx={{ "&:hover": { color: 'red' } }} onClick={() => { alert("좋아요 기능 개발중입니다♥︎") }}>
-                                            <Favorite />
-                                        </IconButton>
-                                        <IconButton aria-label="add to favorites" sx={{ "&:hover": { color: 'black' } }} onClick={() => { alert("코멘트 기능 개발중입니다♥︎") }}>
-                                            <Comment />
-                                        </IconButton>
+                                    <CardActions sx={{ display:'flex' }} disableSpacing>
+                                        <LikePost userObj={userObj} id={id} likes={likes} />
+                                    </CardActions>
+                                    <CardActions sx={{ mt:-3, display:'flex' }} disableSpacing>
+                                    <IconButton href={`/posts/${id}`} aria-label="add to favorites" sx={{ "&:hover": { color: 'black' } }}>
+                                     <Comment />
+                                    </IconButton>
+                                    <Typography variant='body2'>
+                                    <Link sx={{ textDecoration:'none'}} href={`/posts/${id}`}> 댓글 {comments.length}개 모두 보기</Link>
+                                    </Typography>
                                     </CardActions>
                                 </Card>
                             </Grid>

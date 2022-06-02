@@ -1,12 +1,45 @@
 import React from 'react';
 import { Favorite } from '@mui/icons-material';
-import { authService } from '../../../fbase';
+import { dbService } from '../../../fbase';
+import { arrayRemove, arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import { IconButton, Typography } from '@mui/material';
 
-function LikePost(userObj, id,likes) {
+
+function LikePost({ userObj, id,likes }) {
+    
+    const likesRef = doc(dbService, "Posts", id)
+
+    const handleLike = () => {
+        if(likes?.includes(userObj.uid)){
+            updateDoc(likesRef,{
+                likes:arrayRemove(userObj.uid),
+            }).then (() => {
+                console.log("unliked")
+            }).catch((error) => {
+                console.log(error);
+            })
+        }else {
+            updateDoc(likesRef, {
+                likes:arrayUnion(userObj.uid)
+            }).then (() => {
+                console.log("like")
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
+    }
+
+
     return (
-        <div>
-            <Favorite className={`${!likes?.includes(userObj.uid)? "-d":""}`} sx={{ cursor:'pointer' }} />
-        </div>
+        <>
+            <IconButton onClick={handleLike}>
+            <Favorite className={`${!likes?.includes(userObj.uid)? "-o":""}`} sx={{ cursor:'pointer', color:likes?.includes(userObj.uid) ? "red" : null 
+            }} />
+            </IconButton>
+            <Typography variant='body1'>
+                {likes.length} likes
+            </Typography>
+        </>
     );
 }
 
