@@ -6,7 +6,7 @@ import { Container,Grid,Card,CardHeader,Avatar,CardMedia,CardContent,Typography,
 import CommentPost from './CommentPost';
 import Login from '../../../pages/LogIn'
 
-function PostsOnClick({ userObj,comments }) {
+function PostsOnClick({ userObj,comments}) {
      const {id} = useParams();
      const [post, setPost] = useState(null);
      useEffect(
@@ -32,8 +32,8 @@ function PostsOnClick({ userObj,comments }) {
                        <Box>
                            <CardHeader
                            avatar={
-                               <Avatar sx={{ bgcolor: 'secondary.dark', fontSize:15 }}>
-                               {userObj.displayName}
+                               <Avatar sx={{ textAlign:'center', bgcolor: 'secondary.dark', fontSize:15 }}>
+                               {post.createdBy}
                                </Avatar>
                            }
                            title={post.createdBy}

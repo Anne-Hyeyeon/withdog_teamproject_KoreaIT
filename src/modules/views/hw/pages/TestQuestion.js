@@ -57,10 +57,10 @@ const Question = () => {
         MBTI TEST
       </Typography>
 
-      <Grid container>
+      <Grid container >
 
 
-        <Grid item direction="column" justifyContent="flex-start" alignItems="flex-start" sx={{ mb: 8 }}>
+        <Grid item direction="column" justifyContent="flex-start" alignItems="flex-start" sx={{ mb: 8 }} >
           <Typography gutterBottom component="span" sx={{ fontSize: '50px' }}>
             {QuestionData[questionNo].id + ". "}
           </Typography>
