@@ -47,7 +47,21 @@ const SignUp = () => {
         photoURL:region})
         navigate('/mainloggedin')
       } catch (error) {
-        console.log(error);
+        const errorCode = [
+          'auth/email-already-in-use',
+          'auth/invalid-email',
+          'auth/invalid-password',
+        ]
+        const errorAlertMsg = [
+          '중복된 이메일입니다. 다른 이메일을 사용하세요!',
+          '올바른 형식의 이메일을 사용해 주세요',
+          '패스워드는 6자 이상이어야 합니다.',
+        ]
+        for (const i in errorCode) {
+          if (error.code === errorCode[i]) {
+            alert(errorAlertMsg[i])
+          }
+        }
       }
     }
   };

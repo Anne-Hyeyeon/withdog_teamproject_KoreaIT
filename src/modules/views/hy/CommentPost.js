@@ -72,7 +72,7 @@ function CommentPost({ userObj,id }) {
                                         <Grid item xs={11} md={11} xl={11}>
                                         <Box sx={{ display:'flex' , alignItems:'center', mb:1}}>
                                             <Avatar sx={{ textAlign:'center', mr:1, width:35, height:35, bgcolor: 'secondary.main', fontSize:13 }}>
-                                            {userObj.displayName}
+                                            {userName}
                                             </Avatar> 
                                             <Typography variant='body1' sx={{ fontWeight:'bold', mr:1 }}> {userName} </Typography> 
                                             <Typography variant='body1'> : {comment}</Typography>
