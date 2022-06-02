@@ -40,7 +40,7 @@ const SignUp = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    if (email !== "" && password !== "") {
+    if (email !== "" && password !== "" && userName !== "" && region !== "") {
       try {
         await authService.createUserWithEmailAndPassword(email, password);
         await updateProfile(auth.currentUser,{displayName:userName,
@@ -48,21 +48,26 @@ const SignUp = () => {
         navigate('/mainloggedin')
       } catch (error) {
         const errorCode = [
-          'auth/email-already-in-use',
           'auth/invalid-email',
+          'auth/email-already-in-use',
           'auth/invalid-password',
+          'auth/weak-password',
         ]
         const errorAlertMsg = [
+          '올바른 형식의 이메일을 사용해 주세요.',
           '중복된 이메일입니다. 다른 이메일을 사용하세요!',
-          '올바른 형식의 이메일을 사용해 주세요',
+          '패스워드는 6자 이상이어야 합니다.',
           '패스워드는 6자 이상이어야 합니다.',
         ]
+        console.log(error.code)
         for (const i in errorCode) {
           if (error.code === errorCode[i]) {
             alert(errorAlertMsg[i])
           }
         }
       }
+    } else {
+      alert('모든 항목을 입력하세요.')
     }
   };
 

@@ -5,10 +5,8 @@ import {useEffect, useState} from 'react'
 import { authService } from './fbase';
 import AppAppBar from './modules/views/AppAppBar';
 import AppFooter from '../src/modules/views/AppFooter'
-import AppAppBarLoggedIn from '../src/modules/views/AppAppBarLoggedIn'
 
 function App() {
-  const [init, setInit] = useState(false)
   const [isLoggedIn,setIsLoggedIn]=useState(false)
   const [userObj, setUserObj] =useState("")
   useEffect(()=>{
@@ -24,7 +22,6 @@ function App() {
       } else{
         setIsLoggedIn(false)
       }
-      setInit(true);
     })
   }, []);
   const refreshUser=()=>{
@@ -37,22 +34,12 @@ function App() {
     });
     console.log(authService.currentUser)
   }
-  console.log(init)
-
   return (
     <>
-      {isLoggedIn ?
-      <>
-      <AppAppBarLoggedIn userObj={userObj} />
-      <MainRouter refreshUser={refreshUser} isLoggedIn={isLoggedIn} userObj={userObj}/>
-      <AppFooter />
-      </> : 
-      <>
       <AppAppBar userObj={userObj} />
       <MainRouter refreshUser={refreshUser} isLoggedIn={isLoggedIn} userObj={userObj}/>
       <AppFooter />
-      </>}
-    </>
+    </> 
   );
 }
 

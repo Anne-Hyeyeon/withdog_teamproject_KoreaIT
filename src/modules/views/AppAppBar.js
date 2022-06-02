@@ -11,7 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PetsIcon from '@mui/icons-material/Pets';
-import { Link } from '@mui/material';
+import { authService } from '../../fbase';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const AppAppBar = ({ userObj }) => {
@@ -33,30 +35,46 @@ const AppAppBar = ({ userObj }) => {
     setAnchorElUser(null);
   };
 
+  // 로그아웃
+  const navigate = useNavigate()
+  const onLogOutClick = () => {
+    authService.signOut()
+    navigate('/')
+    window.location.reload()
+  }
+
+  //링크 스타일
+  const pcLinkStyle = {
+    color:'#fff',
+    textDecoration:'none'
+  }
+
+  const mobileLinkStyle = {
+    textDecoration:'none',
+    color:'black',
+  }
 
 
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar>
-        {/* 모바일 영역 로고 */}
+          {/*  로고 */}  
           <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontWeight:30 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'HallymMjo',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            WithDog
+            <Link style={pcLinkStyle} to='/'>WithDog</Link>
           </Typography>
 
           {/* 모바일 영역 */}
@@ -92,88 +110,129 @@ const AppAppBar = ({ userObj }) => {
               }}
             >
               <MenuItem>
-              <Link
+              <Typography
+                  variant="subtitle1"
+                  underline="none"
+                >
+                  <Link style={mobileLinkStyle} to='/blog'>Doggitter</Link>
+                </Typography>
+              </MenuItem>
+              <MenuItem>
+              <Typography
                   color="inherit"
-                  variant="h6"
+                  variant="subtitle1"
                   underline="none"
-                  href="/blog"
                 >
-                  {'Doggitter'}
-                </Link>
+                  <Link style={mobileLinkStyle} to='/test'>Dog MBTI</Link>
+                </Typography>
               </MenuItem>
               <MenuItem>
-              <Link
-                  variant="h6"
+              <Typography
+                  color="inherit"
+                  variant="subtitle1"
                   underline="none"
-                  href="/test"
                 >
-                  {'DOG MBTI'}
-                </Link>
-              </MenuItem>
-              <MenuItem>
-              <Link
-                  variant="h6"
-                  underline="none"
-                  href="/info"                
-                >
-                  {'INFO'}
-                </Link>
+                  <Link style={mobileLinkStyle} to='/info'>INFO</Link>
+                </Typography>
               </MenuItem>
             </Menu>
           </Box>
 
-          {/* PC 영역 */}
+          {/* PC 영역 로고 */}
           <PetsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href='/main'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'HallymMjo',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            WithDog
+            <Link  style={pcLinkStyle} to='/'>WithDog</Link>
           </Typography>
 
           {/* PC 메뉴 */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Link
-                  color="inherit"
+              <Typography
+                  color="white"
                   variant="h6"
                   underline="none"
                   href="/blog"
                   sx={{ mr:3, my: 3, color: 'white', display: 'block', fontSize:15 }}                
                   >
-                  {'Doggitter'}
-              </Link>
-              <Link
+                  <Link style={pcLinkStyle} to='/blog'>Doggitter</Link>
+              </Typography>
+              <Typography
                   variant="h6"
                   underline="none"
-                  href="/test"
                   sx={{ mr:3, my: 3, color: 'white', display: 'block', fontSize:15 }}                      
                   >
-                  {'DOG MBTI'}
-                </Link>
-                <Link
+                  <Link style={pcLinkStyle} to='/test'>Dog MBTI</Link>
+              </Typography>
+                <Typography
                   variant="h6"
                   underline="none"
-                  href="/info"
                   sx={{ mr:3, my: 3, color: 'white', display: 'block', fontSize:15 }}                    
                   >
-                  {'INFO'}
-                </Link>
+                <Link style={pcLinkStyle} to='/info'>INFO</Link>
+                </Typography>
           </Box>
 
           {/* 세팅 영역 */}
+          { userObj ? (
           <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                {/* 아바타 */}
+                <Avatar sx={{ bgcolor: 'secondary.dark', fontSize:15 }}>
+                  {userObj.displayName}
+                </Avatar>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              <MenuItem>
+              <Typography
+                variant="subtitle1"
+                underline="none"
+              >
+                <Link style={mobileLinkStyle} to='/mypage'>My Profile</Link>
+              </Typography>
+              </MenuItem>
+              <MenuItem>
+              <Typography
+                variant="h7"
+                underline="none"
+                color="inherit"
+                onClick={onLogOutClick}
+              >
+                로그아웃
+              </Typography>
+              </MenuItem>
+            </Menu>
+          </Box>
+          ) : (
+            <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Doggie" src="https://placedog.net/200/200?random" />
@@ -196,32 +255,27 @@ const AppAppBar = ({ userObj }) => {
               onClose={handleCloseUserMenu}
             >
               <MenuItem>
-              <Link
-                variant="h7"
+              <Typography
+                variant="subtitle1"
                 underline="none"
                 color="inherit"
                 href="/login"
               >
-                {'로그인' }
-              </Link>
+                <Link to='/login' style={mobileLinkStyle}>로그인</Link>
+              </Typography>
               </MenuItem>
               <MenuItem>
-              <Link
-                variant="h7"
+              <Typography
+                variant="subtitle1"
                 underline="none"
-                color="inherit"
-                href="/signup"
               >
-                {'회원가입' }
-              </Link>
+                <Link to='/signup' style={mobileLinkStyle}>회원가입</Link>
+              </Typography>
               </MenuItem>
-              {/* {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))} */}
             </Menu>
           </Box>
+          )
+        }
         </Toolbar>
       </Container>
     </AppBar>

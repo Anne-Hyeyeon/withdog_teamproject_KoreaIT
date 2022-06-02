@@ -4,15 +4,16 @@ import ProductValues from './ProductValues';
 import ProductCategories from './ProductCategories';
 import ProductCTA from './ProductCTA';
 import SponsoredBanner from './SponsoredBanner';
+import Banner from './Banner'
 
 function Main({ userObj } ) {
     return (
         <React.Fragment>
-            <ProductHero />
+            { userObj ? <Banner /> : <ProductHero />
+            }
             <ProductValues />
             <ProductCategories />
             <ProductCTA />
-            {/* <ProductSmokingHero /> */}
             <SponsoredBanner />
         </React.Fragment>
     );

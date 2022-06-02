@@ -29,9 +29,9 @@ export default function ProductHero() {
         color="inherit"
         align="center"
         variant="h6"
-        sx={{ mb: 4, mt: { sx: 4, sm: 10 }, fontFamily:'HallymMjo', fontWeight:300 }}
+        sx={{ mb: 4, mt: { sx: 3, sm: 9 }, fontFamily:'HallymMjo', fontWeight:300 }}
       >
-        애견인들과 함께 하는 다양한 활동이 기다리고 있어요!
+        윗독에서 할 수 있는 다양한 활동들이 기다리고 있어요!
       </Typography>
       {/* <Button
         color="secondary"

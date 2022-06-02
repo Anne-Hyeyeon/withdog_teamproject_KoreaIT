@@ -74,8 +74,8 @@ function CommentPost({ userObj,id }) {
                                             <Avatar sx={{ textAlign:'center', mr:1, width:35, height:35, bgcolor: 'secondary.main', fontSize:13 }}>
                                             {userName}
                                             </Avatar> 
-                                            <Typography variant='body1' sx={{ fontWeight:'bold', mr:1 }}> {userName} </Typography> 
-                                            <Typography variant='body1'> : {comment}</Typography>
+                                            <Typography variant='body2' sx={{ fontWeight:'bold', mr:1 }}> {userName} </Typography> 
+                                            <Typography variant='body2'> : {comment}</Typography>
                                         </Box>
                                         </Grid>
                                         <Grid item xs={1} md={1} xl={1} textAlign='right' >

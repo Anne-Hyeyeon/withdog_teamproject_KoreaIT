@@ -31,6 +31,12 @@ function Posts({ userObj }) {
         })
     })
 
+    //링크 효과 없애기
+  const mobileLinkStyle = {
+    textDecoration:'none',
+    color:'black',
+  }
+
     return (
         
         <Container maxWidth='sm' sx={{ py: 6 }}>
@@ -87,7 +93,7 @@ function Posts({ userObj }) {
                                      <Comment />
                                     </IconButton>
                                     <Typography variant='body2'>
-                                    <Link sx={{ textDecoration:'none'}} to={`/posts/${id}`}> 댓글 {comments.length}개 모두 보기</Link>
+                                    <Link style={mobileLinkStyle} to={`/posts/${id}`}> 댓글 {comments.length}개 모두 보기</Link>
                                     </Typography>
                                     </CardActions>
                                 </Card>

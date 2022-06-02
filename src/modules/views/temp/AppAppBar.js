@@ -12,9 +12,6 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PetsIcon from '@mui/icons-material/Pets';
 import { Link } from '@mui/material';
-import { authService } from '../../fbase';
-import { useNavigate } from 'react-router-dom';
-
 
 
 const AppAppBar = ({ userObj }) => {
@@ -36,28 +33,23 @@ const AppAppBar = ({ userObj }) => {
     setAnchorElUser(null);
   };
 
-  // 로그아웃
-  const navigate = useNavigate()
-  const onLogOutClick = () => {
-    authService.signOut()
-    navigate('/')
-  }
 
 
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar>
-          {/* 모바일 영역 로고 */}  
+        {/* 모바일 영역 로고 */}
           <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontWeight:30 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/mainloggedin"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
+              fontFamily: 'HallymMjo',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -102,7 +94,7 @@ const AppAppBar = ({ userObj }) => {
               <MenuItem>
               <Link
                   color="inherit"
-                  variant="subtitle1"
+                  variant="h6"
                   underline="none"
                   href="/blog"
                 >
@@ -111,7 +103,7 @@ const AppAppBar = ({ userObj }) => {
               </MenuItem>
               <MenuItem>
               <Link
-                  variant="subtitle1"
+                  variant="h6"
                   underline="none"
                   href="/test"
                 >
@@ -120,7 +112,7 @@ const AppAppBar = ({ userObj }) => {
               </MenuItem>
               <MenuItem>
               <Link
-                  variant="subtitle1"
+                  variant="h6"
                   underline="none"
                   href="/info"                
                 >
@@ -130,17 +122,18 @@ const AppAppBar = ({ userObj }) => {
             </Menu>
           </Box>
 
-          {/* PC 영역 로고 */}
+          {/* PC 영역 */}
           <PetsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href='/mainloggedin'
+            href='/main'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
+              fontFamily: 'HallymMjo',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -183,10 +176,7 @@ const AppAppBar = ({ userObj }) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {/* 아바타 */}
-                <Avatar sx={{ bgcolor: 'secondary.dark', fontSize:15 }}>
-                  {userObj.displayName}
-                </Avatar>
+                <Avatar alt="Doggie" src="https://placedog.net/200/200?random" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -210,9 +200,9 @@ const AppAppBar = ({ userObj }) => {
                 variant="h7"
                 underline="none"
                 color="inherit"
-                href="/mypage"
+                href="/login"
               >
-                {'Profile' }
+                {'로그인' }
               </Link>
               </MenuItem>
               <MenuItem>
@@ -220,11 +210,16 @@ const AppAppBar = ({ userObj }) => {
                 variant="h7"
                 underline="none"
                 color="inherit"
-                onClick={onLogOutClick}
+                href="/signup"
               >
-                {'로그아웃' }
+                {'회원가입' }
               </Link>
               </MenuItem>
+              {/* {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))} */}
             </Menu>
           </Box>
         </Toolbar>

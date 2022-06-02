@@ -18,13 +18,8 @@ import PostsOnClick from "../views/hy/PostsOnClick";
 const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
 
   return (
-    <>
-      {/* {isLoggedIn && <Home userObj={userObj} />} */}
       <Routes>
-        {isLoggedIn ? (
-          <>
-            <Route path="/" element={<MainLoggedIn userObj={userObj} />} />
-            <Route path="/mainloggedin" element={<MainLoggedIn userObj={userObj} />} />
+            <Route path="/" element={<Main userObj={userObj} />} />
             <Route path="/blog" element={<Blog userObj={userObj} />} />
             <Route path="/test" element={<Test />} />
             <Route path="/testhome" element={<TestHome />} />
@@ -37,28 +32,7 @@ const MainRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
             <Route path="/dog" element={<DogIcons />} />
             <Route path="/posts/:id" element={<PostsOnClick userObj={userObj} />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Main />} />
-            <Route path="/main" element={<Main />} />
-            <Route path="/blog" element={<Blog userObj={userObj} />} />
-            <Route path="/test" element={<Test />} />
-            <Route path="/testhome" element={<TestHome />} />
-            <Route path="/testquestion" element={<TestQuestion />} />
-            <Route path="/testresult" element={<TestResult />} />
-            <Route path="info" element={<LogIn />} />
-            <Route path="mypage" element={<LogIn/>}/>
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
-            <Route path="/dog" element={<DogIcons />} />
-            <Route path="/posts/:id" element={<PostsOnClick userObj={userObj} />} />
-          </>
-        )}
-        {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
       </Routes>
-    </>
   )
 }
 export default MainRouter
