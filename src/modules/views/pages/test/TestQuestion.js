@@ -1,8 +1,10 @@
 import React from 'react';
-import { Button, Container, Grid, LinearProgress } from '@mui/material';
+import { Button, Card, CardMedia, Container, Grid, LinearProgress, Stack } from '@mui/material';
 import { QuestionData } from '../../../assets/test/data/questionData';
 import { createSearchParams, useNavigate } from 'react-router-dom';
 import Typography from '../../../components/Typography';
+import Q1 from '../../../assets/test/dog_img/Beagle.jpg'
+
 
 const Question = () => {
   const [questionNo, setQuestionNo] = React.useState(0)
@@ -51,38 +53,46 @@ const Question = () => {
   }
 
   return (
+
     <Container container maxWidth='md' sx={{ mt: 15 }}>
 
-      <Typography variant="h4" marked="center" align="center" component="h2" sx={{ mb: 5 }}>
+      <Typography variant="h4" marked="center" align="center" component="h2" sx={{ mb: 2 }}>
         MBTI TEST
       </Typography>
 
-      <Grid container >
 
+      <Grid container justifyContent="center">
 
-        <Grid item direction="column" justifyContent="flex-start" alignItems="flex-start" sx={{ mb: 8 }} >
-          <Typography gutterBottom component="span" sx={{ fontSize: '50px' }}>
-            {QuestionData[questionNo].id + ". "}
+        <Grid item  >
+          <Typography align="center" sx={{ fontSize: '50px' }}>
+            {QuestionData[questionNo].id}
           </Typography>
-          <Typography gutterBottom component="span" sx={{ fontSize: '20px' }}>
+          <Typography variant="h4" align="center" sx={{ fontSize: '20px' }}>
             {QuestionData[questionNo].title}
           </Typography>
         </Grid>
 
-        <Grid container direction="column" alignItems="flex-end" sx={{ margin: '50px' }}>
-          <Button variant='text' size='large' onClick={() => handleClickButton(1, QuestionData[questionNo].type)}>{QuestionData[questionNo].answera}</Button> { /*변수를 넣을라면 화살표함수*/}
-          <Button variant='text' size='large' onClick={() => handleClickButton(0, QuestionData[questionNo].type)}>{QuestionData[questionNo].answerb}</Button>
+        <Grid item align="center" xs={12} >
+          <Card variant="outlined" sx={{ display: 'flex', justifyContent: 'center', maxWidth: 'sm', maxHeight: 'sm', borderRadius: 3, my: 4 }}>
+            <CardMedia component="img" width='100%' height="100%" image={Q1} alt="photo">
+            </CardMedia>
+          </Card>
         </Grid>
 
-        <Grid container direction="column" sx={{ margin: '50px' }}>
-          <LinearProgress variant="determinate" value={10 + (questionNo / QuestionData.length) * 100} style={{ mt: 10 }} />
+        <Stack>
+          <Button variant='text' size='large' onClick={() => handleClickButton(1, QuestionData[questionNo].type)}>{QuestionData[questionNo].answera}</Button> { /*변수를 넣을라면 화살표함수*/}
+          <Button variant='text' size='large' sx={{ mb: 2 }} onClick={() => handleClickButton(0, QuestionData[questionNo].type)}>{QuestionData[questionNo].answerb}</Button>
+        </Stack>
+
+        <Grid item xs={12} >
+          <LinearProgress variant="determinate" value={10 + (questionNo / QuestionData.length) * 100} />
           <Typography align="center">{questionNo + 1}/12</Typography>
         </Grid>
 
-
       </Grid>
 
-    </Container >
+
+    </Container>
   );
 }
 
