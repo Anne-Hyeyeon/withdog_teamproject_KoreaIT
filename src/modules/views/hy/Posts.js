@@ -67,7 +67,7 @@ function Posts({ userObj }) {
                                         title={createdBy}
                                         subheader={createdAt.toDate().toDateString() + "\u00a0" + createdAt.toDate().toLocaleTimeString([], {timeStyle: 'short'})}
                                     />
-                                    <CardActionArea to={`/posts/${id}`}>
+                                    <CardActionArea>
                                         <Link to={`/posts/${id}`}>
                                             <CardMedia
                                                 component="img"

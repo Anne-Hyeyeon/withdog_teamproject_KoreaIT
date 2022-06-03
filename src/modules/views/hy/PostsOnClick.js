@@ -2,9 +2,10 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { dbService } from '../../../fbase';
-import { Container,Grid,Card,CardHeader,Avatar,CardMedia,CardContent,Typography, Box } from '@mui/material';
+import { Container,Grid,Card,CardHeader,Avatar,CardMedia,CardContent,Typography, Box, } from '@mui/material';
 import CommentPost from './CommentPost';
-import Login from '../../../pages/LogIn'
+import Login from '../../../pages/LogIn';
+import { Link } from 'react-router-dom';
 
 function PostsOnClick({ userObj,comments}) {
      const {id} = useParams();
@@ -50,12 +51,14 @@ function PostsOnClick({ userObj,comments}) {
                                        {post.desc}
                                        </Typography>
                                    </CardContent>
+                                    <Link to="/blog">
                                    <CardMedia
                                        component="img"
                                        sx={{ width: 200, display: { sm: 'block' } }}
                                        image={post.imageUrl}
                                        alt={id}
                                    />
+                                   </Link>
                                    </Card>
                                </Grid>
                            </Grid>

@@ -70,15 +70,15 @@ export default function AppFooter() {
           <Copyright />
             <Typography variant="caption">
               {'  This site is created by '}
-              <Link href="https://www.freepik.com" rel="sponsored" title="Freepik">
+              <Link rel="sponsored" title="SoHee">
                 김소희
               </Link>
               {', '}
-              <Link href="https://www.flaticon.com" rel="sponsored" title="Flaticon">
+              <Link rel="sponsored" title="HyeYeon">
                 김혜연
               </Link>
               {', '}
-              <Link href="https://www.flaticon.com" rel="sponsored" title="Flaticon">
+              <Link rel="sponsored" title="HyeongWon">
                 서형원
               </Link>
               {' of Korea IT Academy Sinchon. '}

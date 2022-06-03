@@ -102,6 +102,7 @@ const SignUp = () => {
                   name="password"
                   label="Password"
                   type="password"
+                  placeholder="6자 이상"
                   id="password"
                   autoComplete="new-password"
                   value={password}
@@ -116,6 +117,7 @@ const SignUp = () => {
                   fullWidth
                   id="Name"
                   label="Name"
+                  placeholder="4글자 이하의 심플한 닉네임을 권장드립니다."
                   autoFocus
                   value={userName}
                   onChange={onChange}
@@ -128,8 +130,8 @@ const SignUp = () => {
                   fullWidth
                   id="Address"
                   label="Address"
-                  autoFocus
                   name="region"
+                  placeholder="상세 주소를 제외하고 시/구/동까지만 입력하세요."
                   value={region}
                   onChange={onChange}
                 />

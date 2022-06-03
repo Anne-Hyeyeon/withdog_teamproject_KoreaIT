@@ -37,8 +37,8 @@ const AppAppBar = ({ userObj }) => {
 
   // 로그아웃
   const navigate = useNavigate()
-  const onLogOutClick = () => {
-    authService.signOut()
+  const onLogOutClick = async () => {
+    await authService.signOut()
     navigate('/')
     window.location.reload()
   }

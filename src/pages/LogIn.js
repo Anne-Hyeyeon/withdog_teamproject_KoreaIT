@@ -30,6 +30,7 @@ const Login=() => {
           try {
             await authService.signInWithEmailAndPassword(email,password);
             navigate('/')
+            window.location.reload()
           } catch (error) {
             console.log(error);
             const errorCode = [

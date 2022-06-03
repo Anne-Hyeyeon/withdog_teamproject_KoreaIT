@@ -22,8 +22,8 @@ function CommentPost({ userObj,id }) {
 
 
 
-    const handleDeleteComment = (comment) => {
-        updateDoc(commentRef,{
+    const handleDeleteComment = async(comment) => {
+        await updateDoc(commentRef,{
             comments: arrayRemove(comment)
         })
         .then((e)=>{
@@ -35,9 +35,9 @@ function CommentPost({ userObj,id }) {
         }
 
 
-    const handleChangeKeyUpComment = (e) => {
-        if(e.key === "Enter"){
-            updateDoc(commentRef,{
+    const handleChangeKeyUpComment = async(e) => {
+        if(e.key === "Enter" && e.target.value !== ""){
+            await updateDoc(commentRef,{
                 comments: arrayUnion({
                     user: userObj.uid,
                     userName : userObj.displayName,
@@ -49,8 +49,8 @@ function CommentPost({ userObj,id }) {
             setComment("")
         }   
     }
-    const handleChangeButtonComment = (e) => {
-            updateDoc(commentRef,{
+    const handleChangeButtonComment = async (e) => {
+            await updateDoc(commentRef,{
                 comments: arrayUnion({
                     user: userObj.uid,
                     userName : userObj.displayName,
