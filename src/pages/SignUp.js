@@ -118,7 +118,6 @@ const SignUp = () => {
                   id="Name"
                   label="Name"
                   placeholder="4글자 이하의 심플한 닉네임을 권장드립니다."
-                  autoFocus
                   value={userName}
                   onChange={onChange}
                 />
