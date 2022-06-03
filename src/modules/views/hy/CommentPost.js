@@ -50,7 +50,7 @@ function CommentPost({ userObj,id }) {
         }   
     }
     const handleChangeButtonComment = async (e) => {
-            await updateDoc(commentRef,{
+        await updateDoc(commentRef,{
                 comments: arrayUnion({
                     user: userObj.uid,
                     userName : userObj.displayName,
@@ -90,7 +90,7 @@ function CommentPost({ userObj,id }) {
                         )} 
                          <Grid container sx={{mt:2}}> 
                          <Grid item xs={11} md={11} xl={11}>
-                          <TextField variant='standard' value={comment || ""} onChange={(e)=>{ setComment(e.target.value) }} placeholder='댓글을 남겨주세요' onKeyUp={(e)=> handleChangeKeyUpComment(e)} fullWidth /> 
+                          <TextField variant='standard' value={comment || ""} onChange={(e)=>{ setComment(e.target.value) }} placeholder='댓글을 남겨주세요' onKeyPress={(e)=> handleChangeKeyUpComment(e)} fullWidth /> 
                         </Grid>
                           <Grid item xs={1} md={1} xl={1}>
                               <Button onClick={(e)=> handleChangeButtonComment(e)} fullWidth>게시</Button>
