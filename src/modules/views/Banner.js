@@ -22,7 +22,7 @@ export default function ProductHero() {
         backgroundPosition: 'center',
       }}
     >
-      <Typography color="inherit" align="center" variant="h3" marked="center">
+      <Typography color="inherit" align="center" variant="h4" marked="center">
         돌아오신 걸 환영합니다 주인님!
       </Typography>
       <Typography

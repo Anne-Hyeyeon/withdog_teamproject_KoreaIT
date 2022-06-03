@@ -16,7 +16,7 @@ export default function ProductHero() {
         backgroundPosition: 'center',
       }}
     >
-      <Typography color="inherit" align="center" variant="h3" marked="center">
+      <Typography color="inherit" align="center" variant="h4" marked="center">
         어서오세요 주인님!
       </Typography>
       <Typography
