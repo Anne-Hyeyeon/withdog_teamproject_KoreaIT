@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Stack, Box, Grid } from '@mui/material';
+import { Stack, Box, Grid, Button } from '@mui/material';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
 const { kakao } = window
 
 const MapContainer = ({ searchPlace }) => {
   // 검색결과 배열에 담아줌
-  const [Places, setPlaces] = useState([])
+  const [Places, setPlaces] = useState([]);
+  const [_map, setMap ] = useState();
   useEffect(() => {
     var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 })
     const container = document.getElementById('myMap')
@@ -54,7 +55,6 @@ const MapContainer = ({ searchPlace }) => {
             }
           })(i)
         }
-
         fragment.appendChild(el)
       }
     }
@@ -70,10 +70,23 @@ const MapContainer = ({ searchPlace }) => {
         infowindow.open(map, marker)
       })
     }
+    setMap(map)
   }, [searchPlace])
 
+  const zoomOn = () => {
+    _map.setZoomable(true);
+  }
+
+  const zoomOFF = () => {
+    _map.setZoomable(false);
+  }
+
   return (
-    <Grid container spacing={1}>
+    <Grid container spacing={1} className="map_container">
+      <Grid item xs={12}>
+        <Button onClick={zoomOFF}>지도 확대/축소 끄기</Button>
+        <Button onClick={zoomOn}>지도 확대/축소 켜기</Button>
+      </Grid>
       <Grid item xs={12} sm={8}>
         <Box className="map" p={2}
           id="myMap"
@@ -82,7 +95,9 @@ const MapContainer = ({ searchPlace }) => {
             borderRadius: '8px',
             height: '600px',
           }}
-        ></Box>
+          level={3} // 지도의 확대 레벨
+        >
+        </Box>
       </Grid>
       <Grid item xs={12} sm={4}>
         <Box className="address_list" p={2}>

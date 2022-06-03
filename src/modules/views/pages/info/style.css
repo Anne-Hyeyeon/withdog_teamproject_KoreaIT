@@ -64,3 +64,8 @@ li {
 mark {
   background-color: #f59b2586;
 }
+@media (max-width: 500px) {
+  .map_container {
+    top: initial;
+  }
+}
