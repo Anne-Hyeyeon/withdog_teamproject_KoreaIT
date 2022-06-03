@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 const { Kakao } = window;
 
 const ShareButton = ({ data }) => {
-  const url = "https://withdog0603.netlify.app" // 배포 후 url 변경
+  const url = "https://withdog0603.netlify.app"
   const resultUrl = window.location.href
 
   React.useEffect(() => {
@@ -17,7 +17,7 @@ const ShareButton = ({ data }) => {
       objectType: 'feed',
       content: {
         title: '내가 강아지였다면? 결과 보기',
-        description: `당신은 개로 태어나면 ${data.name} 입니다. ${data.decs}`,  // 데이터 가져와서 바꿔주기
+        description: `당신은 개로 태어나면 ${data.name} 입니다. ${data.desc}`,
         imageUrl:
           url + data.image,
         link: {
@@ -37,7 +37,7 @@ const ShareButton = ({ data }) => {
     });
   }
   return (
-    <Button onClick={shareKakao}>카카오톡 공유하기</Button>
+    <Button variant="outlined" onClick={shareKakao}>카카오톡 공유하기</Button>
   )
 }
 

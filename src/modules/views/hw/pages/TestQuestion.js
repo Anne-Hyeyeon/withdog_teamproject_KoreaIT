@@ -51,7 +51,7 @@ const Question = () => {
   }
 
   return (
-    <Container Container maxWidth='md' sx={{ mt: 15 }}>
+    <Container container maxWidth='md' sx={{ mt: 15 }}>
 
       <Typography variant="h4" marked="center" align="center" component="h2" sx={{ mb: 5 }}>
         MBTI TEST
