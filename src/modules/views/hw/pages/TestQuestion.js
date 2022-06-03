@@ -22,7 +22,7 @@ const Question = () => {
   */
 
   const navigate = useNavigate()
-  console.log('totalScore', totalScore)
+  //console.log('totalScore', totalScore)
 
   const handleClickButton = (no, type) => {
     const newScore = totalScore.map((s) =>
