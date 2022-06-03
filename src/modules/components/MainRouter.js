@@ -23,8 +23,8 @@ const MainRouter = ({ refreshUser, userObj }) => {
             <Route path="/testhome" element={<TestHome />} />
             <Route path="/testquestion" element={<TestQuestion />} />
             <Route path="/testresult" element={<TestResult />} />
-            <Route path="info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
-            <Route path="mypage" element={<Mypage userObj={userObj} refreshUser={refreshUser} />} />
+            <Route path="/info" element={<Info userObj={userObj} refreshUser={refreshUser} />} />
+            <Route path="/mypage" element={<Mypage userObj={userObj} refreshUser={refreshUser} />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
