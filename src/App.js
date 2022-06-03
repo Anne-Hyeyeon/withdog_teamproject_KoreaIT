@@ -1,10 +1,10 @@
 import * as React from 'react';
 import withRoot from './modules/withRoot';
-import MainRouter from './modules/components/MainRouter';
+import MainRouter from './MainRouter'
 import {useEffect, useState} from 'react'
 import { authService } from './fbase';
-import AppAppBar from './modules/views/AppAppBar';
-import AppFooter from '../src/modules/views/AppFooter'
+import AppAppBar from './modules/views/pages/main/AppAppBar';
+import AppFooter from './modules/views/pages/main/AppFooter';
 
 function App() {
   const [isLoggedIn,setIsLoggedIn]=useState(false)
