@@ -1,9 +1,8 @@
 import React from 'react';
-import { Button, Card, CardMedia, Container, Grid, LinearProgress, Stack } from '@mui/material';
+import { Button, Card, Container, Grid, LinearProgress, Stack } from '@mui/material';
 import { QuestionData } from '../../../assets/test/data/questionData';
 import { createSearchParams, useNavigate } from 'react-router-dom';
 import Typography from '../../../components/Typography';
-import Q1 from '../../../assets/test/dog_img/Beagle.jpg'
 
 
 const Question = () => {
@@ -22,6 +21,7 @@ const Question = () => {
   J(판단형) 1점 / P(인식형) 0점
   "각 2점 이상일 격우 왼쪽 타입으로 지정"
   */
+
 
   const navigate = useNavigate()
   //console.log('totalScore', totalScore)
@@ -73,9 +73,11 @@ const Question = () => {
         </Grid>
 
         <Grid item align="center" xs={12} >
-          <Card variant="outlined" sx={{ display: 'flex', justifyContent: 'center', maxWidth: 'sm', maxHeight: 'sm', borderRadius: 3, my: 4 }}>
-            <CardMedia component="img" width='100%' height="100%" image={Q1} alt="photo">
-            </CardMedia>
+          <Card variant="outlined" sx={{ width: '500px', height: '300px', justifyContent: 'center', borderRadius: 3, my: 4 }}>
+
+            <img src={QuestionData[questionNo].image} alt='dog' />
+
+
           </Card>
         </Grid>
 

@@ -39,7 +39,7 @@ function Result() {
             <CardMedia component="img" width='100%' height="100%" image={resultData.image} alt="photo">
             </CardMedia>
 
-            <Typography align="center" variant="h5" padding={2}>
+            <Typography align="center" variant="body1" padding={4}>
               {resultData.desc}
             </Typography>
 
