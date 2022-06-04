@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import DaumPostcode from "react-daum-postcode";
 import {AccordionSummary, Accordion, AccordionDetails } from '@mui/material';
 
@@ -15,7 +15,7 @@ const Post = (props) => {
     <>
       <Accordion>
         <AccordionSummary
-          aria-controls="panel1a-content"
+          aria-controls="panelbh-content"
           id="panel1a-header"
           variant="text"
         >🔍︎ 주소 검색
