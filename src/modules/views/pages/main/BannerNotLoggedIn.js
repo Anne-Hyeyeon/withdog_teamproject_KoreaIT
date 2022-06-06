@@ -16,7 +16,7 @@ export default function BannerNotLoggedIn() {
         backgroundPosition: 'center',
       }}
     >
-      <Typography color="inherit" align="center" variant="h4" marked="center">
+      <Typography color="inherit" align="center" variant="h4" marked="center" sx={{fontSize: { xs:25, md:40 }}}>
         어서오세요 주인님!
       </Typography>
       <Typography
