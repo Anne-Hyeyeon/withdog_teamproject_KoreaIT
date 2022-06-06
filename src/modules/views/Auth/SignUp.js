@@ -75,7 +75,7 @@ const SignUp = () => {
 
   return (
     <>
-    <Container maxWidth='xl'>
+    <Container maxWidth='xl' sx={{mt:10}}>
       <AppForm>
       <Typography variant="h3" gutterBottom marked="center" align="center">
             Sign Up
