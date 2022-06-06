@@ -26,41 +26,41 @@ export default function AppFooter() {
       <Container sx={{ my: 8, display: 'flex' }}>
         <Grid container spacing={5}>
           <Grid item xs={3} sm={3} md={3} sx={{ mb:7 }}>
-            <Typography variant="h6" marked="left" gutterBottom>
+            <Typography variant="h6" marked="left" gutterBottom sx={{fontSize: {xs:13, md:20}}}>
               Doggitter
             </Typography>
             <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
-              <Box component="li" sx={{ py: 0.5 }}>
+              <Box component="li" sx={{ py: 0.5, fontSize:{xs:12, md:15} }}>
                 <Link href="/blog">Doggitter</Link>
               </Box>
             </Box>
           </Grid>
           <Grid item xs={3} sm={3} md={3} >
-            <Typography variant="h6" marked="left" gutterBottom>
+            <Typography variant="h6" marked="left" gutterBottom sx={{fontSize: {xs:13, md:20}}}>
               Dog MBTI
             </Typography>
             <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
-              <Box component="li" sx={{ py: 0.5 }}>
+              <Box component="li" sx={{ py: 0.5, fontSize:{xs:12, md:15}  }}>
                 <Link href="/test">Dog MBTI</Link>
               </Box>
             </Box>
           </Grid>
           <Grid item xs={3} sm={3} md={3} >
-          <Typography variant="h6" marked="left" gutterBottom>
+          <Typography variant="h6" marked="left" gutterBottom sx={{fontSize: {xs:13, md:20}}}>
               Info
             </Typography>
             <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
-              <Box component="li" sx={{ py: 0.5 }}>
+              <Box component="li" sx={{ py: 0.5, fontSize:{xs:12, md:15}  }}>
                 <Link href="/info">Info</Link>
               </Box>
             </Box>
           </Grid>
           <Grid item xs={3} sm={3} md={3} >
-          <Typography variant="h6" marked="left" gutterBottom>
+          <Typography variant="h6" marked="left" gutterBottom sx={{fontSize: {xs:13, md:20}}}>
               MyPage
             </Typography>
             <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
-              <Box component="li" sx={{ py: 0.5 }}>
+              <Box component="li" sx={{ py: 0.5, fontSize:{xs:12, md:15}  }}>
                 <Link href="/">My profile </Link>
               </Box>
             </Box>
