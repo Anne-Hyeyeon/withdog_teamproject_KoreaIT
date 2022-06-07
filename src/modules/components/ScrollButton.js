@@ -37,7 +37,7 @@ const ScrollButton = () => {
 
   return (
     <Box style={ScrollBtnStyle}>
-      <ExpandCircleDownIcon onClick={scrollToTop}
+      <ExpandCircleDownIcon fontSize="large" onClick={scrollToTop}
         style={{ display: visible ? 'inline' : 'none' }} />
     </Box>
   );
