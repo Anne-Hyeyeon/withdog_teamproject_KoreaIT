@@ -9,6 +9,7 @@ import { Grid } from "@mui/material";
 import { TextField } from "@mui/material";
 import Button from "../../components/Button";
 import Typography from "../../components/Typography";
+import Postcode from "../pages/info/Postcode";
 
 const SignUp = () => {
 
@@ -74,7 +75,7 @@ const SignUp = () => {
 
   return (
     <>
-    <Container maxWidth='xl'>
+    <Container maxWidth='xl' sx={{mt:10}}>
       <AppForm>
       <Typography variant="h3" gutterBottom marked="center" align="center">
             Sign Up
@@ -122,18 +123,27 @@ const SignUp = () => {
                   onChange={onChange}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="address"
-                  required
-                  fullWidth
-                  id="Address"
-                  label="Address"
-                  name="region"
-                  placeholder="상세 주소를 제외하고 시/구/동까지만 입력하세요."
-                  value={region}
-                  onChange={onChange}
-                />
+              <Grid container spacing={1} item xs={12}>
+                <Grid item xs={12}>
+                  <TextField
+                    autoComplete="address"
+                    required
+                    fullWidth
+                    id="Address"
+                    label="Address"
+                    name="region"
+                    placeholder="상세 주소를 제외하고 시/구/동까지만 입력하세요."
+                    value={region}
+                    onChange={onChange}
+                  />
+                </Grid>
+                {/* 도로명 주소 */}
+                <Grid item xs={12}>
+                  <Postcode 
+                    address={region} 
+                    setAddress={setRegion}
+                  />
+                </Grid>
               </Grid>
               <Grid item xs={12}>
               <Button

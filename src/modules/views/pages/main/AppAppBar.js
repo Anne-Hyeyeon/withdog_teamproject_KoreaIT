@@ -113,7 +113,7 @@ const AppAppBar = ({ userObj }) => {
                   variant="subtitle1"
                   underline="none"
                 >
-                  <Link style={mobileLinkStyle} to='/blog'>Doggitter</Link>
+                  <Link onClick={handleCloseNavMenu} style={mobileLinkStyle} to='/blog'>Doggitter</Link>
                 </Typography>
               </MenuItem>
               <MenuItem>
@@ -122,7 +122,7 @@ const AppAppBar = ({ userObj }) => {
                   variant="subtitle1"
                   underline="none"
                 >
-                  <Link style={mobileLinkStyle} to='/test'>Dog MBTI</Link>
+                  <Link onClick={handleCloseNavMenu} style={mobileLinkStyle} to='/test'>Dog MBTI</Link>
                 </Typography>
               </MenuItem>
               <MenuItem>
@@ -131,7 +131,7 @@ const AppAppBar = ({ userObj }) => {
                   variant="subtitle1"
                   underline="none"
                 >
-                  <Link style={mobileLinkStyle} to='/info'>INFO</Link>
+                  <Link onClick={handleCloseNavMenu} style={mobileLinkStyle} to='/info'>INFO</Link>
                 </Typography>
               </MenuItem>
             </Menu>
@@ -152,7 +152,7 @@ const AppAppBar = ({ userObj }) => {
               textDecoration: 'none',
             }}
           >
-            <Link  style={pcLinkStyle} to='/'>WithDog</Link>
+            <Link style={pcLinkStyle} to='/'>WithDog</Link>
           </Typography>
 
           {/* PC 메뉴 */}
@@ -213,7 +213,7 @@ const AppAppBar = ({ userObj }) => {
                 variant="subtitle1"
                 underline="none"
               >
-                <Link style={mobileLinkStyle} to='/mypage'>My Profile</Link>
+                <Link onClick={handleCloseUserMenu} style={mobileLinkStyle} to='/mypage'>My Profile</Link>
               </Typography>
               </MenuItem>
               <MenuItem>
@@ -257,7 +257,7 @@ const AppAppBar = ({ userObj }) => {
                 underline="none"
                 color="inherit"
               >
-                <Link to='/login' style={mobileLinkStyle}>로그인</Link>
+                <Link to='/login' onClick={handleCloseUserMenu} style={mobileLinkStyle}>로그인</Link>
               </Typography>
               </MenuItem>
               <MenuItem>
@@ -265,7 +265,7 @@ const AppAppBar = ({ userObj }) => {
                 variant="subtitle1"
                 underline="none"
               >
-                <Link to='/signup' style={mobileLinkStyle}>회원가입</Link>
+                <Link to='/signup' onClick={handleCloseUserMenu} style={mobileLinkStyle}>회원가입</Link>
               </Typography>
               </MenuItem>
             </Menu>

@@ -10,6 +10,7 @@ import { TextField, Button, Container, Grid } from '@mui/material';
 import '../pages/info/style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import Postcode from '../pages/info/Postcode';
 
 const Mypage = ({refreshUser, userObj}) => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const Mypage = ({refreshUser, userObj}) => {
 
   const onSubmit= async(event)=>{
     event.preventDefault();
+    
     if(userObj.displayName !== newDisplayName || userObj.photoURL !== newRegion){
       await userObj.updateProfile({
         displayName: newDisplayName,
@@ -38,6 +40,7 @@ const Mypage = ({refreshUser, userObj}) => {
       })
       refreshUser()
     }
+    alert('수정되었습니다.');
   }
 
   return (
@@ -52,11 +55,12 @@ const Mypage = ({refreshUser, userObj}) => {
       </Typography>
       <form className="profile_form" onSubmit={onSubmit}>
         <Grid container spacing={1} >
-          <Grid item xs={12}> 
+          <Grid item xs={6}> 
             <li>이름 </li>
-            : <TextField p={2}
+            <TextField p={2}
               id="standard-basic"
               variant="standard"
+              fullWidth sx={{ m: 0.1 }}
               placeholder={userObj.displayName}
               value={newDisplayName} 
               onChange={onChangeName}
@@ -64,13 +68,19 @@ const Mypage = ({refreshUser, userObj}) => {
           </Grid>
           <Grid item xs={12}>
             <li>주소 </li>
-            : <TextField 
-              id="standard-basic"
-              variant="standard"
-              placeholder={userObj.photoURL}
-              value={newRegion} 
-              onChange={onChangeRegion}
-            />
+            <Grid item xs={6}>
+              <TextField 
+                id="standard-basic"
+                variant="standard"
+                fullWidth sx={{ m: 0.1 }} 
+                placeholder={userObj.photoURL}
+                value={newRegion} 
+                onChange={onChangeRegion}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Postcode address={newRegion} setAddress={setNewRegion}/>
+            </Grid>
           </Grid>
           <Grid>
             <Button 

@@ -22,14 +22,14 @@ export default function Banner() {
         backgroundPosition: 'center',
       }}
     >
-      <Typography color="inherit" align="center" variant="h4" marked="center">
+      <Typography color="inherit" align="center" variant="h4" sx={{fontSize: { xs:25, md:40 }}} marked="center">
         돌아오신 걸 환영합니다 주인님!
       </Typography>
       <Typography
         color="inherit"
         align="center"
         variant="h6"
-        sx={{ mb: 4, mt: { sx: 3, sm: 9 }, fontFamily:'HallymMjo', fontWeight:300 }}
+        sx={{ mb: 4, mt: { xs: 3, sm: 9 }, fontFamily:'HallymMjo', fontWeight:300 }}
       >
         윗독에서 할 수 있는 다양한 활동들이 기다리고 있어요!
       </Typography>
