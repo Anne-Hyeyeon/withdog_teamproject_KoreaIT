@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Container, Grid, LinearProgress, Stack } from '@mui/material';
+import { Button, Card, CardMedia, Container, Grid, LinearProgress, Stack } from '@mui/material';
 import { QuestionData } from '../../../assets/test/data/questionData';
 import { createSearchParams, useNavigate } from 'react-router-dom';
 import Typography from '../../../components/Typography';
@@ -24,7 +24,6 @@ const Question = () => {
 
 
   const navigate = useNavigate()
-  //console.log('totalScore', totalScore)
 
   const handleClickButton = (no, type) => {
     const newScore = totalScore.map((s) =>
@@ -74,10 +73,12 @@ const Question = () => {
 
         <Grid item align="center" xs={12} >
           <Card variant="outlined" sx={{ width: '500px', height: '300px', justifyContent: 'center', borderRadius: 3, my: 4 }}>
-
-            <img src={QuestionData[questionNo].image} alt='dog' />
-
-
+            <CardMedia
+              component="img"
+              height="300px"
+              image={QuestionData[questionNo].image}
+              alt="dog"
+            />
           </Card>
         </Grid>
 
