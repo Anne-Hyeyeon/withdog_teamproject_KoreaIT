@@ -118,7 +118,7 @@ const SignUp = () => {
                   fullWidth
                   id="Name"
                   label="Name"
-                  placeholder="4글자 이하의 심플한 닉네임을 권장드립니다."
+                  placeholder="4글자 이하의 심플한 닉네임"
                   value={userName}
                   onChange={onChange}
                 />
