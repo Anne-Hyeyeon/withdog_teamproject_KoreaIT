@@ -53,14 +53,14 @@ const Question = () => {
 
   return (
 
-    <Container container maxWidth='md' sx={{ mt: 15 }}>
+    <Container maxWidth='sm' sx={{ mt: 15 }}>
 
       <Typography variant="h4" marked="center" align="center" component="h2" sx={{ mb: 2 }}>
         MBTI TEST
       </Typography>
 
 
-      <Grid container justifyContent="center">
+      <Grid container justifyContent="center"  >
 
         <Grid item  >
           <Typography align="center" sx={{ fontSize: '50px' }}>
@@ -72,10 +72,9 @@ const Question = () => {
         </Grid>
 
         <Grid item align="center" xs={12} >
-          <Card variant="outlined" sx={{ width: '500px', height: '300px', justifyContent: 'center', borderRadius: 3, my: 4 }}>
+          <Card variant="outlined" sx={{ width: '100%', justifyContent: 'center', borderRadius: 3, my: 4 }}>
             <CardMedia
               component="img"
-              height="300px"
               image={QuestionData[questionNo].image}
               alt="dog"
             />
