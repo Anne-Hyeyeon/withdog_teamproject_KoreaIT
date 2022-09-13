@@ -369,7 +369,7 @@ const handleDelete = async() =>{
 - 회의록 올리기
 - 깃헙을 통한 깃 브랜치 관리 ⭐️⭐️⭐️
 - 팀원들 간 의견 조율, 역할 분담해주기
-- 문제 해결 (모두가 함께 했지만, 팀장의 비중이 높았음) 
+- 문제 해결 (모두가 함께 했지만, 아무래도 팀장이 열일..ㅠㅠ) 
 - 기획안 발표, 최종 시연 발표, 스크린캡쳐 등 모든 제출 과제들을 작성함!
 - 코드, 파일 정리
 
@@ -382,7 +382,7 @@ const handleDelete = async() =>{
 
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) 버전 관리
 
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) 브랜치를 통한 협업, `merge`등 협업에 필요한 주요 기능 실습 (특히 팀장으로서, `브랜치가 꼬이는 것`들에 대한 정리를 도맡아서 해야 했다. 우리 모두 초보자들이었기에, `레퍼지토리`를 지우고 다시 만들고... 그 덕분에 )
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) 브랜치를 통한 협업, `merge`등 협업에 필요한 주요 기능 실습 (특히 팀장으로서, `브랜치가 꼬이는 것`들에 대한 정리를 도맡아서 해야 했다. 우리 모두 초보자들이었기에, `레퍼지토리`를 지우고 다시 만들고... 그 덕분에 깃 사용법은 확실히 익혔다!)
 
 ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white) 디자인 라이브러리 이용. 충돌 및 오류 해결, 스타일과 theme 기능 활용법, prop-types 맛보기
 
