@@ -34,13 +34,28 @@ https://www.koreaisacademy.com/renewal2021/community/project_view.asp?idxnum=86&
 
 <br />
 
-## ✔️ 사이트, 각 메뉴 기능
+##  해결한 문제
+⭐️ photoURL의 활용 : firebase의~ㅇ
+Link를 컴포넌트로 쓰니까 로딩 발생함.
+Switch
 
+## ✔️ 내가 구현한 기능
 
 ### `Auth`
-🌸 담당자 : 김혜연, 김소희 🌸
 
-- `파이어베이스`를 활용한 로그인, 로그아웃, 회원가입, 회원정보 관리 기능
+#### `파이어베이스`를 활용한 로그인, 로그아웃, 회원가입, 회원정보 관리 기능
+- 파이어베이스 초기 세팅 : auth, firestore, storage를 import, api 키 저장. import 한 것들을 각각 authService, dbService, storageService로 expert함.  정보를 담은 파일 세팅
+- 회원가입 : 회원가입 정보를 모두 입력시, `createUserWithEmailAndPassword`로 계정 생성 후 `updateProfile`로 input에 입력된 내용으로 회원 정보 업데이트. 
+- 회원가입 후 `useNavigate`이용해 초기 화면으로 이동.
+- 초기화면 : 화면 로딩시 authService에 저장된 사용자 정보를 불러와  `userObj`라는 객체에 저장. 
+- 업데이트 : profile의 변경된 값을 적용시키기 위해, userObj를 authSerive에 저장된 값으로 업데이트 시키기 위한 `refreshUser`라는 함수를 만들어준다.
+
+- 로그아웃 : 
+
+
+### `Router`
+ 
+
 - 로그인, 회원가입 `유효성 검사` 기능 (ex. 비밀번호가 틀렸습니다. 올바른 형식의 이메일을 입력하세요.) 
 - 개인정보 수정, 본인이 쓴 게시물 모아보기 기능(MyPage)
 - `도로명 주소 API`를 이용한 간편한 주소 입력 기능 (회원가입, MyPage)
@@ -102,6 +117,15 @@ https://www.koreaisacademy.com/renewal2021/community/project_view.asp?idxnum=86&
 
 <br />
 <br />
+
+## ✔️ 프로젝트 팀장으로서 담당한 역할
+- 회의록 올리기
+- 주제 선정
+- 기획안 발표, 최종 시연 발표
+- 코드, 파일 정리
+- 깃헙을 통해 깃 브랜치 관리
+
+
 
 ## ✔️ 사용한 기술, 프로젝트를 통해 얻은 지식
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) 파이어스토어, 파이어베이스 Auth 사용법 
