@@ -6,11 +6,11 @@
 
 완성작 보러가기 🔍
 
-<h3> https://withdog0603.netlify.app/ </h3>
-<br />
+<h1> https://withdog0603.netlify.app/ </h1>
 
-[생생한 팀프로젝트 후기, TMI 버전](https://blog.naver.com/khy2106/222766215985)
 
+[생생한 팀프로젝트 후기, TMI 버전]
+(https://blog.naver.com/khy2106/222766215985)
 <br />
 <br />
 
