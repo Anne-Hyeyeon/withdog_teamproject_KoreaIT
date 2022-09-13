@@ -49,9 +49,35 @@ Switch
 - 회원가입 후 `useNavigate`이용해 초기 화면으로 이동.
 - 초기화면 : 화면 로딩시 authService에 저장된 사용자 정보를 불러와  `userObj`라는 객체에 저장. 
 - 업데이트 : profile의 변경된 값을 적용시키기 위해, userObj를 authSerive에 저장된 값으로 업데이트 시키기 위한 `refreshUser`라는 함수를 만들어준다.
+초기화면 코드 : `useEffect`를 통해 user 정보 확인 후 로그인을 판별해주는 `isLoggedIn`을 true로 변경한 후, `userObj`를 authService에 있는 것으로 업데이트 시켜준다. 
+```js
+useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true)
+        setUserObj({
+          displayName: user.displayName,
+          uid: user.uid,
+          photoURL: user.photoURL,
+          updateProfile: (args) => user.updateProfile(args)
+        });
+      } else {
+        setIsLoggedIn(false)
+      }
+    })
+  }, []);
+```
 
-- 로그아웃 : 
-
+- 로그아웃 :
+```js
+  const onLogOutClick = async () => {
+    await authService.signOut()
+    navigate('/')
+    window.location.reload()
+  }
+```
+위와 같이 로그아웃 코드 작성 후, app바에 있는 '로그아웃'클릭 시 동작하게 함.
+- 
 
 ### `Router`
  
