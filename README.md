@@ -38,6 +38,7 @@ https://www.koreaisacademy.com/renewal2021/community/project_view.asp?idxnum=86&
 ⭐️ photoURL의 활용 : firebase의~ㅇ
 Link를 컴포넌트로 쓰니까 로딩 발생함.
 Switch
+유효성 검사 : 간단하게 만들 방법이 없을까
 
 ## ✔️ 내가 구현한 기능
 
@@ -48,8 +49,9 @@ Switch
 - 회원가입 : 회원가입 정보를 모두 입력시, `createUserWithEmailAndPassword`로 계정 생성 후 `updateProfile`로 input에 입력된 내용으로 회원 정보 업데이트. 
 - 회원가입 후 `useNavigate`이용해 초기 화면으로 이동.
 - 초기화면 : 화면 로딩시 authService에 저장된 사용자 정보를 불러와  `userObj`라는 객체에 저장. 
-- 업데이트 : profile의 변경된 값을 적용시키기 위해, userObj를 authSerive에 저장된 값으로 업데이트 시키기 위한 `refreshUser`라는 함수를 만들어준다.
-초기화면 코드 : `useEffect`를 통해 user 정보 확인 후 로그인을 판별해주는 `isLoggedIn`을 true로 변경한 후, `userObj`를 authService에 있는 것으로 업데이트 시켜준다. 
+
+- 초기 화면 useEffect 코드
+ user 정보 확인 후 -> 로그인을 판별해주는 `isLoggedIn`을 true로 변경한 후, `userObj`를 authService에 있는 것으로 업데이트 시켜준다. 
 ```js
 useEffect(() => {
     authService.onAuthStateChanged((user) => {
@@ -68,7 +70,8 @@ useEffect(() => {
   }, []);
 ```
 
-- 로그아웃 :
+
+- 로그아웃 : 아래와 같이 `로그아웃` 코드 작성 후, app바에 있는 '로그아웃'클릭 시 동작하게 함.
 ```js
   const onLogOutClick = async () => {
     await authService.signOut()
@@ -76,31 +79,122 @@ useEffect(() => {
     window.location.reload()
   }
 ```
-위와 같이 로그아웃 코드 작성 후, app바에 있는 '로그아웃'클릭 시 동작하게 함.
-- 
+- 유효성 검사 : 🌻로그인, 회원가입 `유효성 검사` 기능 (ex. 비밀번호가 틀렸습니다. 올바른 형식의 이메일을 입력하세요.) : 파이어베이스의 공식 도큐먼트를 참고해 특정 error가 일어날 시 code가 모두 string으로 불러와진다는 내용을 발견함. 이를 이용해 간단히 `유효성 검사`를 진행하는 코드 작성
+``` js
+ const onSubmit= async (event)=>{
+        event.preventDefault()
+        if (email !== "" && password !== "") {
+          try {
+            await authService.signInWithEmailAndPassword(email,password);
+            navigate('/')
+            window.location.reload()
+          } catch (error) {
+            console.log(error);
+            const errorCode = [
+              'auth/user-disabled',
+              'auth/user-not-found',
+              'auth/wrong-password',
+              'auth/invalid-email',
+              'auth/invalid-password'
+            ]
+            const errorAlertMsg = [
+              '등록되어 있지 않은 사용자입니다.',
+              '등록되어 있지 않은 사용자입니다.',
+              '패스워드가 틀립니다.',
+              '올바른 형식의 이메일 주소를 입력하세요',
+              '패스워드를 올바르게 입력하세요.'
+            ]
+            console.log(error.code)
+            for (const i in errorCode) {
+              if (error.code === errorCode[i]) {
+                alert(errorAlertMsg[i])
+          }
+        }
+      }
+    } else {
+      alert('모든 항목을 입력하세요.')
+    }
+  }
+  ````
+매우 불안정한 형태의 `유효성 검사` 형식이지만, 구글링을 해도 위와 같은 방식으로 간단하게 유효성검사를 구현한 사례는 없었다. 실 사용보다는, 도전에 의의를 뒀던 기능
 
-### `Router`
- 
+[유효성 검사를 구현하기 위해 참고한 문서] (https://firebase.google.com/docs/auth/admin/errors)
+- 로그인 유무에 따른 기능, 페이지 차별화: user 정보 유무에 따라(로그인 상태에 따라) `랜딩 페이지를 다르게 설정`함. 로그인을 하면 로그아웃 상태와는 다르게 네비바에 이름이 담긴 `아바타`가 생성된다. 또한 각 페이지 활동시 사용자 정보를 그대로 가져와 사용할 수 있다. (INFO, Doggitter 글쓰기 등)
+페이지뿐만 아니라 네비바에 있는 아바타 `Onclick`이벤트도 달라진다.
+- 마이페이지 : 개인 정보를 수정 후 업데이트 할 수 있는 페이지. 회원가입 떄 활용하는 updateProfile 파이어베이스 메소드를 이용해, 같은 방식으로 회원 정보를 수정할 수 있는 페이지를 구현했다.
+```js
+const onSubmit= async(event)=>{
+    event.preventDefault();
+    if(userObj.displayName !== newDisplayName || userObj.photoURL !== newRegion){
+      await userObj.updateProfile({
+        displayName: newDisplayName,
+        photoURL:newRegion
+      })
+      refreshUser()
+    }
+    alert('수정되었습니다.');
+  }
+```
 
-- 로그인, 회원가입 `유효성 검사` 기능 (ex. 비밀번호가 틀렸습니다. 올바른 형식의 이메일을 입력하세요.) 
-- 개인정보 수정, 본인이 쓴 게시물 모아보기 기능(MyPage)
-- `도로명 주소 API`를 이용한 간편한 주소 입력 기능 (회원가입, MyPage)
-- 로그인/로그아웃 전후 출력 페이지 다르게 설정(INFO, Doggitter 글쓰기 등)
-- 로그인/로그아웃 전후 사용 기능 다르게 설정 (아바타 버튼 클릭 시 - 로그인 전에는 로그인, 회원가입 / 로그인 후에는 마이프로필, 로그아웃)
+<br />
+
+### React Router
+- 페이지 이동 : React `Router`를 이용해 각 페이지를 url을 통해 이동할 수 있게 세팅함. 
+
+- `Link to` 이용해서 페이지 이동.
+
+🌼 V6 : 기존 V5와 다른 점 (Switch 없어지고 Routes로 변경, 상대 경로 표현 방식 useHistory 대신 useNavigate의 사용 등)을 숙지하는 게 힘들었음. 구글에 V5 버전으로 짜여져 있는 코드가 많았고, 이를 V6와 비교하며 공부하는 과정이 재미있었음!
+
+<br>
+
+```js
+return(
+    <>
+    {isLoggedIn && <Home userObj={userObj}/>}
+      <Routes>
+        {isLoggedIn ? (
+          <>
+            <Route path="/" element={<MainLoggedIn />} />
+            <Route path="/mainloggedin" element={<MainLoggedIn userObj={userObj}/>} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/info" element={<Info />} />
+            <Route path="/login" element={<LogIn />} /> 
+            <Route path="/signup" element={<SignUp />} />  
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<Main />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/info" element={<Info />} />
+            <Route path="/login" element={<LogIn />} /> 
+            <Route path="/signup" element={<SignUp />} />  
+          </>
+        )}
+        {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
+      </Routes>
+    </>
+  )
+  ```
+  🌼 내가 작성했던 MainRouter.js 파일. 우리 홈페이지를 관통하는 라우터이다. 로그인 상태에 따라 로딩되는 페이지와 이동 경로를 다르게 하고 싶어 시도한 방법이지만... 다시 보니 매우 어설프다는 게 한눈에 느껴진다. 1개월 안에 반드시 보완할 것이다.
+
 
 
 ### `Design`
-🌸 담당자 : 김혜연, 서형원, 김소희 🌸
+- MUI 라이브러리 활용 : MUI의 컴포넌트를 이용해 홈페이지를 통일성 있고 감각있게 만드려고 노력했음.
 
-- `테마 컬러` 설정 : primary : 오렌지 secondary : 블랙. 
-각 메인 테마 컬러 별 main, light, dark 색상 별도 설정으로 조화롭게 컬러 배치 
-- 메인 컨셉 설정 : 심플 + 친근함
-- 가독성 좋은 메인화면, 각 요소를 개별 컴포넌트로 구성 (배너 + 소개 + 반려견칼럼 + 애견핫플레이스 +광고 배너)
-- 모든 페이지 `반응형` (PC, 태블릿, 모바일 호환)
-- 네비바 반응형 (모바일 환경으로 접속시 메뉴가 리스트아이콘으로 축소됨)
-- 로그인 시 네비바 아바타에 사용자 이름 출력 (로그아웃 상태에서는 랜덤 강아지 사진)
-- 로그인/메인화면 재접속 시 배너 이미지 랜덤으로 출력 (총 7개의 강아지 이미지)
-- 전 페이지에 스크롤 업 버튼 추가(숨겨져 있다가 화면을 일정 길이만큼 내리면 자동으로 생성됨)
+- Theme : MUI `theme` 기능을 이용한 테마 컬러 설정 : 색상을 요소별로 개별지정 하지 않고, 미리 theme파일에 저장되어 있는 걸 불러와서 사용했음.
+
+- 컨셉 : primary 오렌지 secondary 블랙. 
+각 메인 테마 컬러 별 main, light, dark 색상 별도 설정으로 조화롭게 컬러 배치, 강아지 커뮤니티답게 심플 + 친근함 강조 
+
+- `반응형` : 모든 페이지 PC, 태블릿, 모바일 호환되는 반응형으로 제작됨. `MUI`컴포넌트 최대한 활용해서, 작은 요소까지도 xs(가장 작은 화면, 모바일), ml(중간 화면:태블릿), lg(pc 화면)별로 설정과 형태를 달리해서 사용함.
+🌼 반응형 홈페이지를 만드는 건 완전 힘들었지만, 만든 후 통일성 있게 작동하는 웹사이트를 보니 완전 뿌듯했다!
+
+- `반응형 네비바` : 모바일 환경으로 접속 시, 메뉴가 리스트 아이콘으로 축소됨.
+- 기타 : 메인화면 접속 시 7개의 강아지 이미지 중 랜덤 이미지 출력. 전 페이지 스크롤 업 버튼 추가.
+
 
 ### `Doggitter(CRUD)`
 🌸 담당자 : 김혜연 🌸
@@ -110,24 +204,6 @@ useEffect(() => {
 - 게시글 `수정`, `삭제` : 본인 게시글 Edit, Delete 가능 (타인 게시글 불가)
 - `좋아요` : ID당 한 개만 가능. 자동 카운트
 - `코멘트` : 각 게시글별 코멘트 작성 가능. 본인 코멘트일 경우에만 삭제 가능 (useParams)
-
-### `Dog MBTI(심리테스트)`
-🌸 담당자 : 서형원 🌸
-
-- 문항, 문답, 이미지를 개별 파일에 있는 `배열, 객체`로 저장한 후 페이지에서 불러와서 보여주는 기능
-- 각 문항별로 할당된 점수를 `카운트`한 후, 최종 점수에 따라 16가지의 `각각 다른 결과값과 이미지` 도출 (useParams)
-- 진행 상황에 따라 바뀌는 `프로그레스 바` 구현
-- 테스트 페이지별 썸네일, 결과 내용이 함께 나오는 `카카오톡 공유하기` 기능
-
-### `INFO(지도 API)`
-🌸 담당자 : 김소희 🌸
-
-- 회원가입 시 입력한 주소 정보를 기반으로, 내 근처에 있는 강아지 산책 가능 공원을 확인하는 기능
-- 지도에 주변 산책 가능 공원이 `마크`됨 
-- 지도 옆에는 공원 이름, 정보, 위치, 전화번호가 표시된 `텍스트 리스트`가 있어 간편하게 정보 파악 가능
-- 스크롤 시 지도 `확대,축소` 기능을 on/off 할 수 있는 버튼
-- 회원가입 시 입력한 주소뿐만 아니라, 직접 위치정보를 입력하는 방식으로도 검색 가능
-- 회원 정보 변경시 자동으로 지도 업데이트 됨
 
 <br />
 
