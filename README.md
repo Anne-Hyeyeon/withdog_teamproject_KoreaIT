@@ -40,7 +40,7 @@ https://www.koreaisacademy.com/renewal2021/community/project_view.asp?idxnum=86&
 <br />
 <br />
 
-# ✔️ 홈페이지 전체에서 구현한 기능
+# ✔️ 내가 구현한 기능 (담당 페이지 外)
 ### `Auth`
 #### `파이어베이스`를 활용한 로그인, 로그아웃, 회원가입, 회원정보 관리 기능
 
@@ -211,7 +211,7 @@ return(
 <br />
 <br />
 
-# ✔️ 내 담당 파트 - Doggitter(도기터)
+# ✔️ 내 담당 페이지 - Doggitter(도기터)
 ### 애견인들이 사진과 함께 일상이야기를 공유할 수 있는, 인⭐️그램과 비슷한 형식의 SNS
 <br />
 
