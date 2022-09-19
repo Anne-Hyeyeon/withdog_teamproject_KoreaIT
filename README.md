@@ -45,7 +45,7 @@ https://www.koreaisacademy.com/renewal2021/community/project_view.asp?idxnum=86&
 #### `파이어베이스`를 활용한 로그인, 로그아웃, 회원가입, 회원정보 관리 기능
 
 - 파이어베이스 초기 세팅 : auth, firestore, storage를 import, api 키 저장. 
-import 한 것들을 각각 authService, dbService, storageService로 expert함.  정보를 담은 파일 세팅
+import 한 것들을 각각 authService, dbService, storageService로 export함.  정보를 담은 파일 세팅
 - 회원가입 : 회원가입 정보를 모두 입력시, `createUserWithEmailAndPassword`로 계정 생성 후 `updateProfile`로 input에 입력된 내용으로 회원 정보 업데이트. 
 - 회원가입 후 `useNavigate`이용해 초기 화면으로 이동.
 - 초기화면 : 화면 로딩시 authService에 저장된 사용자 정보를 불러와  `userObj`라는 객체에 저장. 
