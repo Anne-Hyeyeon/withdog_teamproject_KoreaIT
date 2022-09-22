@@ -26,7 +26,7 @@ function App() {
   }, []);
   const refreshUser = () => {
     const user = authService.currentUser;
-    setUserObj({ // user에서 값을 세분화 시켜서 분리해서 사용
+    setUserObj({
       displayName: user.displayName,
       uid: user.uid,
       photoURL: user.photoURL,
