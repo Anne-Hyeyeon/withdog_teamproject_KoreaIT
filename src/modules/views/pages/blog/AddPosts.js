@@ -44,7 +44,7 @@ const AddPosts = ({ userObj }) => {
             alert('모든 항목을 채워주세요!')
             return;
         }
-        // ref 뭔지 확인!
+        
         const storageRef = ref(storageService, `/images/${Date.now()}${formData.image.name}`)
 
         const uploadImage = uploadBytesResumable(storageRef, formData.image)
