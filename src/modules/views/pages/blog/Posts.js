@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { dbService } from '../../../../fbase';
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
-import SettingPost from './SettingPost';
+
 import { Link } from 'react-router-dom';
-import { Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, Typography, CardActions, CardActionArea } from '@mui/material';
-import { Comment } from '@mui/icons-material';
-import { Avatar } from '@mui/material';
+
+import { dbService } from 'fbase';
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
+
+import SettingPost from './SettingPost';
 import LikePost from './LikePost';
+
+import { Avatar, Container, Grid, Card, CardHeader, IconButton, CardMedia, CardContent, Typography, CardActions, CardActionArea } from '@mui/material';
+
+import { Comment } from '@mui/icons-material';
+
 
 function Posts({ userObj }) {
     const [posts, setPosts] = useState([])

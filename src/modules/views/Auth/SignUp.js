@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "@mui/material";
-import { authService } from "../../../fbase"
 import { useNavigate } from "react-router-dom";
+import { authService } from "fbase";
 import { getAuth,updateProfile } from "firebase/auth";
-import { Container, Box } from "@mui/material";
-import AppForm from "../../components/AppForm"
-import { Grid } from "@mui/material";
-import { TextField } from "@mui/material";
-import Button from "../../components/Button";
-import Typography from "../../components/Typography";
+
+import Button from "modules/components/Button";
+import Typography from "modules/components/Typography";
+import AppForm from "modules/components/AppForm";
+
+import { Container, Box, Link, TextField, Grid } from "@mui/material";
+
 import Postcode from "../pages/info/Postcode";
 
 const SignUp = () => {

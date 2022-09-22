@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container } from '@mui/system';
-import Posts from './Posts'
 import { Link } from 'react-router-dom';
-import { Add } from '@mui/icons-material';
-import Typography from '../../../components/Typography';
+import Posts from './Posts';
+import Typography from 'modules/components/Typography';
+import { Container } from '@mui/system';
 import { Fab } from '@mui/material';
+import { Add } from '@mui/icons-material';
+
 
 function Blog({ userObj }) {
     const fabBtnStyle = {

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { authService } from "../../../fbase"
+import { authService } from "fbase";
 import { useNavigate } from "react-router-dom";
-import AppForm from "../../components/AppForm"
-import Typography from "../../components/Typography";
-import { Link, Box, TextField, FormControlLabel, Checkbox } from "@mui/material";
-import Button from "../../components/Button";
-import { Grid } from "@mui/material";
+
+/*components*/
+import AppForm from "modules/components/AppForm";
+import Typography from "modules/components/Typography";
+
+/*mui*/
+import { Grid, Button, Link, Box, TextField, FormControlLabel, Checkbox } from "@mui/material";
 import { Container } from "@mui/system";
 
 const Login=() => {

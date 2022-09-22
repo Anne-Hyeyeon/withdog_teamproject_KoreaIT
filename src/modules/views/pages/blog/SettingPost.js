@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+
+import { dbService, storageService } from 'fbase';
 import { deleteDoc,updateDoc, doc } from 'firebase/firestore';
 import { deleteObject, ref } from 'firebase/storage';
-import { dbService, storageService } from '../../../../fbase';
+
+import Typography from 'modules/components/Typography';
+
 import { MoreVert } from '@mui/icons-material';
-import { Menu, MenuItem, IconButton } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import { Button } from '@mui/material';
-import Typography from '../../../components/Typography'
+import { Menu, MenuItem, IconButton , TextField, Dialog, DialogContent, DialogTitle, Button  } from '@mui/material';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDog } from '@fortawesome/free-solid-svg-icons';
+
 
 function SettingPost({id, imageUrl, desc, title}) {
     const [anchorEl, setAnchorEl] = React.useState(null);

@@ -1,11 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {Box, Typography, TextField, Grid, Button, Container } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { dbService } from 'fbase';
 import { arrayRemove, arrayUnion, doc, onSnapshot, updateDoc } from 'firebase/firestore';
-import { dbService } from '../../../../fbase';
+import { Box, Typography, TextField, Grid, Button, Container, IconButton, Avatar } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-import { IconButton } from '@mui/material';
 import { v4 as uuid_v4 } from "uuid";
-import { Avatar } from '@mui/material';
 
 
 function CommentPost({ userObj,id }) {

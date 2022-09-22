@@ -1,11 +1,10 @@
-import * as React from 'react';
-import withRoot from './modules/withRoot';
-import MainRouter from './MainRouter'
-import { useEffect, useState } from 'react'
-import { authService } from './fbase';
-import AppAppBar from './modules/views/pages/main/AppAppBar';
-import AppFooter from './modules/views/pages/main/AppFooter';
-import ScrollButton from './modules/components/ScrollButton';
+import React, { useEffect, useState } from 'react'
+import { authService } from 'fbase';
+import withRoot from 'modules/withRoot';
+import MainRouter from 'MainRouter'
+import AppAppBar from 'modules/views/pages/main/AppAppBar';
+import AppFooter from 'modules/views/pages/main/AppFooter';
+import ScrollButton from 'modules/components/ScrollButton';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)

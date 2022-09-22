@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
-import { authService } from '../../../fbase';
+import { authService } from 'fbase';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
 import UserPostsMenu from './UserPostsMenu';
-import Typography from '../../components/Typography';
+import Postcode from '../pages/info/Postcode';
+
+import Typography from 'modules/components/Typography';
+
+import { TextField, Button, Container, Grid } from '@mui/material';
+
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import { TextField, Button, Container, Grid } from '@mui/material';
-import '../pages/info/style.css'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
-import Postcode from '../pages/info/Postcode';
+
+import '../pages/info/style.css'
+
+
 
 const Mypage = ({refreshUser, userObj}) => {
   const navigate = useNavigate();

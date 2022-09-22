@@ -1,15 +1,18 @@
 import React, { useState } from 'react'; 
-import { Box, Container } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
+import { dbService, storageService } from 'fbase';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { storageService, dbService} from '../../../../fbase'
-import { useNavigate } from 'react-router-dom';
-import Login from '../../Auth/LogIn'
-import AppForm from '../../../components/AppForm';
-import Typography from '../../../components/Typography';
-import { Grid } from '@mui/material';
-import { TextField } from '@mui/material';
-import Button from '../../../components/Button';
+
+import Login from 'modules/views/Auth/LogIn';
+
+import AppForm from 'modules/components/AppForm';
+import Typography from 'modules/components/Typography';
+import Button from 'modules/components/Button';
+
+import { TextField, Box, Container, Grid } from '@mui/material';
+
 
 const AddPosts = ({ userObj }) => {
 

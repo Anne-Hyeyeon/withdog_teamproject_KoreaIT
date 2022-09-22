@@ -1,11 +1,16 @@
-import { doc, onSnapshot } from 'firebase/firestore';
+
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { dbService } from '../../../../fbase';
+
+import { useParams, Link } from 'react-router-dom';
+
+import { doc, onSnapshot } from 'firebase/firestore';
+import { dbService } from 'fbase';
+
 import { Container,Grid,Card,CardHeader,Avatar,CardMedia,CardContent,Typography, Box, } from '@mui/material';
+
 import CommentPost from './CommentPost';
-import Login from '../../Auth/LogIn';
-import { Link } from 'react-router-dom';
+import Login from 'modules/views/Auth/LogIn';
+
 
 function PostsOnClick({ userObj,comments}) {
      const {id} = useParams();
