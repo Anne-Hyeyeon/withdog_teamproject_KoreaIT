@@ -87,7 +87,6 @@ const onSubmit= async (event)=>{
         navigate('/')
         window.location.reload()
         } catch (error) {
-        console.log(error);
         const errorCode = [
             'auth/user-disabled',
             'auth/user-not-found',
@@ -102,7 +101,6 @@ const onSubmit= async (event)=>{
             '올바른 형식의 이메일 주소를 입력하세요',
             '패스워드를 올바르게 입력하세요.'
         ]
-        console.log(error.code)
         for (const i in errorCode) {
             if (error.code === errorCode[i]) {
             alert(errorAlertMsg[i])
