@@ -219,7 +219,7 @@ return(
 ✨ `snapshot`을 통해 불러와 내가  사용한 정보 : `id`, `title`, `desc`, `imageURL`, `createdAt`, `createdBy`, `userId`, `likes`, `comments`
 
 <br />
-- useEffect(페이지 로딩 때 실행되는 함수들)
+- useEffect(페이지 로딩 때 실행되는 함수)
 
 ```js
 useEffect(() => {
