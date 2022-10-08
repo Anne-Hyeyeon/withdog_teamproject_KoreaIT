@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
+
+// Pages
 import SignUp from "modules/views/Auth/SignUp";
 import LogIn from "modules/views/Auth/LogIn";
 import Blog from "modules/views/pages/blog/Blog";
@@ -14,7 +16,6 @@ import AddPosts from "modules/views/pages/blog/AddPosts";
 import PostsOnClick from "modules/views/pages/blog/PostsOnClick";
 
 const MainRouter = ({ refreshUser, userObj }) => {
-
   return (
       <Routes>
             <Route path="/" element={<Main userObj={userObj} />} />
@@ -25,7 +26,7 @@ const MainRouter = ({ refreshUser, userObj }) => {
             <Route path="/testresult" element={<TestResult />} />
             <Route path="/info" element={
             userObj ? <Info userObj={userObj} refreshUser={refreshUser} /> : <LogIn />} />
-            <Route path="/mypage" element={userObj ? <Mypage userObj={userObj} refreshUser={refreshUser} /> : <LogIn />} />ㅞ
+            <Route path="/mypage" element={userObj ? <Mypage userObj={userObj} refreshUser={refreshUser} /> : <LogIn />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/addposts" element={<AddPosts userObj={userObj} />} />
